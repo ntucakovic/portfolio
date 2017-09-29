@@ -1,0 +1,20 @@
+@import 'color-mixins';
+
+$dark-background: #232729;
+$light-background: #f5f5f5;
+
+$text-color: #717c80;
+$text-highlight: #b0bac0;
+$link-color: $text-color;
+$icon-hover-bg: #495962;
+
+$themes: (
+  'dark': (
+    'background': $dark-background,
+    'logo-fill': #2b3033,
+  ),
+  'light': (
+    'background': $light-background,
+    'logo-fill': #eee,
+  )
+);

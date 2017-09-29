@@ -1,0 +1,34 @@
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@import 'utils/themes';
+
+.app {
+  overflow: hidden;
+  min-height: 100vh;
+
+  &::before {
+    @include themify {
+      background-color: get-themify-variable('background');
+    }
+    position: absolute;
+    z-index: -2;
+    width: 100vw;
+    height: 100vh;
+    content: '';
+  }
+}
+
+@import 'Components/Logo/logo';
+@import 'Components/Slogan/slogan';
