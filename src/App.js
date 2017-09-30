@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 import Logo from './Components/Logo';
 import Router from './Router';
 import './App.css';
@@ -7,9 +7,9 @@ import './App.css';
 class App extends Component {
   componentDidMount () {
     App.addBodyClass();
-  };
+  }
 
-  static addBodyClass() {
+  static addBodyClass () {
     let date = new Date();
     let theme = 'light';
 
@@ -20,7 +20,7 @@ class App extends Component {
     document.body.classList.add(theme);
   }
 
-  render() {
+  render () {
     return (
       <BrowserRouter>
         <div className='app'>

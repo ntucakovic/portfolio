@@ -1,5 +1,99 @@
+$slogan-icon-bg: $text-color;
+
+$slogan-icon-sm: 32px;
+$slogan-icon-border-radius-sm: $slogan-icon-sm / 2;
+$slogan-icon-padding-sm: 8px;
+$slogan-icon-box-shadow-outer-sm: 2px;
+
+$slogan-icon-md: 64px;
+$slogan-icon-border-radius-md: $slogan-icon-md / 2;
+$slogan-icon-padding-md: 16px;
+$slogan-icon-box-shadow-outer-md: 4px;
+
 .slogan {
+  text-align: center;
+
+  &__icons {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+  }
+
+  &__link {
+    display: flex;
+    white-space: nowrap;
+    text-decoration: none;
+    color: $text-color;
+    font-size: 1.5rem;
+    text-transform: none;
+  }
+
+  &__icon {
+    @include themify {
+      $color: get-themify-variable('icon-fill');
+      box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-sm $color, 0 0 0 ($slogan-icon-box-shadow-outer-sm / 2) $slogan-icon-bg;
+    }
+    display: block;
+    width: $slogan-icon-sm;
+    height: $slogan-icon-sm;
+    margin: 0 5px;
+    padding: $slogan-icon-padding-sm;
+    border-radius: $slogan-icon-border-radius-sm;
+    background-color: $slogan-icon-bg;
+
+    @media (min-width: $screen-md-min) {
+      @include themify {
+        $color: get-themify-variable('icon-fill');
+        box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-md $color, 0 0 0 ($slogan-icon-box-shadow-outer-md / 2) $slogan-icon-bg;
+      }
+      width: $slogan-icon-md;
+      height: $slogan-icon-md;
+      padding: $slogan-icon-padding-md;
+      border-radius: $slogan-icon-border-radius-md;
+      box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-md $white, 0 0 0 ($slogan-icon-box-shadow-outer-md / 2) $slogan-icon-bg;
+    }
+
+    svg {
+      @include themify {
+        fill: get-themify-variable('icon-fill');
+      }
+
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 0;
+    margin-right: 10px;
+    margin-left: 5px;
+    line-height: $slogan-icon-sm;
+
+    @media (min-width: $screen-md-min) {
+      line-height: $slogan-icon-md;
+    }
+
+    &.is-active {
+      max-width: 100vw;
+    }
+  }
+
+  li {
+    white-space: nowrap;
+  }
+
+  h1 {
+    margin-bottom: 0;
+  }
+
   p {
+    margin-top: 0.75em;
+    margin-bottom: 2rem;
     text-transform: uppercase;
+    font-size: 1.15rem;
   }
 }

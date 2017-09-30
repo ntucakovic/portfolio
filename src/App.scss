@@ -1,3 +1,4 @@
+// Required CSS resets.
 * {
   &,
   &::before,
@@ -12,11 +13,60 @@ body {
   padding: 0;
 }
 
+//@import url('//fonts.googleapis.com/css?family=Oswald|Roboto:300');
+@import url('https://fonts.googleapis.com/css?family=Coustard|Roboto:300');
+
+html {
+  line-height: 1.15;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Coustard', sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
 @import 'utils/themes';
+@import 'utils/utility-classes';
 
 .app {
   overflow: hidden;
   min-height: 100vh;
+  color: $text-color;
 
   &::before {
     @include themify {

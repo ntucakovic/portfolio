@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Coustard|Roboto:300");
 *, *::before, *::after {
   box-sizing: border-box; }
 
@@ -6,9 +7,54 @@ body {
   margin: 0;
   padding: 0; }
 
+html {
+  line-height: 1.15; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 300; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Coustard', sans-serif;
+  font-weight: 400; }
+
+h1 {
+  font-size: 2.5rem; }
+
+h2 {
+  font-size: 2rem; }
+
+h3 {
+  font-size: 1.75rem; }
+
+h4 {
+  font-size: 1.5rem; }
+
+h5 {
+  font-size: 1.25rem; }
+
+h6 {
+  font-size: 1rem; }
+
+.flex-content-center {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.full-viewport-min {
+  min-width: 100vw;
+  min-height: 100vh; }
+
 .app {
   overflow: hidden;
-  min-height: 100vh; }
+  min-height: 100vh;
+  color: #717c80; }
   .app::before {
     position: absolute;
     z-index: -2;
@@ -43,5 +89,69 @@ body {
     .light .logo svg {
       fill: #eee; }
 
-.slogan p {
-  text-transform: uppercase; }
+.slogan {
+  text-align: center; }
+  .slogan__icons {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-content: center; }
+  .slogan__link {
+    display: flex;
+    white-space: nowrap;
+    text-decoration: none;
+    color: #717c80;
+    font-size: 1.5rem;
+    text-transform: none; }
+  .slogan__icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 0 5px;
+    padding: 8px;
+    border-radius: 16px;
+    background-color: #717c80; }
+    .dark .slogan__icon {
+      box-shadow: inset 0 0 0 2px #232729, 0 0 0 1px #717c80; }
+    .light .slogan__icon {
+      box-shadow: inset 0 0 0 2px #f5f5f5, 0 0 0 1px #717c80; }
+    @media (min-width: 576px) {
+      .slogan__icon {
+        width: 64px;
+        height: 64px;
+        padding: 16px;
+        border-radius: 32px;
+        box-shadow: inset 0 0 0 4px #fff, 0 0 0 2px #717c80; }
+        .dark .slogan__icon {
+          box-shadow: inset 0 0 0 4px #232729, 0 0 0 2px #717c80; }
+        .light .slogan__icon {
+          box-shadow: inset 0 0 0 4px #f5f5f5, 0 0 0 2px #717c80; } }
+    .slogan__icon svg {
+      max-width: 100%;
+      max-height: 100%; }
+      .dark .slogan__icon svg {
+        fill: #232729; }
+      .light .slogan__icon svg {
+        fill: #f5f5f5; }
+  .slogan__title {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 0;
+    margin-right: 10px;
+    margin-left: 5px;
+    line-height: 32px; }
+    @media (min-width: 576px) {
+      .slogan__title {
+        line-height: 64px; } }
+    .slogan__title.is-active {
+      max-width: 100vw; }
+  .slogan li {
+    white-space: nowrap; }
+  .slogan h1 {
+    margin-bottom: 0; }
+  .slogan p {
+    margin-top: 0.75em;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-size: 1.15rem; }
