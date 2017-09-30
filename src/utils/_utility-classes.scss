@@ -8,3 +8,13 @@
   min-width: 100vw;
   min-height: 100vh;
 }
+
+.text-emphasis {
+  color: $text-highlight;
+}
+
+.sm-only {
+  @media (min-width: $screen-md-min) {
+    display: none;
+  }
+}

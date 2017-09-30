@@ -7,8 +7,12 @@ class Slogan extends Component {
     return (
       <div>
         <header className='slogan'>
-          <h1>Frontend && Web Developer</h1>
-          <p>With whole lotta love for Web Design and UI/UX</p>
+          <h1><span className='text-emphasis'>Frontend</span> && <br className='sm-only' />
+            <span className='text-emphasis'>Web</span> Developer</h1>
+
+          <p>With <span className='text-emphasis'>whole lotta love</span> <br className='sm-only' />
+            for <span className='text-emphasis'>Web Design </span>
+            and <span className='text-emphasis'>UI</span>/<span className='text-emphasis'>UX</span></p>
 
           <ul className='slogan__icons'>
             <li>

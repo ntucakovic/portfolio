@@ -51,6 +51,13 @@ h6 {
   min-width: 100vw;
   min-height: 100vh; }
 
+.text-emphasis {
+  color: #b0bac0; }
+
+@media (min-width: 576px) {
+  .sm-only {
+    display: none; } }
+
 .app {
   overflow: hidden;
   min-height: 100vh;
@@ -90,6 +97,8 @@ h6 {
       fill: #eee; }
 
 .slogan {
+  max-width: 100vw;
+  padding: 0 15px;
   text-align: center; }
   .slogan__icons {
     display: flex;
@@ -101,16 +110,16 @@ h6 {
     display: flex;
     white-space: nowrap;
     text-decoration: none;
+    text-transform: none;
     color: #717c80;
-    font-size: 1.5rem;
-    text-transform: none; }
+    font-size: 1.5rem; }
   .slogan__icon {
     display: block;
-    width: 32px;
-    height: 32px;
-    margin: 0 5px;
+    width: 36px;
+    height: 36px;
+    margin-left: 5px;
     padding: 8px;
-    border-radius: 16px;
+    border-radius: 18px;
     background-color: #717c80; }
     .dark .slogan__icon {
       box-shadow: inset 0 0 0 2px #232729, 0 0 0 1px #717c80; }
@@ -120,6 +129,7 @@ h6 {
       .slogan__icon {
         width: 64px;
         height: 64px;
+        margin-left: 10px;
         padding: 16px;
         border-radius: 32px;
         box-shadow: inset 0 0 0 4px #fff, 0 0 0 2px #717c80; }
@@ -127,6 +137,13 @@ h6 {
           box-shadow: inset 0 0 0 4px #232729, 0 0 0 2px #717c80; }
         .light .slogan__icon {
           box-shadow: inset 0 0 0 4px #f5f5f5, 0 0 0 2px #717c80; } }
+    .slogan__icon.is-active {
+      box-shadow: inset 0 0 0 3px #fff, 0 0 0 2px #717c80; }
+      .slogan__icon.is-active svg {
+        fill: #fff !important; }
+      @media (min-width: 576px) {
+        .slogan__icon.is-active {
+          box-shadow: inset 0 0 0 6px #fff, 0 0 0 4px #717c80; } }
     .slogan__icon svg {
       max-width: 100%;
       max-height: 100%; }
@@ -138,20 +155,28 @@ h6 {
     display: inline-block;
     overflow: hidden;
     max-width: 0;
-    margin-right: 10px;
-    margin-left: 5px;
-    line-height: 32px; }
+    padding-left: 5px;
+    transition: max-width 0.5s 0.2s ease-out;
+    line-height: 36px; }
     @media (min-width: 576px) {
       .slogan__title {
+        padding-left: 10px;
         line-height: 64px; } }
     .slogan__title.is-active {
       max-width: 100vw; }
   .slogan li {
     white-space: nowrap; }
   .slogan h1 {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    font-size: 2.3rem; }
+    @media (min-width: 992px) {
+      .slogan h1 {
+        font-size: 4rem; } }
   .slogan p {
     margin-top: 0.75em;
     margin-bottom: 2rem;
     text-transform: uppercase;
     font-size: 1.15rem; }
+    @media (min-width: 992px) {
+      .slogan p {
+        font-size: 1.75rem; } }
