@@ -14,16 +14,16 @@ class SloganIcon extends Component {
       envelope: envelopeIcon,
       file: fileIcon,
       instagram: instagramIcon,
-      linkedIn: linkedinIcon,
+      linkedin: linkedinIcon,
       skype: skypeIcon,
       twitter: twitterIcon
     };
 
     if (typeof icons[iconName] !== 'undefined') {
       return icons[iconName];
-    } else {
-      return null;
     }
+
+    return null;
   }
 
   render () {
