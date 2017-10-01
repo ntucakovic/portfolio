@@ -113,17 +113,19 @@ h6 {
         height: 64px; } }
     @media (max-width: 575px) {
       .slogan__icons.is-active .slogan__link:not(.is-active) {
-        max-width: 0; } }
+        max-width: 0;
+        opacity: 0; } }
   .slogan__link {
     display: flex;
     overflow: hidden;
     max-width: 500px;
     padding-top: 5px;
     padding-bottom: 5px;
-    transition: max-width 0.5s 0.2s;
+    transition: opacity 0.5s, max-width 0.2s;
     white-space: nowrap;
     text-decoration: none;
     text-transform: none;
+    opacity: 1;
     color: #717c80;
     font-size: 1.5rem; }
   .slogan__icon {
@@ -169,11 +171,12 @@ h6 {
     overflow: hidden;
     max-width: 0;
     padding-left: 5px;
-    transition: max-width 0.5s 0.2s ease-out;
+    transition: max-width 0.7s 0.2s ease-out;
     line-height: 36px; }
     @media (min-width: 576px) {
       .slogan__title {
         padding-left: 10px;
+        transition: max-width 1s ease-out;
         line-height: 64px; } }
     .slogan__title.is-active {
       max-width: 100vw; }
