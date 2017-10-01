@@ -73,7 +73,7 @@ class SloganIconLink extends Component {
         onClick={this.handleClick} onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
 
         <SloganIcon className={`slogan__icon ${this.state.linkActiveStateClassName}`} iconName={iconName} />
-        <span className={`slogan__title ${this.state.linkActiveStateClassName}`}>{this.props.title}</span>
+        <span className={`slogan__title ${this.state.linkActiveStateClassName}`}>{this.props.label}</span>
       </a>
     );
   }
@@ -82,6 +82,7 @@ class SloganIconLink extends Component {
 SloganIconLink.propTypes = {
   iconName: PropTypes.string,
   title: PropTypes.string,
+  label: PropTypes.element,
   onStateChange: PropTypes.func
 };
 

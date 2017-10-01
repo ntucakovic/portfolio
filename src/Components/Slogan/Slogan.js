@@ -43,22 +43,58 @@ class Slogan extends Component {
 
           <ul className={`slogan__icons ${this.state.hasActiveLinkClassName}`}>
             <li>
-              <SloganIconLink iconName='envelope' href='mailto:nt@ntmedia.me' title={this.props.iconTitles.email} onStateChange={this.handleStateChange} />
+              <SloganIconLink
+                iconName='envelope'
+                href='mailto:nt@ntmedia.me'
+                title={this.props.iconTitles.email}
+                label={this.props.iconLabels.email}
+                onStateChange={this.handleStateChange} />
             </li>
             <li>
-              <SloganIconLink iconName='linkedin' href='https://rs.linkedin.com/in/nikolatucakovic' target='_blank' rel='noopener noreferrer' title={this.props.iconTitles.linkedin} onStateChange={this.handleStateChange} />
+              <SloganIconLink
+                iconName='linkedin'
+                href='https://rs.linkedin.com/in/nikolatucakovic'
+                target='_blank'
+                rel='noopener noreferrer'
+                title={this.props.iconTitles.linkedin}
+                label={this.props.iconLabels.linkedin}
+                onStateChange={this.handleStateChange} />
             </li>
             <li>
-              <SloganIconLink iconName='twitter' href='https://twitter.com/_ntucakovic' target='_blank' rel='noopener noreferrer' title={this.props.iconTitles.twitter} onStateChange={this.handleStateChange} />
+              <SloganIconLink
+                iconName='twitter'
+                href='https://twitter.com/_ntucakovic'
+                target='_blank'
+                rel='noopener noreferrer'
+                title={this.props.iconTitles.twitter}
+                label={this.props.iconLabels.twitter}
+                onStateChange={this.handleStateChange} />
             </li>
             <li>
-              <SloganIconLink iconName='instagram' href='https://www.instagram.com/nikola.tucakovic/' target='_blank' rel='noopener noreferrer' title={this.props.iconTitles.instagram} onStateChange={this.handleStateChange} />
+              <SloganIconLink
+                iconName='instagram'
+                href='https://www.instagram.com/nikola.tucakovic/'
+                target='_blank'
+                rel='noopener noreferrer'
+                title={this.props.iconTitles.instagram}
+                label={this.props.iconLabels.instagram}
+                onStateChange={this.handleStateChange} />
             </li>
             <li>
-              <SloganIconLink iconName='skype' href='skype:ntmediasolutions?chat' title={this.props.iconTitles.skype} onStateChange={this.handleStateChange} />
+              <SloganIconLink
+                iconName='skype'
+                href='skype:ntmediasolutions?chat'
+                title={this.props.iconTitles.skype}
+                label={this.props.iconLabels.skype}
+                onStateChange={this.handleStateChange} />
             </li>
             <li>
-              <SloganIconLink iconName='file' href='http://www.ntmedia.me/documents/cv.pdf' title={this.props.iconTitles.cv} onStateChange={this.handleStateChange} />
+              <SloganIconLink
+                iconName='file'
+                href='http://www.ntmedia.me/documents/cv.pdf'
+                title={this.props.iconTitles.cv}
+                label={this.props.iconLabels.cv}
+                onStateChange={this.handleStateChange} />
             </li>
           </ul>
         </header>
@@ -68,7 +104,8 @@ class Slogan extends Component {
 }
 
 Slogan.propTypes = {
-  iconTitles: PropTypes.object
+  iconTitles: PropTypes.object,
+  iconLabels: PropTypes.object
 };
 
 Slogan.defaultProps = {
@@ -79,6 +116,38 @@ Slogan.defaultProps = {
     instagram: 'Instagram Account',
     skype: 'Message me on Skype',
     cv: 'Download my resume'
+  },
+  iconLabels: {
+    email: (
+      <span>
+        nt<span className='text-emphasis'>@</span>ntmedia.me
+      </span>
+    ),
+    linkedin: (
+      <span>
+        nikola<span className='text-emphasis'>tucakovic</span>
+      </span>
+    ),
+    twitter: (
+      <span>
+        _<span className='text-emphasis'>ntucakovic</span>
+      </span>
+    ),
+    instagram: (
+      <span>
+        <span className='text-emphasis'>nikola</span>.<span className='text-emphasis'>tucakovic</span>
+      </span>
+    ),
+    skype: (
+      <span>
+        <span className='text-emphasis'>ntmedia</span>solutions
+      </span>
+    ),
+    cv: (
+      <span>
+        Download my <span className='text-emphasis'>resume</span>
+      </span>
+    )
   }
 };
 
