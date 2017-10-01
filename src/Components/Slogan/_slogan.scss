@@ -17,14 +17,32 @@ $slogan-icon-box-shadow-outer-md: 4px;
 
   &__icons {
     display: flex;
+    height: $slogan-icon-sm;
     margin: 0;
     padding: 0;
     list-style: none;
     justify-content: center;
+
+    @media (min-width: $screen-md-min) {
+      height: $slogan-icon-md;
+    }
+
+    &.is-active {
+      @media (max-width: ($screen-md-min - 1)) {
+        .slogan__link:not(.is-active) {
+          max-width: 0;
+        }
+      }
+    }
   }
 
   &__link {
     display: flex;
+    overflow: hidden;
+    max-width: 500px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: max-width 0.5s 0.2s;
     white-space: nowrap;
     text-decoration: none;
     text-transform: none;
