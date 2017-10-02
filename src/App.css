@@ -50,6 +50,14 @@ h6 {
   100% {
     opacity: 1; } }
 
+@keyframes blinkToHidden {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 @keyframes fadeInSlide {
   0% {
     transform: translateY(10px);
@@ -58,6 +66,12 @@ h6 {
     transform: translateY(0); }
   to {
     opacity: 1; } }
+
+@keyframes scaleToSize {
+  0% {
+    transform: scale(0.7); }
+  100% {
+    transform: scale(1); } }
 
 .flex-content-center {
   display: flex;
@@ -168,20 +182,25 @@ h6 {
           background-color: #717c80; }
         .slogan__link:focus::after {
           display: block; } }
-  .slogan li:nth-child(1) .slogan__icon {
-    animation: fadeInSlide 0.5s 2.5s forwards; }
-  .slogan li:nth-child(2) .slogan__icon {
-    animation: fadeInSlide 0.5s 2.6s forwards; }
-  .slogan li:nth-child(3) .slogan__icon {
-    animation: fadeInSlide 0.5s 2.7s forwards; }
-  .slogan li:nth-child(4) .slogan__icon {
-    animation: fadeInSlide 0.5s 2.8s forwards; }
-  .slogan li:nth-child(5) .slogan__icon {
-    animation: fadeInSlide 0.5s 2.9s forwards; }
-  .slogan li:nth-child(6) .slogan__icon {
-    animation: fadeInSlide 0.5s 3s forwards; }
-  .slogan li:nth-child(7) .slogan__icon {
-    animation: fadeInSlide 0.5s 3.1s forwards; }
+  .slogan li {
+    white-space: nowrap; }
+    .slogan li.start-animation {
+      transform: scale(0.7);
+      animation: scaleToSize 1s forwards; }
+      .slogan li.start-animation:nth-child(1) .slogan__icon {
+        animation: fadeInSlide 0.5s 0.1s forwards; }
+      .slogan li.start-animation:nth-child(2) .slogan__icon {
+        animation: fadeInSlide 0.5s 0.2s forwards; }
+      .slogan li.start-animation:nth-child(3) .slogan__icon {
+        animation: fadeInSlide 0.5s 0.3s forwards; }
+      .slogan li.start-animation:nth-child(4) .slogan__icon {
+        animation: fadeInSlide 0.5s 0.4s forwards; }
+      .slogan li.start-animation:nth-child(5) .slogan__icon {
+        animation: fadeInSlide 0.5s 0.5s forwards; }
+      .slogan li.start-animation:nth-child(6) .slogan__icon {
+        animation: fadeInSlide 0.5s 0.6s forwards; }
+      .slogan li.start-animation:nth-child(7) .slogan__icon {
+        animation: fadeInSlide 0.5s 0.7s forwards; }
   .slogan__icon {
     display: block;
     width: 36px;
@@ -235,9 +254,8 @@ h6 {
         line-height: 64px; } }
     .slogan__title.is-active {
       max-width: 20em; }
-  .slogan li {
-    white-space: nowrap; }
   .slogan h1 {
+    margin-top: 0;
     margin-bottom: 0;
     font-size: 2.3rem; }
     @media (min-width: 992px) {
@@ -252,9 +270,17 @@ h6 {
       .slogan p {
         font-size: 1.75rem; } }
   .slogan__delayed-subtitle {
-    animation: fadeInSlide 2s 2s forwards;
+    white-space: nowrap;
     opacity: 0; }
+    .slogan__delayed-subtitle.start-animation {
+      animation: fadeInSlide 2s forwards;
+      white-space: normal; }
 
 .typed-cursor {
-  animation: blink 0.7s infinite;
+  animation: blink 0.7s 2s forwards;
+  opacity: 1; }
+
+.slogan-heading + .typed-cursor {
+  animation: blinkToHidden 0.7s 2s 3 forwards;
+  animation-iteration-count: 3 !important;
   opacity: 1; }

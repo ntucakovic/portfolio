@@ -25,19 +25,19 @@ class Logo extends Component {
   }
 
   componentDidMount () {
-    this.updateWindowStyles();
+    this.updateLogoStyles();
     window.addEventListener('resize', () => {
-      this.updateWindowStyles();
+      this.updateLogoStyles();
     });
   }
 
   componentWillUnmount () {
     window.removeEventListener('resize', () => {
-      this.updateWindowStyles();
+      this.updateLogoStyles();
     });
   }
 
-  updateWindowStyles () {
+  updateLogoStyles () {
     let vp = {
       width: window.innerWidth,
       height: window.innerHeight,
@@ -58,7 +58,7 @@ class Logo extends Component {
   static getLogoStyles (vp) {
     return {
       style: {
-        transform: `scale(${vp.orientation === 'landscape' ? '0.9' : 0.8})`
+        transform: `scale(${vp.orientation === 'landscape' ? 0.9 : 0.8})`
       }
     };
   }

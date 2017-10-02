@@ -1,4 +1,10 @@
 .typed-cursor {
-  animation: blink 0.7s infinite;
+  animation: blink 0.7s 2s forwards;
+  opacity: 1;
+}
+
+.slogan-heading + .typed-cursor {
+  animation: blinkToHidden 0.7s 2s 3 forwards;
+  animation-iteration-count: 3 !important;
   opacity: 1;
 }

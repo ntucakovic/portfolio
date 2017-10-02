@@ -85,17 +85,23 @@ $slogan-icon-box-shadow-outer-md: 4px;
 
   li {
     @function get-icon-delay($index) {
-      $delay: 2.4 + ($index * 0.1);
+      $delay: ($index * 0.1);
       @return '#{$delay}s';
     }
 
-    @for $i from 1 through 7 {
-      &:nth-child(#{$i}) {
-        .slogan__icon {
-          animation: fadeInSlide 0.5s #{get-icon-delay($i)} forwards;
+    &.start-animation {
+      transform: scale(0.7);
+      animation: scaleToSize 1s forwards;
+
+      @for $i from 1 through 7 {
+        &:nth-child(#{$i}) {
+          .slogan__icon {
+            animation: fadeInSlide 0.5s #{get-icon-delay($i)} forwards;
+          }
         }
       }
     }
+    white-space: nowrap;
   }
 
   &__icon {
@@ -166,11 +172,8 @@ $slogan-icon-box-shadow-outer-md: 4px;
     }
   }
 
-  li {
-    white-space: nowrap;
-  }
-
   h1 {
+    margin-top: 0;
     margin-bottom: 0;
     font-size: 2.3rem;
 
@@ -191,8 +194,14 @@ $slogan-icon-box-shadow-outer-md: 4px;
   }
 
   &__delayed-subtitle {
-    animation: fadeInSlide 2s 2s forwards;
+    // Prevent page jumping because of multiple lines of text.
+    white-space: nowrap;
     opacity: 0;
+
+    &.start-animation {
+      animation: fadeInSlide 2s forwards;
+      white-space: normal;
+    }
   }
 }
 

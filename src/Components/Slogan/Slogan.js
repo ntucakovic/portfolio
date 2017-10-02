@@ -8,26 +8,57 @@ class Slogan extends Component {
     super(props);
 
     this.state = {
-      hasActiveLinkClassName: ''
+      hasActiveLinkClassName: '',
+      subtitleAnimationClass: '',
+      iconAnimationClass: ''
     };
 
     this.hasActiveLinkClassName = 'is-active';
+    this.animationClass = 'start-animation';
 
-    // @note Have to use class instead of className and escaped ampersand char because of typed.js bugs.
-    // Update when fixed @todo
-    this.title = `<span class='text-emphasis'>Frontend</span> &amp;&amp; <br class='sm-only'><span class='text-emphasis'>Web</span> Developer`;
+    this.hobbies = [
+      `Web Design`,
+      `UI/UX`,
+      `Photography`,
+      `Basketball`,
+      `Mountain Biking`,
+      `Paddleboarding`,
+      `Snowboarding`,
+      `Music`
+    ];
 
     this.stateChangeDelay = 0;
     this.stateChangeTimeout = null;
 
-    this.typedSlogan = null;
-    this.typedOptions = {
-      strings: [this.title],
+    // Bind different this, we need instance of Slogan in method below.
+    this.handleTypedSloganComplete = this.handleTypedSloganComplete.bind(this);
+
+    this.typedSloganOptions = {
       typeSpeed: 40,
-      loop: false
+      loop: false,
+      stringsElement: '#sloganHeadingStrings',
+      onComplete: this.handleTypedSloganComplete
+    };
+
+    this.typedHobbiesOptions = {
+      backDelay: 1500,
+      typeSpeed: 70,
+      loop: true,
+      shuffle: true,
+      smartBackspace: false,
+      stringsElement: '#sloganHobbiesStrings'
     };
 
     this.handleStateChange = this.handleStateChange.bind(this);
+  }
+
+  handleTypedSloganComplete () {
+    this.setState({
+      subtitleAnimationClass: this.animationClass,
+      iconAnimationClass: this.animationClass
+    }, () => {
+      this.typedHobbies = new Typed('#sloganHobbies', this.typedHobbiesOptions);
+    });
   }
 
   handleStateChange (e) {
@@ -43,7 +74,7 @@ class Slogan extends Component {
   }
 
   componentDidMount () {
-    this.typedSlogan = new Typed('#sloganHeading', this.typedOptions);
+    this.typedSlogan = new Typed('#sloganHeading', this.typedSloganOptions);
   }
 
   render () {
@@ -51,15 +82,23 @@ class Slogan extends Component {
       <div>
         <header className='slogan'>
           <h1>
-            <span id='sloganHeading' />
+            <span id='sloganHeadingStrings'>
+              <span>
+                <span className='text-emphasis'>Frontend</span> && <br className='sm-only' /><span className='text-emphasis'>Web</span> Developer
+              </span>
+            </span>
+            <span id='sloganHeading' className='slogan-heading' />
           </h1>
 
-          <p className='slogan__delayed-subtitle'>With <span className='text-emphasis'>whole lotta love</span> <br className='sm-only' />
-            for <span className='text-emphasis'>Web Design </span>
-            and <span className='text-emphasis'>UI</span>/<span className='text-emphasis'>UX</span></p>
+          <p className={`slogan__delayed-subtitle ${this.state.subtitleAnimationClass}`}>With <span className='text-emphasis'>whole lotta love</span> <br className='sm-only' />
+            for <span id='sloganHobbiesStrings'>
+              {this.hobbies.map((hobby) => {
+                return React.createElement('span', null, hobby);
+              })}
+            </span><span id='sloganHobbies' className='slogan-hobbies text-emphasis' /></p>
 
           <ul className={`slogan__icons ${this.state.hasActiveLinkClassName}`}>
-            <li>
+            <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='envelope'
                 href='mailto:nt@ntmedia.me'
@@ -67,7 +106,7 @@ class Slogan extends Component {
                 label={this.props.iconLabels.email}
                 onStateChange={this.handleStateChange} />
             </li>
-            <li>
+            <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='linkedin'
                 href='https://rs.linkedin.com/in/nikolatucakovic'
@@ -77,7 +116,7 @@ class Slogan extends Component {
                 label={this.props.iconLabels.linkedin}
                 onStateChange={this.handleStateChange} />
             </li>
-            <li>
+            <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='twitter'
                 href='https://twitter.com/_ntucakovic'
@@ -87,7 +126,7 @@ class Slogan extends Component {
                 label={this.props.iconLabels.twitter}
                 onStateChange={this.handleStateChange} />
             </li>
-            <li>
+            <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='instagram'
                 href='https://www.instagram.com/nikola.tucakovic/'
@@ -97,7 +136,7 @@ class Slogan extends Component {
                 label={this.props.iconLabels.instagram}
                 onStateChange={this.handleStateChange} />
             </li>
-            <li>
+            <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='skype'
                 href='skype:ntmediasolutions?chat'
@@ -105,7 +144,7 @@ class Slogan extends Component {
                 label={this.props.iconLabels.skype}
                 onStateChange={this.handleStateChange} />
             </li>
-            <li>
+            <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='file'
                 href='http://www.ntmedia.me/documents/cv.pdf'
