@@ -10,7 +10,8 @@ class Slogan extends Component {
     this.state = {
       hasActiveLinkClassName: '',
       subtitleAnimationClass: '',
-      iconAnimationClass: ''
+      iconAnimationClass: '',
+      style: {}
     };
 
     this.hasActiveLinkClassName = 'is-active';
@@ -77,9 +78,46 @@ class Slogan extends Component {
     this.typedSlogan = new Typed('#sloganHeading', this.typedSloganOptions);
   }
 
+  updateSloganStyle (event) {
+    let multiplier = 1;
+
+    let mouseX = event.screenX;
+    let mouseY = event.screenY;
+
+    let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
+
+    let percentageX = mouseX / (windowWidth / 100);
+    let percentageY = mouseY / (windowHeight / 100);
+
+    let leftSideOfScreen = percentageX < 50;
+    let topSideOfScreen = percentageY < 50;
+
+    // @todo, figure out this magic written back in 2014 and improve it.
+    let translateX = (
+      leftSideOfScreen
+        ? ((50 - percentageX) / 100) * (windowWidth * multiplier * 0.03)
+        : -((percentageX - 50) / 100) * (windowWidth * multiplier * 0.03)
+    );
+    let translateY = (
+      topSideOfScreen
+        ? ((50 - percentageY) / 100) * (windowHeight * multiplier * 0.03)
+        : -((percentageY - 50) / 100) * (windowHeight * multiplier * 0.03)
+    );
+
+    let skewX = ((percentageX - 50) / 100) * 1.5 * multiplier;
+    let skewY = ((percentageY - 50) / 100) * 1.5 * multiplier;
+
+    this.setState({
+      style: {
+        transform: `translate(${translateX}px, ${translateY}px) skew(${skewX}deg, ${skewY}deg)`
+      }
+    });
+  }
+
   render () {
     return (
-      <div>
+      <div style={this.state.style}>
         <header className='slogan'>
           <h1>
             <span id='sloganHeadingStrings'>

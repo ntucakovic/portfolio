@@ -23,9 +23,9 @@ class App extends Component {
   render () {
     return (
       <BrowserRouter>
-        <div className='app' onMouseMove={(event) => this.child.updateCursorPosition(event)}>
+        <div className='app'>
           <Router />
-          <Logo ref={instance => { this.child = instance; }} />
+          <Logo />
         </div>
       </BrowserRouter>
     );

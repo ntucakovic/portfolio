@@ -29,15 +29,6 @@ class Logo extends Component {
     );
   }
 
-  updateCursorPosition (event) {
-    this.setState({
-      cursor: {
-        x: event.screenX,
-        y: event.screenY
-      }
-    });
-  }
-
   componentDidMount () {
     this.updateLogoStyles();
     window.addEventListener('resize', () => {
