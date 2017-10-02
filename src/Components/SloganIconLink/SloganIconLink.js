@@ -67,13 +67,17 @@ class SloganIconLink extends Component {
   }
 
   render () {
-    const { iconName, onStateChange, ...htmlAttributes } = this.props;
+    const { iconName, label, onStateChange, ...htmlAttributes } = this.props;
     return (
       <a className={`slogan__link ${this.state.linkActiveStateClassName}`} {...htmlAttributes}
-        onClick={this.handleClick} onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
+        onClick={this.handleClick}
+        onMouseEnter={this.handleEnter}
+        onMouseLeave={this.handleLeave}
+        onFocus={this.handleEnter}
+        onBlur={this.handleLeave}>
 
         <SloganIcon className={`slogan__icon ${this.state.linkActiveStateClassName}`} iconName={iconName} />
-        <span className={`slogan__title ${this.state.linkActiveStateClassName}`}>{this.props.label}</span>
+        <span className={`slogan__title ${this.state.linkActiveStateClassName}`}>{label}</span>
       </a>
     );
   }

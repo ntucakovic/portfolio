@@ -1,10 +1,8 @@
 $slogan-icon-bg: $text-color;
-
 $slogan-icon-sm: 36px;
 $slogan-icon-border-radius-sm: $slogan-icon-sm / 2;
 $slogan-icon-padding-sm: 8px;
 $slogan-icon-box-shadow-outer-sm: 2px;
-
 $slogan-icon-md: 64px;
 $slogan-icon-border-radius-md: $slogan-icon-md / 2;
 $slogan-icon-padding-md: 16px;
@@ -21,6 +19,7 @@ $slogan-icon-box-shadow-outer-md: 4px;
     margin: 0;
     padding: 0;
     list-style: none;
+
     justify-content: center;
 
     @media (min-width: $screen-md-min) {
@@ -38,8 +37,8 @@ $slogan-icon-box-shadow-outer-md: 4px;
   }
 
   &__link {
+    position: relative;
     display: flex;
-    overflow: hidden;
     max-width: 500px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -49,14 +48,40 @@ $slogan-icon-box-shadow-outer-md: 4px;
     text-transform: none;
     opacity: 1;
     color: $text-color;
+    outline: none;
     font-size: 1.5rem;
+
+    @media (min-width: $screen-md-min) {
+      margin-right: 2px;
+      padding-right: 2px;
+
+      &::after {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        display: none;
+        box-sizing: content-box;
+        width: 100%;
+        height: 100%;
+        margin-top: -2px;
+        margin-left: 1px;
+        padding: 2px 0 2px 4px;
+        content: '';
+        opacity: 0.2;
+        border-radius: $slogan-icon-md;
+        background-color: $text-color;
+      }
+
+      &:focus {
+        &::after {
+          display: block;
+        }
+      }
+    }
   }
 
   &__icon {
-    @include themify {
-      $color: get-themify-variable('icon-fill');
-      box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-sm $color, 0 0 0 ($slogan-icon-box-shadow-outer-sm / 2) $slogan-icon-bg;
-    }
     display: block;
     width: $slogan-icon-sm;
     height: $slogan-icon-sm;
@@ -65,17 +90,23 @@ $slogan-icon-box-shadow-outer-md: 4px;
     border-radius: $slogan-icon-border-radius-sm;
     background-color: $slogan-icon-bg;
 
+    @include themify {
+      $color: get-themify-variable("icon-fill");
+      box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-sm $color, 0 0 0 ($slogan-icon-box-shadow-outer-sm / 2) $slogan-icon-bg;
+    }
+
     @media (min-width: $screen-md-min) {
-      @include themify {
-        $color: get-themify-variable('icon-fill');
-        box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-md $color, 0 0 0 ($slogan-icon-box-shadow-outer-md / 2) $slogan-icon-bg;
-      }
       width: $slogan-icon-md;
       height: $slogan-icon-md;
       margin-left: 10px;
       padding: $slogan-icon-padding-md;
       border-radius: $slogan-icon-border-radius-md;
       box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-md $white, 0 0 0 ($slogan-icon-box-shadow-outer-md / 2) $slogan-icon-bg;
+
+      @include themify {
+        $color: get-themify-variable("icon-fill");
+        box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-md $color, 0 0 0 ($slogan-icon-box-shadow-outer-md / 2) $slogan-icon-bg;
+      }
     }
 
     &.is-active {
@@ -89,12 +120,12 @@ $slogan-icon-box-shadow-outer-md: 4px;
     }
 
     svg {
-      @include themify {
-        fill: get-themify-variable('icon-fill');
-      }
-
       max-width: 100%;
       max-height: 100%;
+
+      @include themify {
+        fill: get-themify-variable("icon-fill");
+      }
     }
   }
 
@@ -113,7 +144,7 @@ $slogan-icon-box-shadow-outer-md: 4px;
     }
 
     &.is-active {
-      max-width: 100vw;
+      max-width: 20em;
     }
   }
 
