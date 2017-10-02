@@ -17,6 +17,9 @@ class Slogan extends Component {
     this.hasActiveLinkClassName = 'is-active';
     this.animationClass = 'start-animation';
 
+    // @todo This needs to live somewhere in a higher scope.
+    this.screenMdMin = 576;
+
     this.hobbies = [
       `Web Design`,
       `UI/UX`,
@@ -78,7 +81,20 @@ class Slogan extends Component {
     this.typedSlogan = new Typed('#sloganHeading', this.typedSloganOptions);
   }
 
+  resetSloganStyle () {
+    this.setState({
+      style: {
+        transform: `translate(0px, 0px) skew(0deg, 0deg)`
+      }
+    });
+  }
+
   updateSloganStyle (event) {
+    if (window.innerWidth < this.screenMdMin) {
+      this.resetSloganStyle();
+      return;
+    }
+
     let multiplier = 1;
 
     let mouseX = event.screenX;

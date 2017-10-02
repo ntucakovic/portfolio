@@ -89,7 +89,13 @@ $slogan-icon-box-shadow-outer-md: 4px;
       @return '#{$delay}s';
     }
 
+    white-space: nowrap;
+    // Prevent triggering click and hover states before animation is started.
+    pointer-events: none;
+
     &.start-animation {
+      pointer-events: all;
+
       transform: scale(0.7);
       animation: scaleToSize 1s forwards;
 
@@ -101,7 +107,6 @@ $slogan-icon-box-shadow-outer-md: 4px;
         }
       }
     }
-    white-space: nowrap;
   }
 
   &__icon {
