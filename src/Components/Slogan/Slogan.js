@@ -185,7 +185,7 @@ class Slogan extends Component {
             <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='file'
-                href='http://www.ntmedia.me/documents/cv.pdf'
+                href='//www.ntmedia.me/documents/cv.pdf'
                 title={this.props.iconTitles.cv}
                 label={this.props.iconLabels.cv}
                 onStateChange={this.handleStateChange} />
