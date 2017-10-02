@@ -1,0 +1,20 @@
+.flex-content-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-viewport-min {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.text-emphasis {
+  color: $text-highlight;
+}
+
+.sm-only {
+  @media (min-width: $screen-md-min) {
+    display: none;
+  }
+}
