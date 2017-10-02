@@ -4,10 +4,15 @@ import logo from '../../assets/svg/logo.svg';
 import Isvg from 'react-inlinesvg';
 
 class Logo extends Component {
-  state = { style: {} };
-
   constructor (props) {
     super(props);
+    this.state = {
+      style: {},
+      cursor: {
+        x: 0,
+        y: 0
+      }
+    };
 
     this.logoDescription = props.logoDescription;
   }
@@ -22,6 +27,15 @@ class Logo extends Component {
         </div>
       </div>
     );
+  }
+
+  updateCursorPosition (event) {
+    this.setState({
+      cursor: {
+        x: event.screenX,
+        y: event.screenY
+      }
+    });
   }
 
   componentDidMount () {
