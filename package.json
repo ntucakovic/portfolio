@@ -1,6 +1,7 @@
 {
   "name": "private-portfolio",
   "version": "0.1.0",
+  "homepage": "http://www.ntmedia.me/",
   "private": true,
   "dependencies": {
     "node-sass-chokidar": "0.0.3",
@@ -26,6 +27,7 @@
     "babel-eslint": "^8.0.1",
     "eslint": "^4.8.0",
     "eslint-config-semistandard-react": "^4.1.0",
-    "eslint-plugin-semistandard-react": "^4.0.0"
+    "eslint-plugin-semistandard-react": "^4.0.0",
+    "surge": "^0.19.0"
   }
 }
