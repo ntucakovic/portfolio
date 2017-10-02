@@ -92,8 +92,8 @@ class Slogan extends Component {
 
           <p className={`slogan__delayed-subtitle ${this.state.subtitleAnimationClass}`}>With <span className='text-emphasis'>whole lotta love</span> <br className='sm-only' />
             for <span id='sloganHobbiesStrings'>
-              {this.hobbies.map((hobby) => {
-                return React.createElement('span', null, hobby);
+              {this.hobbies.map((hobby, index) => {
+                return React.createElement('span', {key: `hobby-${index}`}, hobby);
               })}
             </span><span id='sloganHobbies' className='slogan-hobbies text-emphasis' /></p>
 
