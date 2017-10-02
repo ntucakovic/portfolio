@@ -10,7 +10,8 @@
     "react-dom": "^16.0.0",
     "react-inlinesvg": "^0.6.2",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "typed.js": "^2.0.6"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SloganIconLink from '../SloganIconLink/SloganIconLink';
+import Typed from 'typed.js';
 
 class Slogan extends Component {
   constructor (props) {
@@ -12,8 +13,19 @@ class Slogan extends Component {
 
     this.hasActiveLinkClassName = 'is-active';
 
+    // @note Have to use class instead of className and escaped ampersand char because of typed.js bugs.
+    // Update when fixed @todo
+    this.title = `<span class='text-emphasis'>Frontend</span> &amp;&amp; <br class='sm-only'><span class='text-emphasis'>Web</span> Developer`;
+
     this.stateChangeDelay = 0;
     this.stateChangeTimeout = null;
+
+    this.typedSlogan = null;
+    this.typedOptions = {
+      strings: [this.title],
+      typeSpeed: 40,
+      loop: false
+    };
 
     this.handleStateChange = this.handleStateChange.bind(this);
   }
@@ -30,14 +42,19 @@ class Slogan extends Component {
     }, this.stateChangeDelay);
   }
 
+  componentDidMount () {
+    this.typedSlogan = new Typed('#sloganHeading', this.typedOptions);
+  }
+
   render () {
     return (
       <div>
         <header className='slogan'>
-          <h1><span className='text-emphasis'>Frontend</span> && <br className='sm-only' />
-            <span className='text-emphasis'>Web</span> Developer</h1>
+          <h1>
+            <span id='sloganHeading' />
+          </h1>
 
-          <p>With <span className='text-emphasis'>whole lotta love</span> <br className='sm-only' />
+          <p className='slogan__delayed-subtitle'>With <span className='text-emphasis'>whole lotta love</span> <br className='sm-only' />
             for <span className='text-emphasis'>Web Design </span>
             and <span className='text-emphasis'>UI</span>/<span className='text-emphasis'>UX</span></p>
 

@@ -42,6 +42,23 @@ h5 {
 h6 {
   font-size: 1rem; }
 
+@keyframes blink {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeInSlide {
+  0% {
+    transform: translateY(10px);
+    opacity: 0; }
+  30% {
+    transform: translateY(0); }
+  to {
+    opacity: 1; } }
+
 .flex-content-center {
   display: flex;
   align-items: center;
@@ -151,12 +168,27 @@ h6 {
           background-color: #717c80; }
         .slogan__link:focus::after {
           display: block; } }
+  .slogan li:nth-child(1) .slogan__icon {
+    animation: fadeInSlide 0.5s 2.5s forwards; }
+  .slogan li:nth-child(2) .slogan__icon {
+    animation: fadeInSlide 0.5s 2.6s forwards; }
+  .slogan li:nth-child(3) .slogan__icon {
+    animation: fadeInSlide 0.5s 2.7s forwards; }
+  .slogan li:nth-child(4) .slogan__icon {
+    animation: fadeInSlide 0.5s 2.8s forwards; }
+  .slogan li:nth-child(5) .slogan__icon {
+    animation: fadeInSlide 0.5s 2.9s forwards; }
+  .slogan li:nth-child(6) .slogan__icon {
+    animation: fadeInSlide 0.5s 3s forwards; }
+  .slogan li:nth-child(7) .slogan__icon {
+    animation: fadeInSlide 0.5s 3.1s forwards; }
   .slogan__icon {
     display: block;
     width: 36px;
     height: 36px;
     margin-left: 5px;
     padding: 8px;
+    opacity: 0;
     border-radius: 18px;
     background-color: #717c80; }
     .dark .slogan__icon {
@@ -219,3 +251,10 @@ h6 {
     @media (min-width: 992px) {
       .slogan p {
         font-size: 1.75rem; } }
+  .slogan__delayed-subtitle {
+    animation: fadeInSlide 2s 2s forwards;
+    opacity: 0; }
+
+.typed-cursor {
+  animation: blink 0.7s infinite;
+  opacity: 1; }

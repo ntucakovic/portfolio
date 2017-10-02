@@ -28,9 +28,11 @@ $slogan-icon-box-shadow-outer-md: 4px;
 
     &.is-active {
       @media (max-width: ($screen-md-min - 1)) {
-        .slogan__link:not(.is-active) {
-          max-width: 0;
-          opacity: 0;
+        .slogan__link {
+          &:not(.is-active) {
+            max-width: 0;
+            opacity: 0;
+          }
         }
       }
     }
@@ -81,17 +83,33 @@ $slogan-icon-box-shadow-outer-md: 4px;
     }
   }
 
+  li {
+    @function get-icon-delay($index) {
+      $delay: 2.4 + ($index * 0.1);
+      @return '#{$delay}s';
+    }
+
+    @for $i from 1 through 7 {
+      &:nth-child(#{$i}) {
+        .slogan__icon {
+          animation: fadeInSlide 0.5s #{get-icon-delay($i)} forwards;
+        }
+      }
+    }
+  }
+
   &__icon {
     display: block;
     width: $slogan-icon-sm;
     height: $slogan-icon-sm;
     margin-left: 5px;
     padding: $slogan-icon-padding-sm;
+    opacity: 0;
     border-radius: $slogan-icon-border-radius-sm;
     background-color: $slogan-icon-bg;
 
     @include themify {
-      $color: get-themify-variable("icon-fill");
+      $color: get-themify-variable('icon-fill');
       box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-sm $color, 0 0 0 ($slogan-icon-box-shadow-outer-sm / 2) $slogan-icon-bg;
     }
 
@@ -104,7 +122,7 @@ $slogan-icon-box-shadow-outer-md: 4px;
       box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-md $white, 0 0 0 ($slogan-icon-box-shadow-outer-md / 2) $slogan-icon-bg;
 
       @include themify {
-        $color: get-themify-variable("icon-fill");
+        $color: get-themify-variable('icon-fill');
         box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-md $color, 0 0 0 ($slogan-icon-box-shadow-outer-md / 2) $slogan-icon-bg;
       }
     }
@@ -124,7 +142,7 @@ $slogan-icon-box-shadow-outer-md: 4px;
       max-height: 100%;
 
       @include themify {
-        fill: get-themify-variable("icon-fill");
+        fill: get-themify-variable('icon-fill');
       }
     }
   }
@@ -171,4 +189,11 @@ $slogan-icon-box-shadow-outer-md: 4px;
       font-size: 1.75rem;
     }
   }
+
+  &__delayed-subtitle {
+    animation: fadeInSlide 2s 2s forwards;
+    opacity: 0;
+  }
 }
+
+@import 'typed';
