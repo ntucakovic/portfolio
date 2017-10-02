@@ -1,0 +1,31 @@
+@import 'color-mixins';
+
+$screen-md-min: 576px;
+$screen-lg-min: 992px;
+$screen-xlg-min: 1200px;
+
+$dark-background: #232729;
+$light-background: #f5f5f5;
+
+$dark-shade: #717c80;
+$light-shade: #b0bac0;
+
+$text-color: $dark-shade;
+$text-highlight: $light-shade;
+$link-color: $text-color;
+$icon-hover-bg: #495962;
+
+$white: #fff;
+
+$themes: (
+  'dark': (
+    'background': $dark-background,
+    'icon-fill': $dark-background,
+    'logo-fill': #2b3033,
+  ),
+  'light': (
+    'background': $light-background,
+    'icon-fill': $light-background,
+    'logo-fill': #eee,
+  )
+);
