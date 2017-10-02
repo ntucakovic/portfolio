@@ -183,8 +183,10 @@ h6 {
         .slogan__link:focus::after {
           display: block; } }
   .slogan li {
-    white-space: nowrap; }
+    white-space: nowrap;
+    pointer-events: none; }
     .slogan li.start-animation {
+      pointer-events: all;
       transform: scale(0.7);
       animation: scaleToSize 1s forwards; }
       .slogan li.start-animation:nth-child(1) .slogan__icon {
