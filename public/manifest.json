@@ -1,15 +1,52 @@
 {
-  "short_name": "NT Business Card",
-  "name": "Nikola Tucaković - Business Card",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
-  ],
-  "start_url": "./index.html",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+	"short_name": "NT's Business Card",
+	"name": "Nikola Tucaković - Online Business Card",
+	"start_url": "./?utm_source=homescreen",
+	"display": "standalone",
+	"theme_color": "#b0bac0",
+	"background_color": "#fff",
+	"orientation": "portrait",
+	"icons": [
+		{
+			"src": "//www.ntmedia.me/favicon/android-chrome-36x36.png?v=2",
+			"sizes": "36x36",
+			"type": "image/png",
+			"density": "0.75"
+		},
+		{
+			"src": "//www.ntmedia.me/favicon/android-chrome-48x48.png?v=2",
+			"sizes": "48x48",
+			"type": "image/png",
+			"density": "1.0"
+		},
+		{
+			"src": "//www.ntmedia.me/favicon/android-chrome-72x72.png?v=2",
+			"sizes": "72x72",
+			"type": "image/png",
+			"density": "1.5"
+		},
+		{
+			"src": "//www.ntmedia.me/favicon/android-chrome-96x96.png?v=2",
+			"sizes": "96x96",
+			"type": "image/png",
+			"density": "2.0"
+		},
+		{
+			"src": "//www.ntmedia.me/favicon/android-chrome-144x144.png?v=2",
+			"sizes": "144x144",
+			"type": "image/png",
+			"density": "3.0"
+		},
+		{
+			"src": "//www.ntmedia.me/favicon/android-chrome-192x192.png?v=2",
+			"sizes": "192x192",
+			"type": "image/png",
+			"density": "4.0"
+		},
+		{
+			"src": "//www.ntmedia.me/favicon/android-chrome-192x192.png?v=2",
+			"sizes": "192x192",
+			"type": "image/png"
+		}
+	]
 }
