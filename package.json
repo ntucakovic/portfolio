@@ -1,7 +1,7 @@
 {
   "name": "private-portfolio",
   "version": "0.1.0",
-  "homepage": "http://www.ntmedia.me/",
+  "homepage": "https://www.ntmedia.me/",
   "private": true,
   "dependencies": {
     "node-sass-chokidar": "0.0.3",
