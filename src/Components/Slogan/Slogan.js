@@ -155,7 +155,7 @@ class Slogan extends Component {
             <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='envelope'
-                href='mailto:nt@ntmedia.me'
+                href={this.props.iconLinks.email}
                 title={this.props.iconTitles.email}
                 label={this.props.iconLabels.email}
                 onStateChange={this.handleStateChange} />
@@ -163,7 +163,7 @@ class Slogan extends Component {
             <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='linkedin'
-                href='https://rs.linkedin.com/in/nikolatucakovic'
+                href={this.props.iconLinks.linkedin}
                 target='_blank'
                 rel='noopener noreferrer'
                 title={this.props.iconTitles.linkedin}
@@ -173,7 +173,7 @@ class Slogan extends Component {
             <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='twitter'
-                href='https://twitter.com/_ntucakovic'
+                href={this.props.iconLinks.twitter}
                 target='_blank'
                 rel='noopener noreferrer'
                 title={this.props.iconTitles.twitter}
@@ -183,7 +183,7 @@ class Slogan extends Component {
             <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='instagram'
-                href='https://www.instagram.com/nikola.tucakovic/'
+                href={this.props.iconLinks.instagram}
                 target='_blank'
                 rel='noopener noreferrer'
                 title={this.props.iconTitles.instagram}
@@ -193,7 +193,7 @@ class Slogan extends Component {
             <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='skype'
-                href='skype:ntmediasolutions?chat'
+                href={this.props.iconLinks.skype}
                 title={this.props.iconTitles.skype}
                 label={this.props.iconLabels.skype}
                 onStateChange={this.handleStateChange} />
@@ -201,7 +201,7 @@ class Slogan extends Component {
             <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='file'
-                href='//www.ntmedia.me/documents/cv.pdf'
+                href={this.props.iconLinks.cv}
                 title={this.props.iconTitles.cv}
                 label={this.props.iconLabels.cv}
                 onStateChange={this.handleStateChange} />
@@ -214,11 +214,20 @@ class Slogan extends Component {
 }
 
 Slogan.propTypes = {
+  iconLinks: PropTypes.object,
   iconTitles: PropTypes.object,
   iconLabels: PropTypes.object
 };
 
 Slogan.defaultProps = {
+  iconLinks: {
+    email: 'mailto:nt@ntmedia.me',
+    linkedin: 'https://rs.linkedin.com/in/nikolatucakovic',
+    twitter: 'https://twitter.com/_ntucakovic',
+    instagram: 'https://www.instagram.com/nikola.tucakovic',
+    skype: 'skype:ntmediasolutions?chat',
+    cv: 'https://drive.google.com/uc?export=download&id=0B1aRGaIa4vgnaTc5YjNWMlFlQTg'
+  },
   iconTitles: {
     email: 'Send me an email!',
     linkedin: 'Linkedin Account',
