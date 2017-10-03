@@ -16,39 +16,63 @@ class SloganIconLink extends Component {
 
     // Timeout to prevent on mobile devices hover and click triggering after one another.
     this.enterTimeout = null;
-    this.leaveTimeout = null;
-    this.timeoutDelay = 100;
+    this.transitioningAnimationDelay = 0;
+    this.iosOutsideClickDelay = 300;
 
     this.handleClick = this.handleClick.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
+
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
   handleClick (event) {
-    if (this.state.isTransitioning) {
+    console.log(this.state.isTransitioning);
+    console.log(this.state.isActive);
+
+    if (this.state.isTransitioning || !this.state.isActive) {
       event.preventDefault();
-      return;
     }
 
-    this.setState(prevState => ({
-      isActive: !prevState.isActive
-    }));
+    if (!this.state.isTransitioning && !this.state.isActive) {
+      this.handleEnter();
+    }
+  }
+
+  handleOutsideClick () {
+    let iosUser = (function (userAgent) {
+      return userAgent.match(/iPad/i) || userAgent.match(/iPhone/i);
+    })(window.navigator.userAgent);
+
+    setTimeout(() => {
+      this.handleLeave();
+      document.body.removeEventListener('touchend', this.handleOutsideClick);
+    }, iosUser ? this.iosOutsideClickDelay : 0);
   }
 
   handleEnter () {
-    this.setState({ isTransitioning: true }, () => {
+    if (this.state.isActive) {
+      return;
+    }
+
+    this.setState({
+      isTransitioning: true,
+      linkActiveStateClassName: this.linkActiveClassName,
+      isActive: true
+    }, () => {
+      // Call parent method to update class on Slogan container.
+      this.props.onStateChange(this);
+
       this.enterTimeout = setTimeout(() => {
         this.setState({
-          isActive: true,
-          isTransitioning: false,
-          linkActiveStateClassName: this.linkActiveClassName
+          isTransitioning: false
         }, () => {
-          clearTimeout(this.enterTimeout);
+          // Delay because click is fired before we set the state on Safari.
+          document.body.addEventListener('touchend', this.handleOutsideClick);
 
-          // Call parent method to update class on Slogan container.
-          this.props.onStateChange(this);
+          clearTimeout(this.enterTimeout);
         });
-      }, this.timeoutDelay);
+      }, this.transitioningAnimationDelay);
     });
   }
 
@@ -58,8 +82,8 @@ class SloganIconLink extends Component {
     }
 
     this.setState({
-      isTransitioning: true,
       isActive: false,
+      isTransitioning: false,
       linkActiveStateClassName: ''
     }, () => {
       this.props.onStateChange(this);
@@ -70,11 +94,12 @@ class SloganIconLink extends Component {
     const { iconName, label, onStateChange, ...htmlAttributes } = this.props;
     return (
       <a className={`slogan__link ${this.state.linkActiveStateClassName}`} {...htmlAttributes}
-        onClick={this.handleClick}
         onMouseEnter={this.handleEnter}
         onMouseLeave={this.handleLeave}
         onFocus={this.handleEnter}
-        onBlur={this.handleLeave}>
+        onBlur={this.handleLeave}
+        onTouchEnd={this.handleClick}
+      >
 
         <SloganIcon className={`slogan__icon ${this.state.linkActiveStateClassName}`} iconName={iconName} />
         <span className={`slogan__title ${this.state.linkActiveStateClassName}`}>{label}</span>
