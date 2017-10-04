@@ -89,6 +89,14 @@ h6 {
   .sm-only {
     display: none; } }
 
+.dark ::selection {
+  color: #b0bac0;
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.light ::selection {
+  color: #b0bac0;
+  background-color: rgba(255, 255, 255, 0.5); }
+
 .app {
   overflow: hidden;
   min-height: 100vh;

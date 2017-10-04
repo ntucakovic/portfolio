@@ -64,6 +64,13 @@ h6 {
 @import 'utils/animations';
 @import 'utils/utility-classes';
 
+::selection {
+  @include themify {
+    color: $text-highlight;
+    background-color: get-themify-variable('selection-color');
+  }
+}
+
 .app {
   overflow: hidden;
   min-height: 100vh;
