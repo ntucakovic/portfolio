@@ -20,17 +20,6 @@ class Slogan extends Component {
     // @todo This needs to live somewhere in a higher scope.
     this.screenMdMin = 576;
 
-    this.hobbies = [
-      `Web Design`,
-      `UI/UX`,
-      `Photography`,
-      `Basketball`,
-      `Mountain Biking`,
-      `Paddleboarding`,
-      `Snowboarding`,
-      `Music`
-    ];
-
     this.stateChangeDelay = 0;
     this.stateChangeTimeout = null;
 
@@ -146,8 +135,8 @@ class Slogan extends Component {
 
           <p className={`slogan__delayed-subtitle ${this.state.subtitleAnimationClass}`}>With <span className='text-emphasis'>whole lotta love</span> <br className='sm-only' />
             for <span id='sloganHobbiesStrings'>
-              {this.hobbies.map((hobby, index) => {
-                return React.createElement('span', {key: `hobby-${index}`}, hobby);
+              {this.props.hobbies.map((hobby, index) => {
+                return React.createElement('span', {key: `hobby-${index}`}, `${hobby} `);
               })}
             </span><span id='sloganHobbies' className='slogan-hobbies text-emphasis' /></p>
 
@@ -214,12 +203,27 @@ class Slogan extends Component {
 }
 
 Slogan.propTypes = {
+  hobbies: PropTypes.array,
   iconLinks: PropTypes.object,
   iconTitles: PropTypes.object,
   iconLabels: PropTypes.object
 };
 
 Slogan.defaultProps = {
+  hobbies: [
+    'Web Design',
+    'UI/UX',
+    'Technology & Innovations',
+    'Music',
+    'Nomad Lifestyle',
+    'Traveling',
+    'Nature Wandering',
+    'Photography',
+    'Mountain Biking',
+    'Snowboarding',
+    'Paddleboarding',
+    'Basketball'
+  ],
   iconLinks: {
     email: 'mailto:nt@ntmedia.me',
     linkedin: 'https://rs.linkedin.com/in/nikolatucakovic',
