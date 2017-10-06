@@ -9,6 +9,8 @@ $slogan-icon-padding-md: 16px;
 $slogan-icon-box-shadow-outer-md: 4px;
 
 .slogan {
+  position: relative;
+  z-index: 1;
   max-width: 100vw;
   padding: 0 15px;
   text-align: center;

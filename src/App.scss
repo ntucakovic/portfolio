@@ -72,20 +72,12 @@ h6 {
 }
 
 .app {
+  @include themify {
+    background-color: get-themify-variable('background');
+  }
   overflow: hidden;
   min-height: 100vh;
   color: $text-color;
-
-  &::before {
-    @include themify {
-      background-color: get-themify-variable('background');
-    }
-    position: absolute;
-    z-index: -2;
-    width: 100vw;
-    height: 100vh;
-    content: '';
-  }
 }
 
 @import 'Components/Logo/logo';
