@@ -125,16 +125,37 @@ h6 {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.5s, translate 0.5s;
+  transition: transform 0.5s;
   transform: scale(5); }
+  @media (orientation: portrait) {
+    .logo {
+      animation: animateLogoPortrait 1s forwards; } }
+  @media (orientation: landscape) {
+    .logo {
+      animation: animateLogoLandscape 1s forwards; } }
   .logo svg {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%); }
+    transform: translateY(-50%);
+    border-radius: 50%; }
     .dark .logo svg {
-      fill: #2b3033; }
+      fill: #2b3033;
+      box-shadow: 0 0 0 4vw #1f2325; }
     .light .logo svg {
-      fill: #eee; }
+      fill: #eee;
+      box-shadow: 0 0 0 4vw #e1e1e1; }
+
+@keyframes animateLogoPortrait {
+  from {
+    transform: scale(5); }
+  to {
+    transform: scale(0.8); } }
+
+@keyframes animateLogoLandscape {
+  from {
+    transform: scale(5); }
+  to {
+    transform: scale(0.9); } }
 
 .slogan {
   max-width: 100vw;
@@ -157,7 +178,7 @@ h6 {
   .slogan__link {
     position: relative;
     display: flex;
-    max-width: 500px;
+    max-width: 20em;
     padding-top: 5px;
     padding-bottom: 5px;
     transition: opacity 0.5s, max-width 0.2s;
