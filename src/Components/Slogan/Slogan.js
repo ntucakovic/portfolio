@@ -230,7 +230,7 @@ Slogan.defaultProps = {
     twitter: 'https://twitter.com/_ntucakovic',
     instagram: 'https://www.instagram.com/nikola.tucakovic',
     skype: 'skype:ntmediasolutions?chat',
-    cv: 'https://drive.google.com/uc?export=download&id=0B1aRGaIa4vgnaTc5YjNWMlFlQTg'
+    cv: 'https://drive.google.com/uc?export=download&id=0B1aRGaIa4vgnUUpRT3diOFYybjQ'
   },
   iconTitles: {
     email: 'Send me an email!',
