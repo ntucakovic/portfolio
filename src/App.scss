@@ -78,6 +78,11 @@ h6 {
   overflow: hidden;
   min-height: 100vh;
   color: $text-color;
+
+  main {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 @import 'Components/Logo/logo';
