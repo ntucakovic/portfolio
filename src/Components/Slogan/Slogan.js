@@ -20,17 +20,6 @@ class Slogan extends Component {
     // @todo This needs to live somewhere in a higher scope.
     this.screenMdMin = 576;
 
-    this.hobbies = [
-      `Web Design`,
-      `UI/UX`,
-      `Photography`,
-      `Basketball`,
-      `Mountain Biking`,
-      `Paddleboarding`,
-      `Snowboarding`,
-      `Music`
-    ];
-
     this.stateChangeDelay = 0;
     this.stateChangeTimeout = null;
 
@@ -146,8 +135,8 @@ class Slogan extends Component {
 
           <p className={`slogan__delayed-subtitle ${this.state.subtitleAnimationClass}`}>With <span className='text-emphasis'>whole lotta love</span> <br className='sm-only' />
             for <span id='sloganHobbiesStrings'>
-              {this.hobbies.map((hobby, index) => {
-                return React.createElement('span', {key: `hobby-${index}`}, hobby);
+              {this.props.hobbies.map((hobby, index) => {
+                return React.createElement('span', {key: `hobby-${index}`}, `${hobby} `);
               })}
             </span><span id='sloganHobbies' className='slogan-hobbies text-emphasis' /></p>
 
@@ -155,7 +144,7 @@ class Slogan extends Component {
             <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='envelope'
-                href='mailto:nt@ntmedia.me'
+                href={this.props.iconLinks.email}
                 title={this.props.iconTitles.email}
                 label={this.props.iconLabels.email}
                 onStateChange={this.handleStateChange} />
@@ -163,7 +152,7 @@ class Slogan extends Component {
             <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='linkedin'
-                href='https://rs.linkedin.com/in/nikolatucakovic'
+                href={this.props.iconLinks.linkedin}
                 target='_blank'
                 rel='noopener noreferrer'
                 title={this.props.iconTitles.linkedin}
@@ -173,7 +162,7 @@ class Slogan extends Component {
             <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='twitter'
-                href='https://twitter.com/_ntucakovic'
+                href={this.props.iconLinks.twitter}
                 target='_blank'
                 rel='noopener noreferrer'
                 title={this.props.iconTitles.twitter}
@@ -183,7 +172,7 @@ class Slogan extends Component {
             <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='instagram'
-                href='https://www.instagram.com/nikola.tucakovic/'
+                href={this.props.iconLinks.instagram}
                 target='_blank'
                 rel='noopener noreferrer'
                 title={this.props.iconTitles.instagram}
@@ -193,7 +182,7 @@ class Slogan extends Component {
             <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='skype'
-                href='skype:ntmediasolutions?chat'
+                href={this.props.iconLinks.skype}
                 title={this.props.iconTitles.skype}
                 label={this.props.iconLabels.skype}
                 onStateChange={this.handleStateChange} />
@@ -201,7 +190,7 @@ class Slogan extends Component {
             <li className={this.state.iconAnimationClass}>
               <SloganIconLink
                 iconName='file'
-                href='//www.ntmedia.me/documents/cv.pdf'
+                href={this.props.iconLinks.cv}
                 title={this.props.iconTitles.cv}
                 label={this.props.iconLabels.cv}
                 onStateChange={this.handleStateChange} />
@@ -214,11 +203,35 @@ class Slogan extends Component {
 }
 
 Slogan.propTypes = {
+  hobbies: PropTypes.array,
+  iconLinks: PropTypes.object,
   iconTitles: PropTypes.object,
   iconLabels: PropTypes.object
 };
 
 Slogan.defaultProps = {
+  hobbies: [
+    'Web Design',
+    'UI/UX',
+    'Technology & Innovations',
+    'Music',
+    'Nomad Lifestyle',
+    'Traveling',
+    'Nature Wandering',
+    'Photography',
+    'Mountain Biking',
+    'Snowboarding',
+    'Paddleboarding',
+    'Basketball'
+  ],
+  iconLinks: {
+    email: 'mailto:nt@ntmedia.me',
+    linkedin: 'https://rs.linkedin.com/in/nikolatucakovic',
+    twitter: 'https://twitter.com/_ntucakovic',
+    instagram: 'https://www.instagram.com/nikola.tucakovic',
+    skype: 'skype:ntmediasolutions?chat',
+    cv: 'https://drive.google.com/uc?export=download&id=0B1aRGaIa4vgnUUpRT3diOFYybjQ'
+  },
   iconTitles: {
     email: 'Send me an email!',
     linkedin: 'Linkedin Account',

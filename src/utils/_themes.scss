@@ -22,10 +22,12 @@ $themes: (
     'background': $dark-background,
     'icon-fill': $dark-background,
     'logo-fill': #2b3033,
+    'selection-color': rgba(0, 0, 0, 0.2),
   ),
   'light': (
     'background': $light-background,
     'icon-fill': $light-background,
     'logo-fill': #eee,
+    'selection-color': rgba(255, 255, 255, 0.5),
   )
 );
