@@ -86,8 +86,8 @@ class Slogan extends Component {
 
     let multiplier = 1;
 
-    let mouseX = event.screenX;
-    let mouseY = event.screenY;
+    let mouseX = event.pageX;
+    let mouseY = event.pageY;
 
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;

@@ -10,6 +10,9 @@ $light-background: #f5f5f5;
 $dark-shade: #717c80;
 $light-shade: #b0bac0;
 
+$logo-fill-light: #eee;
+$logo-fill-dark: #2b3033;
+
 $text-color: $dark-shade;
 $text-highlight: $light-shade;
 $link-color: $text-color;
@@ -21,13 +24,15 @@ $themes: (
   'dark': (
     'background': $dark-background,
     'icon-fill': $dark-background,
-    'logo-fill': #2b3033,
+    'logo-fill': $logo-fill-dark,
     'selection-color': rgba(0, 0, 0, 0.2),
+    'repository-link-bg': $logo-fill-dark
   ),
   'light': (
     'background': $light-background,
     'icon-fill': $light-background,
-    'logo-fill': #eee,
+    'logo-fill': $logo-fill-light,
     'selection-color': rgba(255, 255, 255, 0.5),
+    'repository-link-bg': $logo-fill-light
   )
 );
