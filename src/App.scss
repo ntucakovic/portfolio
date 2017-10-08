@@ -75,8 +75,10 @@ h6 {
   @include themify {
     background-color: get-themify-variable('background');
   }
+
+  position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  height: 100vh;
   color: $text-color;
 
   main {
@@ -87,3 +89,4 @@ h6 {
 
 @import 'Components/Logo/logo';
 @import 'Components/Slogan/slogan';
+@import 'Components/RepositoryLink/repository-link';
