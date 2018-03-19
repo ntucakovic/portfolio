@@ -27,9 +27,6 @@ class SloganIconLink extends Component {
   }
 
   handleClick (event) {
-    console.log(this.state.isTransitioning);
-    console.log(this.state.isActive);
-
     if (this.state.isTransitioning || !this.state.isActive) {
       event.preventDefault();
     }
