@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Slogan from '../../Components/Slogan';
+import Slogan from '../components/Slogan/index';
 
 class Home extends Component {
   render () {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import Logo from './Components/Logo';
-import RepositoryLink from './Components/RepositoryLink';
+import Logo from './components/Logo';
+import RepositoryLink from './components/RepositoryLink';
 import Router from './Router';
 import './App.css';
 
