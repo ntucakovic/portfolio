@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import Slogan from '../components/Slogan/index';
+import { AppContext } from '../components/AppContext';
 
 class Home extends Component {
   render () {
     return (
-      <div className='flex-content-center full-viewport-min' onMouseMove={(event) => this.child.updateSloganStyle(event)}>
-        <Slogan ref={instance => { this.child = instance; }} />
-      </div>
+      <AppContext.Consumer>
+        {(context) => (
+          <div className='flex-content-center full-viewport-min' onMouseMove={context.handleMouseMove}>
+            <Slogan ref={instance => { this.child = instance; }} />
+          </div>
+        )}
+      </AppContext.Consumer>
     );
   }
 }

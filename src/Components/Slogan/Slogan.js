@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SloganIconLink from '../SloganIconLink/SloganIconLink';
 import Typed from 'typed.js';
+import { AppContext } from '../AppContext';
 
 class Slogan extends Component {
   constructor (props) {
@@ -16,9 +17,6 @@ class Slogan extends Component {
 
     this.hasActiveLinkClassName = 'is-active';
     this.animationClass = 'start-animation';
-
-    // @todo This needs to live somewhere in a higher scope.
-    this.screenMdMin = 576;
 
     this.stateChangeDelay = 0;
     this.stateChangeTimeout = null;
@@ -70,134 +68,90 @@ class Slogan extends Component {
     this.typedSlogan = new Typed('#sloganHeading', this.typedSloganOptions);
   }
 
-  resetSloganStyle () {
-    this.setState({
-      style: {
-        transform: `translate(0px, 0px) skew(0deg, 0deg)`
-      }
-    });
-  }
-
-  updateSloganStyle (event) {
-    if (window.innerWidth < this.screenMdMin) {
-      this.resetSloganStyle();
-      return;
-    }
-
-    let multiplier = 1;
-
-    let mouseX = event.pageX;
-    let mouseY = event.pageY;
-
-    let windowWidth = window.innerWidth;
-    let windowHeight = window.innerHeight;
-
-    let percentageX = mouseX / (windowWidth / 100);
-    let percentageY = mouseY / (windowHeight / 100);
-
-    let leftSideOfScreen = percentageX < 50;
-    let topSideOfScreen = percentageY < 50;
-
-    // @todo, figure out this magic written back in 2014 and improve it.
-    let translateX = (
-      leftSideOfScreen
-        ? ((50 - percentageX) / 100) * (windowWidth * multiplier * 0.03)
-        : -((percentageX - 50) / 100) * (windowWidth * multiplier * 0.03)
-    );
-    let translateY = (
-      topSideOfScreen
-        ? ((50 - percentageY) / 100) * (windowHeight * multiplier * 0.03)
-        : -((percentageY - 50) / 100) * (windowHeight * multiplier * 0.03)
-    );
-
-    let skewX = ((percentageX - 50) / 100) * 1.5 * multiplier;
-    let skewY = ((percentageY - 50) / 100) * 1.5 * multiplier;
-
-    this.setState({
-      style: {
-        transform: `translate(${translateX}px, ${translateY}px) skew(${skewX}deg, ${skewY}deg)`
-      }
-    });
-  }
-
   render () {
     return (
-      <div style={this.state.style}>
-        <header className='slogan'>
-          <h1>
-            <span id='sloganHeadingStrings'>
-              <span>
-                <span className='text-emphasis'>Frontend</span> && <br className='sm-only' /><span className='text-emphasis'>Web</span> Developer
-              </span>
-            </span>
-            <span id='sloganHeading' className='slogan-heading' />
-          </h1>
+      <AppContext.Consumer>
+        {(context) => (
+          <div style={context.state.pageTransformStyle}>
+            <header className='slogan'>
+              <h1>
+                <span id='sloganHeadingStrings'>
+                  <span>
+                    <span className='text-emphasis'>Frontend</span> && <br className='sm-only' /><span className='text-emphasis'>Web</span> Developer
+                  </span>
+                </span>
+                <span id='sloganHeading' className='slogan-heading' />
+              </h1>
 
-          <p className={`slogan__delayed-subtitle ${this.state.subtitleAnimationClass}`}>With <span className='text-emphasis'>whole lotta love</span> <br className='sm-only' />
-            for <span id='sloganHobbiesStrings'>
-              {this.props.hobbies.map((hobby, index) => {
-                return React.createElement('span', {key: `hobby-${index}`}, `${hobby} `);
-              })}
-            </span><span id='sloganHobbies' className='slogan-hobbies text-emphasis' /></p>
+              <p className={`slogan__delayed-subtitle ${this.state.subtitleAnimationClass}`}>With <span className='text-emphasis'>whole lotta love</span> <br className='sm-only' />
+                for <span id='sloganHobbiesStrings'>
+                  {this.props.hobbies.map((hobby, index) => (
+                    <span key={`hobby-${index}`}>{hobby}</span>
+                  ))}
+                </span>
+                <span id='sloganHobbies' className='slogan-hobbies text-emphasis' />
+              </p>
 
-          <ul className={`slogan__icons ${this.state.hasActiveLinkClassName}`}>
-            <li className={this.state.iconAnimationClass}>
-              <SloganIconLink
-                iconName='envelope'
-                href={this.props.iconLinks.email}
-                title={this.props.iconTitles.email}
-                label={this.props.iconLabels.email}
-                onStateChange={this.handleStateChange} />
-            </li>
-            <li className={this.state.iconAnimationClass}>
-              <SloganIconLink
-                iconName='linkedin'
-                href={this.props.iconLinks.linkedin}
-                target='_blank'
-                rel='noopener noreferrer'
-                title={this.props.iconTitles.linkedin}
-                label={this.props.iconLabels.linkedin}
-                onStateChange={this.handleStateChange} />
-            </li>
-            <li className={this.state.iconAnimationClass}>
-              <SloganIconLink
-                iconName='twitter'
-                href={this.props.iconLinks.twitter}
-                target='_blank'
-                rel='noopener noreferrer'
-                title={this.props.iconTitles.twitter}
-                label={this.props.iconLabels.twitter}
-                onStateChange={this.handleStateChange} />
-            </li>
-            <li className={this.state.iconAnimationClass}>
-              <SloganIconLink
-                iconName='instagram'
-                href={this.props.iconLinks.instagram}
-                target='_blank'
-                rel='noopener noreferrer'
-                title={this.props.iconTitles.instagram}
-                label={this.props.iconLabels.instagram}
-                onStateChange={this.handleStateChange} />
-            </li>
-            <li className={this.state.iconAnimationClass}>
-              <SloganIconLink
-                iconName='skype'
-                href={this.props.iconLinks.skype}
-                title={this.props.iconTitles.skype}
-                label={this.props.iconLabels.skype}
-                onStateChange={this.handleStateChange} />
-            </li>
-            <li className={this.state.iconAnimationClass}>
-              <SloganIconLink
-                iconName='file'
-                href={this.props.iconLinks.cv}
-                title={this.props.iconTitles.cv}
-                label={this.props.iconLabels.cv}
-                onStateChange={this.handleStateChange} />
-            </li>
-          </ul>
-        </header>
-      </div>
+              <ul className={`slogan__icons ${this.state.hasActiveLinkClassName}`}>
+                <li className={this.state.iconAnimationClass}>
+                  <SloganIconLink
+                    iconName='envelope'
+                    href={this.props.iconLinks.email}
+                    title={this.props.iconTitles.email}
+                    label={this.props.iconLabels.email}
+                    onStateChange={this.handleStateChange} />
+                </li>
+                <li className={this.state.iconAnimationClass}>
+                  <SloganIconLink
+                    iconName='linkedin'
+                    href={this.props.iconLinks.linkedin}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    title={this.props.iconTitles.linkedin}
+                    label={this.props.iconLabels.linkedin}
+                    onStateChange={this.handleStateChange} />
+                </li>
+                <li className={this.state.iconAnimationClass}>
+                  <SloganIconLink
+                    iconName='twitter'
+                    href={this.props.iconLinks.twitter}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    title={this.props.iconTitles.twitter}
+                    label={this.props.iconLabels.twitter}
+                    onStateChange={this.handleStateChange} />
+                </li>
+                <li className={this.state.iconAnimationClass}>
+                  <SloganIconLink
+                    iconName='instagram'
+                    href={this.props.iconLinks.instagram}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    title={this.props.iconTitles.instagram}
+                    label={this.props.iconLabels.instagram}
+                    onStateChange={this.handleStateChange} />
+                </li>
+                <li className={this.state.iconAnimationClass}>
+                  <SloganIconLink
+                    iconName='skype'
+                    href={this.props.iconLinks.skype}
+                    title={this.props.iconTitles.skype}
+                    label={this.props.iconLabels.skype}
+                    onStateChange={this.handleStateChange} />
+                </li>
+                <li className={this.state.iconAnimationClass}>
+                  <SloganIconLink
+                    iconName='file'
+                    href={this.props.iconLinks.cv}
+                    title={this.props.iconTitles.cv}
+                    label={this.props.iconLabels.cv}
+                    onStateChange={this.handleStateChange} />
+                </li>
+              </ul>
+            </header>
+          </div>
+        )}
+      </AppContext.Consumer>
     );
   }
 }
