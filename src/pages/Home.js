@@ -8,7 +8,7 @@ class Home extends Component {
       <AppContext.Consumer>
         {(context) => (
           <div className='flex-content-center full-viewport-min' onMouseMove={context.handleMouseMove}>
-            <Slogan ref={instance => { this.child = instance; }} />
+            <Slogan />
           </div>
         )}
       </AppContext.Consumer>
