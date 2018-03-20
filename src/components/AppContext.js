@@ -10,6 +10,14 @@ class AppProvider extends React.Component {
     this.screenMdMin = 576;
     this.links = AppProvider.getSloganLinks();
     this.hobbies = AppProvider.getHobbies();
+    this.repository = {
+      href: 'https://github.com/ntucakovic/portfolio',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+      title: 'Read code on GitHub',
+      icon: icons.github
+    };
+    this.logoDescription = 'NT';
   }
 
   state = {
@@ -44,7 +52,9 @@ class AppProvider extends React.Component {
 
   getPageTransformStyle (event) {
     if (window.innerWidth < this.screenMdMin) {
-      return `translate(0px, 0px) skew(0deg, 0deg)`;
+      return {
+        transform: `translate(0px, 0px) skew(0deg, 0deg)`
+      };
     }
 
     let multiplier = 1;
@@ -164,7 +174,9 @@ class AppProvider extends React.Component {
         state: this.state,
         hobbies: this.hobbies,
         links: this.links,
-        handleMouseMove: this.handleMouseMove
+        handleMouseMove: this.handleMouseMove,
+        repository: this.repository,
+        logoDescription: this.logoDescription
       }}>
         {this.props.children}
       </AppContext.Provider>

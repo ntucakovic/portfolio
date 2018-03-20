@@ -1,21 +1,23 @@
 import React from 'react';
-import githubIcon from '../assets/svg/github.svg';
 import Isvg from 'react-inlinesvg';
+import PropTypes from 'prop-types';
 
 const RepositoryLink = function (props) {
+  const { icon, ...attributes } = props;
   return (
     <div className='repository-link'>
-      <a {...props}><Isvg src={githubIcon} /></a>
+      <a {...attributes}><Isvg src={icon} /></a>
       <div className='repository-link__background' />
     </div>
   );
 };
 
-RepositoryLink.defaultProps = {
-  href: 'https://github.com/ntucakovic/portfolio',
-  target: '_blank',
-  rel: 'noopener noreferrer',
-  title: 'Read code on GitHub'
+RepositoryLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  target: PropTypes.string.isRequired,
+  rel: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.any.isRequired
 };
 
 export default RepositoryLink;

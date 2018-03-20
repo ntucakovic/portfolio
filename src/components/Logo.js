@@ -18,11 +18,7 @@ class Logo extends Component {
 }
 
 Logo.propTypes = {
-  logoDescription: PropTypes.string
-};
-
-Logo.defaultProps = {
-  logoDescription: 'NT Logo'
+  logoDescription: PropTypes.string.isRequired
 };
 
 export default Logo;
