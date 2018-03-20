@@ -60,9 +60,9 @@ h6 {
   font-size: 1rem;
 }
 
-@import 'utils/themes';
-@import 'utils/animations';
-@import 'utils/utility-classes';
+@import 'assets/scss/utils/themes';
+@import 'assets/scss/utils/animations';
+@import 'assets/scss/utils/utility-classes';
 
 ::selection {
   @include themify {
@@ -87,6 +87,6 @@ h6 {
   }
 }
 
-@import 'Components/Logo/logo';
-@import 'Components/Slogan/slogan';
-@import 'Components/RepositoryLink/repository-link';
+@import 'assets/scss/logo';
+@import 'assets/scss/slogan';
+@import 'assets/scss/repository-link';

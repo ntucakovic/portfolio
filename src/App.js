@@ -1,35 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import Logo from './Components/Logo';
-import RepositoryLink from './Components/RepositoryLink';
+
 import Router from './Router';
+import { AppContext, AppProvider } from './components/AppContext';
+import RepositoryLink from './components/RepositoryLink';
+import Logo from './components/Logo';
 import './App.css';
 
-class App extends Component {
-  componentDidMount () {
-    App.addBodyClass();
-  }
-
-  static addBodyClass () {
-    let date = new Date();
-    let theme = 'light';
-
-    if (((date.getHours() < 6) || (date.getHours() > 18))) {
-      theme = 'dark';
-    }
-
-    document.body.classList.add(theme);
-  }
-
+class App extends React.Component {
   render () {
     return (
-      <BrowserRouter>
-        <div className='app'>
-          <Router />
-          <Logo />
-          <RepositoryLink />
-        </div>
-      </BrowserRouter>
+      <AppProvider>
+        <AppContext.Consumer>
+          {(context) => (
+            <BrowserRouter>
+              <div className={context.state.theme}>
+                <div className='app'>
+                  <Router />
+                  <Logo {...context.logo} />
+                  <RepositoryLink {...context.repository} />
+                </div>
+              </div>
+            </BrowserRouter>
+          )}
+        </AppContext.Consumer>
+      </AppProvider>
     );
   }
 }
