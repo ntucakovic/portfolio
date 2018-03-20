@@ -1,5 +1,5 @@
 import React from 'react';
-import githubIcon from '../../assets/svg/github.svg';
+import githubIcon from '../assets/svg/github.svg';
 import Isvg from 'react-inlinesvg';
 
 const RepositoryLink = function (props) {

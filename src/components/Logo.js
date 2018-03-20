@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import logo from '../../assets/svg/logo.svg';
+import logo from '../assets/svg/logo.svg';
 import Isvg from 'react-inlinesvg';
 
 class Logo extends Component {

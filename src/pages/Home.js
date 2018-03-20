@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Slogan from '../components/Slogan/index';
+import Slogan from '../components/Slogan';
 import { AppContext } from '../components/AppContext';
 
 class Home extends Component {

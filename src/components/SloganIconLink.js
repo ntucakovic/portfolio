@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import SloganIcon from '../SloganIcon';
+import Isvg from 'react-inlinesvg';
 
 class SloganIconLink extends Component {
   constructor (props) {
@@ -18,15 +18,9 @@ class SloganIconLink extends Component {
     this.enterTimeout = null;
     this.transitioningAnimationDelay = 0;
     this.iosOutsideClickDelay = 300;
-
-    this.handleClick = this.handleClick.bind(this);
-    this.handleEnter = this.handleEnter.bind(this);
-    this.handleLeave = this.handleLeave.bind(this);
-
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
-  handleClick (event) {
+  handleClick = (event) => {
     if (this.state.isTransitioning || !this.state.isActive) {
       event.preventDefault();
     }
@@ -36,7 +30,7 @@ class SloganIconLink extends Component {
     }
   }
 
-  handleOutsideClick () {
+  handleOutsideClick = () => {
     let iosUser = (function (userAgent) {
       return userAgent.match(/iPad/i) || userAgent.match(/iPhone/i);
     })(window.navigator.userAgent);
@@ -47,7 +41,7 @@ class SloganIconLink extends Component {
     }, iosUser ? this.iosOutsideClickDelay : 0);
   }
 
-  handleEnter () {
+  handleEnter = () => {
     if (this.state.isActive) {
       return;
     }
@@ -73,7 +67,7 @@ class SloganIconLink extends Component {
     });
   }
 
-  handleLeave () {
+  handleLeave = () => {
     if (this.enterTimeout) {
       clearTimeout(this.enterTimeout);
     }
@@ -88,7 +82,7 @@ class SloganIconLink extends Component {
   }
 
   render () {
-    const { iconName, label, onStateChange, ...htmlAttributes } = this.props;
+    const { icon, label, onStateChange, ...htmlAttributes } = this.props;
     return (
       <a className={`slogan__link ${this.state.linkActiveStateClassName}`} {...htmlAttributes}
         onMouseEnter={this.handleEnter}
@@ -98,7 +92,9 @@ class SloganIconLink extends Component {
         onTouchEnd={this.handleClick}
       >
 
-        <SloganIcon className={`slogan__icon ${this.state.linkActiveStateClassName}`} iconName={iconName} />
+        <span className={`slogan__icon ${this.state.linkActiveStateClassName}`}>
+          <Isvg src={icon} />
+        </span>
         <span className={`slogan__title ${this.state.linkActiveStateClassName}`}>{label}</span>
       </a>
     );
@@ -106,8 +102,9 @@ class SloganIconLink extends Component {
 }
 
 SloganIconLink.propTypes = {
-  iconName: PropTypes.string,
   title: PropTypes.string,
+  href: PropTypes.string,
+  icon: PropTypes.any,
   label: PropTypes.element,
   onStateChange: PropTypes.func
 };
