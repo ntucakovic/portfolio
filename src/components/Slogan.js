@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SloganIconLink from './SloganIconLink';
+import SloganIconLink from './SloganLink';
 import Typed from '../../node_modules/typed.js/lib/typed';
 import { AppContext } from './AppContext';
 
