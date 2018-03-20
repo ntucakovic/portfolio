@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SloganIconLink from './SloganLink';
-import Typed from '../../node_modules/typed.js/lib/typed';
+import Typed from 'typed.js';
 import { AppContext } from './AppContext';
 
 class Slogan extends Component {
