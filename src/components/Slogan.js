@@ -5,17 +5,17 @@ import { AppContext } from './AppContext';
 import SloganLink from './SloganLink';
 
 class Slogan extends React.Component {
+  state = {
+    sloganLinkActiveClassName: '',
+    subtitleAnimationClass: '',
+    iconAnimationClass: '',
+    style: {}
+  };
+
   constructor (props) {
     super(props);
 
-    this.state = {
-      hasActiveLinkClassName: '',
-      subtitleAnimationClass: '',
-      iconAnimationClass: '',
-      style: {}
-    };
-
-    this.hasActiveLinkClassName = 'is-active';
+    this.sloganLinkActiveClassName = 'is-active';
     this.animationClass = 'start-animation';
 
     this.stateChangeDelay = 0;
@@ -50,14 +50,14 @@ class Slogan extends React.Component {
     });
   }
 
-  handleSloganLinkStateChange = (e) => {
+  handleSloganLinkStateChange = (sloganLink) => {
     if (this.stateChangeTimeout) {
       clearTimeout(this.stateChangeTimeout);
     }
 
     this.stateChangeTimeout = setTimeout(() => {
       this.setState({
-        hasActiveLinkClassName: (e.state.isActive ? this.hasActiveLinkClassName : '')
+        sloganLinkActiveClassName: (sloganLink.state.isActive ? this.sloganLinkActiveClassName : '')
       });
     }, this.stateChangeDelay);
   }
@@ -90,7 +90,7 @@ class Slogan extends React.Component {
                 <span id='sloganHobbies' className='slogan-hobbies text-emphasis' />
               </p>
 
-              <ul className={`slogan__icons ${this.state.hasActiveLinkClassName}`}>
+              <ul className={`slogan__icons ${this.state.sloganLinkActiveClassName}`}>
                 {context.links.map((link, key) => (
                   <li key={key} className={this.state.iconAnimationClass}>
                     <SloganLink

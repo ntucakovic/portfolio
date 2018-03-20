@@ -5,8 +5,15 @@ import * as icons from '../icons';
 const AppContext = React.createContext();
 
 class AppProvider extends React.Component {
-  constructor () {
-    super();
+  state = {
+    pageTransformStyle: {
+      transform: ''
+    },
+    theme: 'light'
+  }
+
+  constructor (props) {
+    super(props);
     this.screenMdMin = 576;
     this.links = AppProvider.getSloganLinks();
     this.hobbies = AppProvider.getHobbies();
@@ -21,13 +28,6 @@ class AppProvider extends React.Component {
       logo: icons.logo,
       description: 'NT'
     };
-  }
-
-  state = {
-    pageTransformStyle: {
-      transform: ''
-    },
-    theme: 'light'
   }
 
   componentDidMount () {

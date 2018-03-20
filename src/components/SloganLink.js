@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import Isvg from 'react-inlinesvg';
 
 class SloganLink extends React.Component {
+  state = {
+    isActive: false,
+    isTransitioning: false,
+    linkActiveStateClassName: ''
+  };
+
   constructor (props) {
     super(props);
-
-    this.state = {
-      isActive: false,
-      isTransitioning: false,
-      linkActiveStateClassName: ''
-    };
 
     this.linkActiveClassName = 'is-active';
 
