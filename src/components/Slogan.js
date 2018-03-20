@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import SloganIconLink from './SloganLink';
 import Typed from 'typed.js';
+
 import { AppContext } from './AppContext';
+import SloganIconLink from './SloganLink';
 
 class Slogan extends Component {
   constructor (props) {

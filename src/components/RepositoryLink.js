@@ -1,6 +1,6 @@
 import React from 'react';
-import Isvg from 'react-inlinesvg';
 import PropTypes from 'prop-types';
+import Isvg from 'react-inlinesvg';
 
 const RepositoryLink = function (props) {
   const { icon, ...attributes } = props;

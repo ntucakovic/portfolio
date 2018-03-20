@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import Router from './Router';
 
-import Logo from './components/Logo';
-import RepositoryLink from './components/RepositoryLink';
+import Router from './Router';
 import { AppContext, AppProvider } from './components/AppContext';
+import RepositoryLink from './components/RepositoryLink';
+import Logo from './components/Logo';
 import './App.css';
 
 class App extends React.Component {
