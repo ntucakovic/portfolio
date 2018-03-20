@@ -17,7 +17,7 @@ class App extends React.Component {
               <div className={context.state.theme}>
                 <div className='app'>
                   <Router />
-                  <Logo logoDescription={context.logoDescription} />
+                  <Logo {...context.logo} />
                   <RepositoryLink {...context.repository} />
                 </div>
               </div>

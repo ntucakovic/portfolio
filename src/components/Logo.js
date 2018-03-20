@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import logo from '../assets/svg/logo.svg';
 import Isvg from 'react-inlinesvg';
 
 class Logo extends Component {
@@ -8,8 +7,8 @@ class Logo extends Component {
     return (
       <div className='logo-wrapper'>
         <div className='logo'>
-          <Isvg src={logo}>
-            <img src={logo} alt={this.props.logoDescription} />
+          <Isvg src={this.props.logo}>
+            <img src={this.props.logo} alt={this.props.description} />
           </Isvg>
         </div>
       </div>
@@ -18,7 +17,8 @@ class Logo extends Component {
 }
 
 Logo.propTypes = {
-  logoDescription: PropTypes.string.isRequired
+  logo: PropTypes.any.isRequired,
+  description: PropTypes.string.isRequired
 };
 
 export default Logo;

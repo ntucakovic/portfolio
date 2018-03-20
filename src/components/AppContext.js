@@ -17,7 +17,10 @@ class AppProvider extends React.Component {
       title: 'Read code on GitHub',
       icon: icons.github
     };
-    this.logoDescription = 'NT';
+    this.logo = {
+      logo: icons.logo,
+      description: 'NT'
+    };
   }
 
   state = {
@@ -176,7 +179,7 @@ class AppProvider extends React.Component {
         links: this.links,
         handleMouseMove: this.handleMouseMove,
         repository: this.repository,
-        logoDescription: this.logoDescription
+        logo: this.logo
       }}>
         {this.props.children}
       </AppContext.Provider>
