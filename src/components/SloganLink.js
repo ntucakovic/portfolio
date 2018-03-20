@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Isvg from 'react-inlinesvg';
 
-class SloganIconLink extends Component {
+class SloganLink extends React.Component {
   constructor (props) {
     super(props);
 
@@ -101,7 +101,7 @@ class SloganIconLink extends Component {
   }
 }
 
-SloganIconLink.propTypes = {
+SloganLink.propTypes = {
   title: PropTypes.string,
   href: PropTypes.string,
   icon: PropTypes.any,
@@ -109,4 +109,4 @@ SloganIconLink.propTypes = {
   onStateChange: PropTypes.func
 };
 
-export default SloganIconLink;
+export default SloganLink;

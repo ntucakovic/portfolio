@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Isvg from 'react-inlinesvg';
 
-const RepositoryLink = function (props) {
+const RepositoryLink = (props) => {
   const { icon, ...attributes } = props;
   return (
     <div className='repository-link'>

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Typed from 'typed.js';
 
 import { AppContext } from './AppContext';
-import SloganIconLink from './SloganLink';
+import SloganLink from './SloganLink';
 
-class Slogan extends Component {
+class Slogan extends React.Component {
   constructor (props) {
     super(props);
 
@@ -21,9 +21,6 @@ class Slogan extends Component {
     this.stateChangeDelay = 0;
     this.stateChangeTimeout = null;
 
-    // Bind different this, we need instance of Slogan in method below.
-    this.handleTypedSloganComplete = this.handleTypedSloganComplete.bind(this);
-
     this.typedSloganOptions = {
       typeSpeed: 40,
       loop: false,
@@ -39,11 +36,12 @@ class Slogan extends Component {
       smartBackspace: false,
       stringsElement: '#sloganHobbiesStrings'
     };
-
-    this.handleStateChange = this.handleStateChange.bind(this);
   }
 
-  handleTypedSloganComplete () {
+  /**
+   * Initialize typed.js for hobbies after slogan is finished animating.
+   */
+  handleTypedSloganComplete = () => {
     this.setState({
       subtitleAnimationClass: this.animationClass,
       iconAnimationClass: this.animationClass
@@ -52,7 +50,7 @@ class Slogan extends Component {
     });
   }
 
-  handleStateChange (e) {
+  handleSloganLinkStateChange = (e) => {
     if (this.stateChangeTimeout) {
       clearTimeout(this.stateChangeTimeout);
     }
@@ -95,9 +93,9 @@ class Slogan extends Component {
               <ul className={`slogan__icons ${this.state.hasActiveLinkClassName}`}>
                 {context.links.map((link, key) => (
                   <li key={key} className={this.state.iconAnimationClass}>
-                    <SloganIconLink
+                    <SloganLink
                       {...link}
-                      onStateChange={this.handleStateChange} />
+                      onStateChange={this.handleSloganLinkStateChange} />
                   </li>
                 ))}
               </ul>
