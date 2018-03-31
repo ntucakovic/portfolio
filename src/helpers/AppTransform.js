@@ -32,38 +32,33 @@ class AppTransform {
     }
   }
 
-  static normalizeStyles ({ translateX, translateY, skewX, skewY }) {
+  static normalizeStyles ({ translateX = 0, translateY = 0, skewX = 0, skewY = 0 }) {
     return {
       transform: `translate(${translateX}px, ${translateY}px) skew(${skewX}deg, ${skewY}deg)`
     };
   }
 
   static getTransformations = (percentageX, percentageY) => {
-    let multiplier = 1;
+    const modifier = 1;
 
-    let windowWidth = window.innerWidth;
-    let windowHeight = window.innerHeight;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
 
-    let leftSideOfScreen = percentageX < 50;
-    let topSideOfScreen = percentageY < 50;
+    const leftSideOfScreen = percentageX < 50;
+    const topSideOfScreen = percentageY < 50;
+
+    const fromCenterX = (percentageX - 50) / 100;
+    const fromCenterY = (percentageY - 50) / 100;
 
     // @todo, figure out this magic written back in 2014 and improve it.
-    let translateX = (
-      leftSideOfScreen
-        ? ((50 - percentageX) / 100) * (windowWidth * multiplier * 0.03)
-        : -((percentageX - 50) / 100) * (windowWidth * multiplier * 0.03)
-    );
-    let translateY = (
-      topSideOfScreen
-        ? ((50 - percentageY) / 100) * (windowHeight * multiplier * 0.03)
-        : -((percentageY - 50) / 100) * (windowHeight * multiplier * 0.03)
-    );
+    const translateX = (!leftSideOfScreen ? -1 : 1) * Math.abs(fromCenterX * (windowWidth * 0.03)) * modifier;
+    const translateY = (!topSideOfScreen ? -1 : 1) * Math.abs(fromCenterY * (windowHeight * 0.03)) * modifier;
 
-    let skewX = ((percentageX - 50) / 100) * 1.5 * multiplier;
-    let skewY = ((percentageY - 50) / 100) * 1.5 * multiplier;
+    const skewX = (!leftSideOfScreen ? -1 : 1) * fromCenterX * 1.5 * modifier;
+    const skewY = (!topSideOfScreen ? -1 : 1) * fromCenterY * 1.5 * modifier;
 
     return {
-      translateX, translateY, skewX, skewY
+      translateX, translateY
     };
   }
 }
