@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import Router from './Router';
-import { AppContext, AppProvider } from './components/AppContext';
+import { AppContext, AppProvider } from './AppContext';
 import RepositoryLink from './components/RepositoryLink';
 import Logo from './components/Logo';
 import './App.css';
@@ -12,13 +12,13 @@ class App extends React.Component {
     return (
       <AppProvider>
         <AppContext.Consumer>
-          {(context) => (
+          {({ theme, logo, repository }) => (
             <BrowserRouter>
-              <div className={context.state.theme}>
+              <div className={theme}>
                 <div className='app'>
                   <Router />
-                  <Logo {...context.logo} />
-                  <RepositoryLink {...context.repository} />
+                  <Logo {...logo} />
+                  <RepositoryLink {...repository} />
                 </div>
               </div>
             </BrowserRouter>
