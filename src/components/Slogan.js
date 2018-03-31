@@ -1,7 +1,7 @@
 import React from 'react';
 import Typed from 'typed.js';
 
-import { AppContext } from './AppContext';
+import { AppContext } from '../AppContext';
 import SloganLink from './SloganLink';
 
 class Slogan extends React.Component {
@@ -69,8 +69,8 @@ class Slogan extends React.Component {
   render () {
     return (
       <AppContext.Consumer>
-        {(context) => (
-          <div style={context.state.pageTransformStyle}>
+        {({ appTransformStyle, hobbies, links }) => (
+          <div style={appTransformStyle}>
             <header className='slogan'>
               <h1>
                 <span id='sloganHeadingStrings'>
@@ -83,7 +83,7 @@ class Slogan extends React.Component {
 
               <p className={`slogan__delayed-subtitle ${this.state.subtitleAnimationClass}`}>With <span className='text-emphasis'>whole lotta love</span> <br className='sm-only' />
                 for <span id='sloganHobbiesStrings'>
-                  {context.hobbies.map((hobby, index) => (
+                  {hobbies.map((hobby, index) => (
                     <span key={`hobby-${index}`}>{hobby}</span>
                   ))}
                 </span>
@@ -91,7 +91,7 @@ class Slogan extends React.Component {
               </p>
 
               <ul className={`slogan__icons ${this.state.sloganLinkActiveClassName}`}>
-                {context.links.map((link, key) => (
+                {links.map((link, key) => (
                   <li key={key} className={this.state.iconAnimationClass}>
                     <SloganLink
                       {...link}
