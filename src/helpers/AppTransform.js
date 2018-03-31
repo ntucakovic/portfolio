@@ -58,7 +58,7 @@ class AppTransform {
     const skewY = (!topSideOfScreen ? -1 : 1) * fromCenterY * 1.5 * modifier;
 
     return {
-      translateX, translateY
+      translateX, translateY, skewX, skewY
     };
   }
 }
