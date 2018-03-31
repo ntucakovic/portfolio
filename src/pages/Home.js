@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Slogan from '../components/Slogan';
 import { AppContext } from '../AppContext';
 
