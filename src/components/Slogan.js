@@ -81,6 +81,7 @@ class Slogan extends React.Component {
       <div style={appTransformStyle}>
         <header className="slogan">
           <h1>
+            <span className="sr-only">Nikola Tucaković</span>
             <span id="sloganHeadingStrings">
               <span>
                 <span className="text-emphasis">Frontend</span> &&{" "}
@@ -99,12 +100,16 @@ class Slogan extends React.Component {
             With <span className="text-emphasis">whole lotta love</span>{" "}
             <br className="sm-only" />
             for{" "}
-            <span id="sloganHobbiesStrings">
+            <span id="sloganHobbiesStrings" className="sr-only">
               {hobbies.map((hobby, index) => (
                 <span key={`hobby-${index}`}>{hobby}</span>
               ))}
             </span>
-            <span id="sloganHobbies" className="slogan-hobbies text-emphasis" />
+            <span
+              id="sloganHobbies"
+              className="slogan-hobbies text-emphasis"
+              aria-hidden="true"
+            />
           </p>
 
           <ul

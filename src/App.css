@@ -89,6 +89,17 @@ h6 {
   .sm-only {
     display: none; } }
 
+.sr-only {
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  white-space: nowrap;
+  border: 0; }
+
 ::selection {
   color: #b0bac0;
   background-color: rgba(0, 0, 0, 0.2);

@@ -19,6 +19,8 @@ class ThemeSwitcher extends React.Component {
         >
           <Isvg src={moon} className="theme-switcher__icon" />
 
+          <span className="sr-only">Change site to dark theme.</span>
+
           <input
             type="radio"
             name="theme"
@@ -35,6 +37,8 @@ class ThemeSwitcher extends React.Component {
           }`}
         >
           <Isvg src={sun} className="theme-switcher__icon" />
+
+          <span className="sr-only">Change site to light theme.</span>
 
           <input
             type="radio"

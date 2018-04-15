@@ -79,7 +79,7 @@ const links = [
     href:
       "https://drive.google.com/uc?export=download&id=0B1aRGaIa4vgnUUpRT3diOFYybjQ",
     label: (
-      <span>
+      <span aria-hidden="true">
         Download my <span className="text-emphasis">resume</span>
       </span>
     ),
