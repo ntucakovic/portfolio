@@ -114,33 +114,31 @@ $slogan-icon-box-shadow-outer-md: 4px;
     width: $slogan-icon-sm;
     height: $slogan-icon-sm;
     margin-left: 5px;
+    transition: $transition-default;
     opacity: 0;
     border-radius: $slogan-icon-border-radius-sm;
     background-color: $slogan-icon-bg;
 
-    @include themify {
-      $color: get-themify-variable('icon-fill');
-      box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-sm $color, 0 0 0 ($slogan-icon-box-shadow-outer-sm / 2) $slogan-icon-bg;
-    }
+    box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-sm $background, 0 0 0 ($slogan-icon-box-shadow-outer-sm / 2) $slogan-icon-bg;
+    box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-sm var(--background), 0 0 0 ($slogan-icon-box-shadow-outer-sm / 2) $slogan-icon-bg; // sass-lint:disable-line no-duplicate-properties
+
 
     @media (min-width: $screen-md-min) {
       width: $slogan-icon-md;
       height: $slogan-icon-md;
       margin-left: 10px;
       border-radius: $slogan-icon-border-radius-md;
-      box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-md $white, 0 0 0 ($slogan-icon-box-shadow-outer-md / 2) $slogan-icon-bg;
-
-      @include themify {
-        $color: get-themify-variable('icon-fill');
-        box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-md $color, 0 0 0 ($slogan-icon-box-shadow-outer-md / 2) $slogan-icon-bg;
-      }
+      box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-md $background, 0 0 0 ($slogan-icon-box-shadow-outer-md / 2) $slogan-icon-bg;
+      box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-md var(--background), 0 0 0 ($slogan-icon-box-shadow-outer-md / 2) $slogan-icon-bg; // sass-lint:disable-line no-duplicate-properties
     }
 
     &.is-active {
       box-shadow: inset 0 0 0 ($slogan-icon-box-shadow-outer-sm * 1.5) $white, 0 0 0 ($slogan-icon-box-shadow-outer-sm) $slogan-icon-bg;
+
       svg {
-        fill: $white !important;
+        fill: $white !important; // sass-lint:disable-line no-important
       }
+
       @media (min-width: $screen-md-min) {
         box-shadow: inset 0 0 0 ($slogan-icon-box-shadow-outer-md * 1.5) $white, 0 0 0 ($slogan-icon-box-shadow-outer-md) $slogan-icon-bg;
       }
@@ -155,13 +153,12 @@ $slogan-icon-box-shadow-outer-md: 4px;
       height: 100%;
       max-height: 100%;
       padding: $slogan-icon-padding-sm;
+      transition: $transition-default;
+      fill: $background;
+      fill: var(--background); // sass-lint:disable-line no-duplicate-properties
 
       @media (min-width: $screen-md-min) {
         padding: $slogan-icon-padding-md;
-      }
-
-      @include themify {
-        fill: get-themify-variable('icon-fill');
       }
     }
   }

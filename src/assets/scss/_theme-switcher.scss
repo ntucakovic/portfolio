@@ -1,0 +1,41 @@
+$switcher-icon-small: 14px;
+$switcher-icon-large: 24px;
+
+.theme-switcher {
+  position: fixed;
+  z-index: 5;
+  bottom: 5px;
+  left: 5px;
+  display: flex;
+
+  &__button {
+    position: relative;
+    cursor: pointer;
+    transition: $transition-default;
+    opacity: 0.4;
+    border: 0;
+    background: none;
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
+
+  svg {
+    width: $switcher-icon-small;
+    height: $switcher-icon-small;
+    fill: $text-highlight;
+
+    @media (min-width: $screen-md-min) {
+      width: $switcher-icon-large;
+      height: $switcher-icon-large;
+    }
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+  }
+}

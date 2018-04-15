@@ -28,14 +28,15 @@ $logo-landscape-scale: 0.9;
   }
 
   svg {
-    @include themify {
-      fill: get-themify-variable('logo-fill');
-      box-shadow: 0 0 0 4vw darken(get-themify-variable('logo-fill'), 5%);
-    }
     position: absolute;
     top: 50%;
+    transition: $transition-default;
     transform: translateY(-50%);
     border-radius: 50%;
+    box-shadow: 0 0 0 4vw $background-darker;
+    box-shadow: 0 0 0 4vw var(--background-darker); // sass-lint:disable-line no-duplicate-properties
+    fill: $background-lighter;
+    fill: var(--background-lighter); // sass-lint:disable-line no-duplicate-properties
   }
 }
 

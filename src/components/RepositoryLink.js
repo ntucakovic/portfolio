@@ -1,13 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Isvg from 'react-inlinesvg';
+import React from "react";
+import PropTypes from "prop-types";
+import Isvg from "react-inlinesvg";
 
-const RepositoryLink = (props) => {
+const RepositoryLink = props => {
   const { icon, ...attributes } = props;
   return (
-    <div className='repository-link'>
-      <a {...attributes}><Isvg src={icon} /></a>
-      <div className='repository-link__background' />
+    <div
+      style={{
+        position: "fixed",
+        zIndex: 2,
+        right: 0,
+        bottom: 0
+      }}
+    >
+      <a className="repository-link" {...attributes}>
+        <Isvg src={icon} />
+      </a>
+      <div className="repository-link__background" />
     </div>
   );
 };

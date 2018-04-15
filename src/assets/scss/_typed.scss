@@ -5,6 +5,7 @@
 
 .slogan-heading + .typed-cursor {
   animation: blinkToHidden 0.7s 2s 3 forwards;
-  animation-iteration-count: 3 !important;
+  // We need to set important because typed.js sets property as inline style.
+  animation-iteration-count: 3 !important; // sass-lint:disable-line no-important
   opacity: 1;
 }
