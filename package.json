@@ -16,7 +16,7 @@
     "typed.js": "^2.0.6"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "build-css": "sass-lint -c .sass-lint.yml './src/assets/**/*.scss' -v -q && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
     "build": "npm run build-css && react-scripts build",
@@ -32,6 +32,7 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-semistandard-react": "^4.0.0",
     "prettier": "1.12.0",
+    "sass-lint": "^1.12.1",
     "surge": "^0.20.1"
   }
 }

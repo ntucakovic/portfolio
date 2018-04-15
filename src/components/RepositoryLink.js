@@ -5,8 +5,15 @@ import Isvg from "react-inlinesvg";
 const RepositoryLink = props => {
   const { icon, ...attributes } = props;
   return (
-    <div className="repository-link">
-      <a {...attributes}>
+    <div
+      style={{
+        position: "fixed",
+        zIndex: 2,
+        right: 0,
+        bottom: 0
+      }}
+    >
+      <a className="repository-link" {...attributes}>
         <Isvg src={icon} />
       </a>
       <div className="repository-link__background" />

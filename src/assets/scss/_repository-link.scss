@@ -2,34 +2,27 @@ $repository-icon-sm: 24px;
 $repository-icon-md: 36px;
 
 .repository-link {
-  position: fixed;
+  position: relative;
   z-index: 2;
-  right: 0;
-  bottom: 0;
+  display: block;
+  box-sizing: content-box;
+  width: $repository-icon-sm;
+  height: $repository-icon-sm;
+  padding: 15px;
+  transition: transform 0.5s;
+  transform: translate(20%, 20%);
 
-  a {
-    position: relative;
-    z-index: 2;
-    display: block;
-    box-sizing: content-box;
-    width: $repository-icon-sm;
-    height: $repository-icon-sm;
-    padding: 15px;
-    transition: transform 0.5s;
-    transform: translate(20%, 20%);
+  @media (min-width: $screen-md-min) {
+    width: $repository-icon-md;
+    height: $repository-icon-md;
+  }
 
-    @media (min-width: $screen-md-min) {
-      width: $repository-icon-md;
-      height: $repository-icon-md;
-    }
+  &:focus,
+  &:hover {
+    transform: translate(0, 0);
 
-    &:focus,
-    &:hover {
-      transform: translate(0, 0);
-
-      + .repository-link__background {
-        transform: translate(-50%, -50%) rotate(-30deg);
-      }
+    + .repository-link__background {
+      transform: translate(-50%, -50%) rotate(-30deg);
     }
   }
 
