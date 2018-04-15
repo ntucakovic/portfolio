@@ -7,49 +7,38 @@ class ThemeSwitcher extends React.Component {
   static DARK_THEME_KEY = 0;
   static LIGHT_THEME_KEY = 1;
 
+  handleClick = themeKey => {
+    return () => {
+      const { changeActiveTheme } = this.props;
+      changeActiveTheme(themeKey);
+    };
+  };
+
   render = () => {
     const darkActive = this.props.activeTheme === ThemeSwitcher.DARK_THEME_KEY;
 
     return (
       <div className="theme-switcher">
-        <label
-          className={`theme-switcher__label theme-switcher__label--dark${
+        <button
+          className={`theme-switcher__button theme-switcher__button--dark${
             darkActive ? " is-active" : ""
           }`}
+          onClick={this.handleClick(ThemeSwitcher.DARK_THEME_KEY)}
         >
           <Isvg src={moon} className="theme-switcher__icon" />
 
           <span className="sr-only">Change site to dark theme.</span>
-
-          <input
-            type="radio"
-            name="theme"
-            value={ThemeSwitcher.DARK_THEME_KEY}
-            defaultChecked={
-              this.props.activeTheme === ThemeSwitcher.DARK_THEME_KEY
-            }
-            onChange={this.props.onChange}
-          />
-        </label>
-        <label
-          className={`theme-switcher__label theme-switcher__label--light${
+        </button>
+        <button
+          className={`theme-switcher__button theme-switcher__button--light${
             !darkActive ? " is-active" : ""
           }`}
+          onClick={this.handleClick(ThemeSwitcher.LIGHT_THEME_KEY)}
         >
           <Isvg src={sun} className="theme-switcher__icon" />
 
           <span className="sr-only">Change site to light theme.</span>
-
-          <input
-            type="radio"
-            name="theme"
-            value={ThemeSwitcher.LIGHT_THEME_KEY}
-            defaultChecked={
-              this.props.activeTheme === ThemeSwitcher.LIGHT_THEME_KEY
-            }
-            onChange={this.props.onChange}
-          />
-        </label>
+        </button>
       </div>
     );
   };
@@ -60,7 +49,7 @@ ThemeSwitcher.propTypes = {
     ThemeSwitcher.DARK_THEME_KEY,
     ThemeSwitcher.LIGHT_THEME_KEY
   ]),
-  onChange: PropTypes.func
+  changeActiveTheme: PropTypes.func
 };
 
 export default ThemeSwitcher;

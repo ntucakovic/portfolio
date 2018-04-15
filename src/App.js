@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import Router from "./Router";
+import AppRouter from "./AppRouter";
 import { AppProvider } from "./AppContext";
 import RepositoryLink from "./components/RepositoryLink";
 import Logo from "./components/Logo";
@@ -54,8 +54,7 @@ class App extends React.Component {
       : App.DARK_THEME;
   }
 
-  handleThemeChange = event => {
-    const themeKey = parseInt(event.target.value, 10);
+  changeActiveTheme = themeKey => {
     const theme = App.getTheme(themeKey);
 
     this.setState({
@@ -70,9 +69,9 @@ class App extends React.Component {
         <BrowserRouter>
           <ThemeCSSVariables variables={this.state.theme.variables}>
             <div className="app">
-              <Router />
+              <AppRouter />
               <ThemeSwitcher
-                onChange={this.handleThemeChange}
+                changeActiveTheme={this.changeActiveTheme}
                 activeTheme={this.state.activeTheme}
               />
               <Logo {...logo} />

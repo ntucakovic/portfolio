@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 
-const Router = () => (
+const AppRouter = () => (
   <main>
     <Switch>
       <Route exact path="/" component={Home} />
@@ -12,4 +12,4 @@ const Router = () => (
   </main>
 );
 
-export default Router;
+export default AppRouter;

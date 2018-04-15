@@ -8,21 +8,23 @@ $switcher-icon-large: 24px;
   left: 5px;
   display: flex;
 
-  &__label {
+  &__button {
     position: relative;
     cursor: pointer;
+    transition: $transition-default;
+    opacity: 0.4;
+    border: 0;
+    background: none;
 
     &.is-active {
-      svg {
-        fill: $text-highlight;
-      }
+      opacity: 1;
     }
   }
 
   svg {
     width: $switcher-icon-small;
     height: $switcher-icon-small;
-    fill: $text-color;
+    fill: $text-highlight;
 
     @media (min-width: $screen-md-min) {
       width: $switcher-icon-large;
