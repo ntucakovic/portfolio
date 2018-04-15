@@ -23,3 +23,5 @@ $background: #232729;
 $background-lighter: #2b3033;
 $background-darker: darken($background-lighter, 5%);
 $selection-background-color: rgba(0, 0, 0, 0.2);
+
+$transition-default: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);

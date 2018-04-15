@@ -30,6 +30,7 @@ $logo-landscape-scale: 0.9;
   svg {
     position: absolute;
     top: 50%;
+    transition: $transition-default;
     transform: translateY(-50%);
     border-radius: 50%;
     box-shadow: 0 0 0 4vw $background-darker;

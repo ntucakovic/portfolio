@@ -73,6 +73,7 @@ h6 {
   position: relative;
   overflow: hidden;
   height: 100vh;
+  transition: $transition-default;
   color: $text-color;
   background-color: $background;
   background-color: var(--background); // sass-lint:disable-line no-duplicate-properties
@@ -86,3 +87,4 @@ h6 {
 @import 'assets/scss/logo';
 @import 'assets/scss/slogan';
 @import 'assets/scss/repository-link';
+@import 'assets/scss/theme-switcher';

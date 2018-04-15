@@ -114,12 +114,13 @@ $slogan-icon-box-shadow-outer-md: 4px;
     width: $slogan-icon-sm;
     height: $slogan-icon-sm;
     margin-left: 5px;
+    transition: $transition-default;
     opacity: 0;
     border-radius: $slogan-icon-border-radius-sm;
     background-color: $slogan-icon-bg;
 
     box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-sm $background, 0 0 0 ($slogan-icon-box-shadow-outer-sm / 2) $slogan-icon-bg;
-    box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-sm var(--$background), 0 0 0 ($slogan-icon-box-shadow-outer-sm / 2) $slogan-icon-bg; // sass-lint:disable-line no-duplicate-properties
+    box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-sm var(--background), 0 0 0 ($slogan-icon-box-shadow-outer-sm / 2) $slogan-icon-bg; // sass-lint:disable-line no-duplicate-properties
 
 
     @media (min-width: $screen-md-min) {
@@ -152,6 +153,7 @@ $slogan-icon-box-shadow-outer-md: 4px;
       height: 100%;
       max-height: 100%;
       padding: $slogan-icon-padding-sm;
+      transition: $transition-default;
       fill: $background;
       fill: var(--background); // sass-lint:disable-line no-duplicate-properties
 

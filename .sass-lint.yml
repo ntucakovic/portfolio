@@ -77,7 +77,7 @@ rules:
     - include: true
   max-line-length: 0
   max-file-line-count: 0
-  nesting-depth: 1
+  nesting-depth: 0
   property-sort-order:
     - 1
     -

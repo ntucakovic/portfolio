@@ -6,5 +6,18 @@ import linkedin from "./assets/svg/linkedin-in.svg";
 import skype from "./assets/svg/skype.svg";
 import twitter from "./assets/svg/twitter.svg";
 import github from "./assets/svg/github.svg";
+import moon from "./assets/svg/moon.svg";
+import sun from "./assets/svg/sun.svg";
 
-export { logo, envelope, file, instagram, linkedin, skype, twitter, github };
+export {
+  logo,
+  envelope,
+  file,
+  instagram,
+  linkedin,
+  skype,
+  twitter,
+  github,
+  moon,
+  sun
+};

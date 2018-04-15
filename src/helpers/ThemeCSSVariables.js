@@ -7,10 +7,7 @@ class ThemeCSSVariables extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (
-      JSON.stringify(this.props.variables) !==
-      JSON.stringify(prevProps.variables)
-    ) {
+    if (this.props.variables !== prevProps.variables) {
       this.updateCSSVariables(this.props.variables);
     }
   }

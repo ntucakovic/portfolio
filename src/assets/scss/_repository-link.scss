@@ -34,7 +34,7 @@ $repository-icon-md: 36px;
     width: 1000%;
     height: 100%;
     padding: 15px 0;
-    transition: transform 0.5s;
+    transition: $transition-default;
     transform: translate(-42%, -42%) rotate(-45deg);
     background-color: $background-lighter;
     background-color: var(--background-lighter); // sass-lint:disable-line no-duplicate-properties
