@@ -34,10 +34,6 @@ $repository-icon-md: 36px;
   }
 
   &__background {
-    @include themify {
-      background-color: get-themify-variable('repository-link-bg');
-    }
-
     position: absolute;
     top: 50%;
     left: 50%;
@@ -47,6 +43,8 @@ $repository-icon-md: 36px;
     padding: 15px 0;
     transition: transform 0.5s;
     transform: translate(-42%, -42%) rotate(-45deg);
+    background-color: $background-lighter;
+    background-color: var(--background-lighter); // sass-lint:disable-line no-duplicate-properties
 
     @media (min-width: $screen-md-min) {
       padding: 25px 0;

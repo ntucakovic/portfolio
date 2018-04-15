@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Coustard|Roboto:300');
+
 // Required CSS resets.
 * {
   &,
@@ -12,9 +14,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
-//@import url('//fonts.googleapis.com/css?family=Oswald|Roboto:300');
-@import url('https://fonts.googleapis.com/css?family=Coustard|Roboto:300');
 
 html {
   line-height: 1.15;
@@ -65,21 +64,18 @@ h6 {
 @import 'assets/scss/utils/utility-classes';
 
 ::selection {
-  @include themify {
-    color: $text-highlight;
-    background-color: get-themify-variable('selection-color');
-  }
+  color: $text-highlight;
+  background-color: $selection-background-color;
+  background-color: var(--selection-background-color); // sass-lint:disable-line no-duplicate-properties
 }
 
 .app {
-  @include themify {
-    background-color: get-themify-variable('background');
-  }
-
   position: relative;
   overflow: hidden;
   height: 100vh;
   color: $text-color;
+  background-color: $background;
+  background-color: var(--background); // sass-lint:disable-line no-duplicate-properties
 
   main {
     position: relative;
