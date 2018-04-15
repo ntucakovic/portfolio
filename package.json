@@ -28,6 +28,7 @@
     "eslint": "^4.19.1",
     "eslint-config-semistandard-react": "^4.1.0",
     "eslint-plugin-semistandard-react": "^4.0.0",
+    "eslint-plugin-prettier": "^2.6.0",
     "prettier": "1.12.0",
     "surge": "^0.20.1"
   }
