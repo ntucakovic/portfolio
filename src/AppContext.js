@@ -1,53 +1,35 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import AppTransform from './helpers/AppTransform';
-import { logo, hobbies, repository, links } from './helpers/data';
+import AppTransform from "./helpers/AppTransform";
 
 const AppContext = React.createContext();
 
 class AppProvider extends React.Component {
   state = {
     appTransformStyle: {
-      transform: ''
-    },
-    theme: 'light'
-  }
+      transform: ""
+    }
+  };
 
-  componentDidMount () {
-    this.setTheme();
-  }
-
-  handleMouseMove = (event) => {
-    const appTransformStyle = AppTransform.getStyles(AppTransform.EVENT_MOUSE_MOVE)(event);
+  handleMouseMove = event => {
+    const appTransformStyle = AppTransform.getStyles(
+      AppTransform.EVENT_MOUSE_MOVE
+    )(event);
 
     this.setState({
       appTransformStyle
     });
-  }
+  };
 
-  setTheme () {
-    const date = new Date();
-    const isNightTime = (date.getHours() < 6) || (date.getHours() > 18);
-
-    if (isNightTime) {
-      this.setState({
-        theme: 'dark'
-      });
-    }
-  }
-
-  render () {
+  render() {
     return (
-      <AppContext.Provider value={{
-        theme: this.state.theme,
-        appTransformStyle: this.state.appTransformStyle,
-        logo,
-        repository,
-        hobbies,
-        links,
-        handleMouseMove: this.handleMouseMove
-      }}>
+      <AppContext.Provider
+        value={{
+          appTransformStyle: this.state.appTransformStyle,
+          handleMouseMove: this.handleMouseMove
+        }}
+      >
         {this.props.children}
       </AppContext.Provider>
     );

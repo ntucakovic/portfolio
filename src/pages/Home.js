@@ -1,14 +1,22 @@
-import React, { Component } from 'react';
-import Slogan from '../components/Slogan';
-import { AppContext } from '../AppContext';
+import React, { Component } from "react";
+import Slogan from "../components/Slogan";
+import { AppContext } from "../AppContext";
+import { hobbies, links } from "../helpers/data";
 
 class Home extends Component {
-  render () {
+  render() {
     return (
       <AppContext.Consumer>
-        {({ handleMouseMove }) => (
-          <div className='flex-content-center full-viewport-min' onMouseMove={handleMouseMove}>
-            <Slogan />
+        {({ handleMouseMove, appTransformStyle }) => (
+          <div
+            className="flex-content-center full-viewport-min"
+            onMouseMove={handleMouseMove}
+          >
+            <Slogan
+              appTransformStyle={appTransformStyle}
+              hobbies={hobbies}
+              links={links}
+            />
           </div>
         )}
       </AppContext.Consumer>

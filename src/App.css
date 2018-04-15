@@ -89,23 +89,30 @@ h6 {
   .sm-only {
     display: none; } }
 
-.dark ::selection {
-  color: #b0bac0;
-  background-color: rgba(0, 0, 0, 0.2); }
+.sr-only {
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  white-space: nowrap;
+  border: 0; }
 
-.light ::selection {
+::selection {
   color: #b0bac0;
-  background-color: rgba(255, 255, 255, 0.5); }
+  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var(--selection-background-color); }
 
 .app {
   position: relative;
   overflow: hidden;
   height: 100vh;
-  color: #717c80; }
-  .dark .app {
-    background-color: #232729; }
-  .light .app {
-    background-color: #f5f5f5; }
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: #717c80;
+  background-color: #232729;
+  background-color: var(--background); }
   .app main {
     position: relative;
     z-index: 1; }
@@ -133,14 +140,13 @@ h6 {
   .logo svg {
     position: absolute;
     top: 50%;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     transform: translateY(-50%);
-    border-radius: 50%; }
-    .dark .logo svg {
-      fill: #2b3033;
-      box-shadow: 0 0 0 4vw #1f2325; }
-    .light .logo svg {
-      fill: #eee;
-      box-shadow: 0 0 0 4vw #e1e1e1; }
+    border-radius: 50%;
+    box-shadow: 0 0 0 4vw #1f2325;
+    box-shadow: 0 0 0 4vw var(--background-darker);
+    fill: #2b3033;
+    fill: var(--background-lighter); }
 
 @keyframes animateLogoPortrait {
   from {
@@ -235,24 +241,20 @@ h6 {
     width: 36px;
     height: 36px;
     margin-left: 5px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     opacity: 0;
     border-radius: 18px;
-    background-color: #717c80; }
-    .dark .slogan__icon {
-      box-shadow: inset 0 0 0 2px #232729, 0 0 0 1px #717c80; }
-    .light .slogan__icon {
-      box-shadow: inset 0 0 0 2px #f5f5f5, 0 0 0 1px #717c80; }
+    background-color: #717c80;
+    box-shadow: inset 0 0 0 2px #232729, 0 0 0 1px #717c80;
+    box-shadow: inset 0 0 0 2px var(--background), 0 0 0 1px #717c80; }
     @media (min-width: 576px) {
       .slogan__icon {
         width: 64px;
         height: 64px;
         margin-left: 10px;
         border-radius: 32px;
-        box-shadow: inset 0 0 0 4px #fff, 0 0 0 2px #717c80; }
-        .dark .slogan__icon {
-          box-shadow: inset 0 0 0 4px #232729, 0 0 0 2px #717c80; }
-        .light .slogan__icon {
-          box-shadow: inset 0 0 0 4px #f5f5f5, 0 0 0 2px #717c80; } }
+        box-shadow: inset 0 0 0 4px #232729, 0 0 0 2px #717c80;
+        box-shadow: inset 0 0 0 4px var(--background), 0 0 0 2px #717c80; } }
     .slogan__icon.is-active {
       box-shadow: inset 0 0 0 3px #fff, 0 0 0 2px #717c80; }
       .slogan__icon.is-active svg {
@@ -268,14 +270,13 @@ h6 {
       max-width: 100%;
       height: 100%;
       max-height: 100%;
-      padding: 8px; }
+      padding: 8px;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      fill: #232729;
+      fill: var(--background); }
       @media (min-width: 576px) {
         .slogan__icon svg {
           padding: 16px; } }
-      .dark .slogan__icon svg {
-        fill: #232729; }
-      .light .slogan__icon svg {
-        fill: #f5f5f5; }
   .slogan__title {
     display: inline-block;
     overflow: hidden;
@@ -322,28 +323,23 @@ h6 {
   opacity: 1; }
 
 .repository-link {
-  position: fixed;
+  position: relative;
   z-index: 2;
-  right: 0;
-  bottom: 0; }
-  .repository-link a {
-    position: relative;
-    z-index: 2;
-    display: block;
-    box-sizing: content-box;
-    width: 24px;
-    height: 24px;
-    padding: 15px;
-    transition: transform 0.5s;
-    transform: translate(20%, 20%); }
-    @media (min-width: 576px) {
-      .repository-link a {
-        width: 36px;
-        height: 36px; } }
-    .repository-link a:focus, .repository-link a:hover {
-      transform: translate(0, 0); }
-      .repository-link a:focus + .repository-link__background, .repository-link a:hover + .repository-link__background {
-        transform: translate(-50%, -50%) rotate(-30deg); }
+  display: block;
+  box-sizing: content-box;
+  width: 24px;
+  height: 24px;
+  padding: 15px;
+  transition: transform 0.5s;
+  transform: translate(20%, 20%); }
+  @media (min-width: 576px) {
+    .repository-link {
+      width: 36px;
+      height: 36px; } }
+  .repository-link:focus, .repository-link:hover {
+    transform: translate(0, 0); }
+    .repository-link:focus + .repository-link__background, .repository-link:hover + .repository-link__background {
+      transform: translate(-50%, -50%) rotate(-30deg); }
   .repository-link__background {
     position: absolute;
     top: 50%;
@@ -352,12 +348,10 @@ h6 {
     width: 1000%;
     height: 100%;
     padding: 15px 0;
-    transition: transform 0.5s;
-    transform: translate(-42%, -42%) rotate(-45deg); }
-    .dark .repository-link__background {
-      background-color: #2b3033; }
-    .light .repository-link__background {
-      background-color: #eee; }
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translate(-42%, -42%) rotate(-45deg);
+    background-color: #2b3033;
+    background-color: var(--background-lighter); }
     @media (min-width: 576px) {
       .repository-link__background {
         padding: 25px 0; } }
@@ -365,3 +359,32 @@ h6 {
     width: 100%;
     height: 100%;
     fill: #b0bac0; }
+
+.theme-switcher {
+  position: fixed;
+  z-index: 5;
+  bottom: 5px;
+  left: 5px;
+  display: flex; }
+  .theme-switcher__button {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 0.4;
+    border: 0;
+    background: none; }
+    .theme-switcher__button.is-active {
+      opacity: 1; }
+  .theme-switcher svg {
+    width: 14px;
+    height: 14px;
+    fill: #b0bac0; }
+    @media (min-width: 576px) {
+      .theme-switcher svg {
+        width: 24px;
+        height: 24px; } }
+  .theme-switcher input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden; }
