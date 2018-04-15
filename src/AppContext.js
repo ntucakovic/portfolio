@@ -9,8 +9,7 @@ class AppProvider extends React.Component {
   state = {
     appTransformStyle: {
       transform: ""
-    },
-    theme: "light"
+    }
   };
 
   handleMouseMove = event => {
