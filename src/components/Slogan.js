@@ -1,7 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Typed from "typed.js";
 
-import { AppContext } from "../AppContext";
 import SloganLink from "./SloganLink";
 
 class Slogan extends React.Component {
@@ -75,61 +75,60 @@ class Slogan extends React.Component {
   }
 
   render() {
+    const { appTransformStyle, hobbies, links } = this.props;
+
     return (
-      <AppContext.Consumer>
-        {({ appTransformStyle, hobbies, links }) => (
-          <div style={appTransformStyle}>
-            <header className="slogan">
-              <h1>
-                <span id="sloganHeadingStrings">
-                  <span>
-                    <span className="text-emphasis">Frontend</span> &&{" "}
-                    <br className="sm-only" />
-                    <span className="text-emphasis">Web</span> Developer
-                  </span>
-                </span>
-                <span id="sloganHeading" className="slogan-heading" />
-              </h1>
-
-              <p
-                className={`slogan__delayed-subtitle ${
-                  this.state.subtitleAnimationClass
-                }`}
-              >
-                With <span className="text-emphasis">whole lotta love</span>{" "}
+      <div style={appTransformStyle}>
+        <header className="slogan">
+          <h1>
+            <span id="sloganHeadingStrings">
+              <span>
+                <span className="text-emphasis">Frontend</span> &&{" "}
                 <br className="sm-only" />
-                for{" "}
-                <span id="sloganHobbiesStrings">
-                  {hobbies.map((hobby, index) => (
-                    <span key={`hobby-${index}`}>{hobby}</span>
-                  ))}
-                </span>
-                <span
-                  id="sloganHobbies"
-                  className="slogan-hobbies text-emphasis"
-                />
-              </p>
+                <span className="text-emphasis">Web</span> Developer
+              </span>
+            </span>
+            <span id="sloganHeading" className="slogan-heading" />
+          </h1>
 
-              <ul
-                className={`slogan__icons ${
-                  this.state.sloganLinkActiveClassName
-                }`}
-              >
-                {links.map((link, key) => (
-                  <li key={key} className={this.state.iconAnimationClass}>
-                    <SloganLink
-                      {...link}
-                      onStateChange={this.handleSloganLinkStateChange}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </header>
-          </div>
-        )}
-      </AppContext.Consumer>
+          <p
+            className={`slogan__delayed-subtitle ${
+              this.state.subtitleAnimationClass
+            }`}
+          >
+            With <span className="text-emphasis">whole lotta love</span>{" "}
+            <br className="sm-only" />
+            for{" "}
+            <span id="sloganHobbiesStrings">
+              {hobbies.map((hobby, index) => (
+                <span key={`hobby-${index}`}>{hobby}</span>
+              ))}
+            </span>
+            <span id="sloganHobbies" className="slogan-hobbies text-emphasis" />
+          </p>
+
+          <ul
+            className={`slogan__icons ${this.state.sloganLinkActiveClassName}`}
+          >
+            {links.map((link, key) => (
+              <li key={key} className={this.state.iconAnimationClass}>
+                <SloganLink
+                  {...link}
+                  onStateChange={this.handleSloganLinkStateChange}
+                />
+              </li>
+            ))}
+          </ul>
+        </header>
+      </div>
     );
   }
 }
+
+Slogan.propTypes = {
+  appTransformStyle: PropTypes.object,
+  hobbies: PropTypes.array,
+  links: PropTypes.array
+};
 
 export default Slogan;
