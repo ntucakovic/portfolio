@@ -1,5 +1,6 @@
-$switcher-icon-small: 14px;
+$switcher-icon-small: 16px;
 $switcher-icon-large: 24px;
+$switcher-icon-padding: 10px;
 
 .theme-switcher {
   position: fixed;
@@ -10,6 +11,7 @@ $switcher-icon-large: 24px;
 
   &__button {
     position: relative;
+    padding: $switcher-icon-padding;
     cursor: pointer;
     transition: $transition-default;
     opacity: 0.4;
