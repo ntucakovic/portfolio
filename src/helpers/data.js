@@ -3,13 +3,13 @@ import * as icons from "../icons";
 
 const logo = {
   logo: icons.logo,
-  description: "NT"
+  description: "NT Logo"
 };
 
 const hobbies = [
   "Web Design",
   "UI/UX",
-  "Technology & Innovations",
+  "Technology & Innovation",
   "Music",
   "Nomad Lifestyle",
   "Traveling",
@@ -33,7 +33,7 @@ const links = [
     icon: icons.envelope
   },
   {
-    title: "Linkedin Account",
+    title: "Visit my Linkedin Account",
     href: "https://rs.linkedin.com/in/nikolatucakovic",
     label: (
       <span>
@@ -43,7 +43,7 @@ const links = [
     icon: icons.linkedin
   },
   {
-    title: "Twitter Account",
+    title: "Catch me on Twitter",
     href: "https://twitter.com/_ntucakovic",
     label: (
       <span>
@@ -53,7 +53,7 @@ const links = [
     icon: icons.twitter
   },
   {
-    title: "Instagram Profile",
+    title: "View my Instagram pics",
     href: "https://www.instagram.com/nikola.tucakovic",
     label: (
       <span>
