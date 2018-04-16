@@ -9,16 +9,15 @@ First release is live on production since 3rd October.
 Few notes and credits:
 - Project started with `create-react-app`, which brings its (although minimal) architectural decisions,
 which I'm not sure I'm quite fond of. Might take a different path along the way.
-- I've added mixins for easier theme management, written by an unknown author, found in `_color-mixins.scss`.
 - Font Awesome 5 is used for iconography on both website and PDF resume.
 - Used [mattboldt/typed.js](https://github.com/mattboldt/typed.js/) for typewriter effect on `Slogan`.
 
 TODO:
 - Improve SCSS on project.
     - SCSS architecture, check for better practices.
-    - Improve variable structure.
+    - ~~Improve variable structure.~~ 
     - Improve components' styles and selectors.
-    - Integrate sass lint in build process and add rules to project.
+    - ~~Integrate sass lint in build process and add rules to project.~~
 - Add slide for work experience to match PDF resume.
 - Add slide to highlight photography and favorite photos.
     - Possibly integrate with Flickr.
