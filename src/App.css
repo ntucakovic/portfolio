@@ -368,6 +368,7 @@ h6 {
   display: flex; }
   .theme-switcher__button {
     position: relative;
+    padding: 10px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     opacity: 0.4;
@@ -376,8 +377,8 @@ h6 {
     .theme-switcher__button.is-active {
       opacity: 1; }
   .theme-switcher svg {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     fill: #b0bac0; }
     @media (min-width: 576px) {
       .theme-switcher svg {
