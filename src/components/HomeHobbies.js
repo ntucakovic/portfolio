@@ -21,7 +21,7 @@ class HomeHobbies extends React.PureComponent {
   }
 
   render() {
-    const className = classNames("slogan__delayed-subtitle", {
+    const className = classNames("home__delayed-subtitle", {
       "start-animation": this.props.ready
     });
 

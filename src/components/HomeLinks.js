@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import SloganLink from "./SloganLink";
+import IconLink from "./IconLink";
 import withData, { APP_DATA_PROPS } from "../containers/withData";
 import classNames from "classnames";
 
@@ -11,11 +11,11 @@ class HomeLinks extends Component {
     });
 
     return (
-      <ul className="slogan__icons">
+      <ul className="home__icons">
         {this.props.links.map((link, key) => {
           return (
             <li key={key} className={iconClassName}>
-              <SloganLink link={link} />
+              <IconLink link={link} />
             </li>
           );
         })}

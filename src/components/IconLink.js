@@ -4,25 +4,25 @@ import Isvg from "react-inlinesvg";
 import withSloganLinkInteraction from "./withSloganLinkInteraction";
 import classNames from "classnames";
 
-class SloganLink extends React.PureComponent {
+class IconLink extends React.PureComponent {
   render() {
-    let { className, ...props } = this.props;
-    className = classNames("slogan__link", this.props.className);
+    let { className, link, ...attributes } = this.props;
+    className = classNames("icon-link", this.props.className);
 
-    const { icon, label, ...linkAttributes } = this.props.link;
+    const { icon, label, ...linkAttributes } = link;
 
     return (
-      <a className={className} {...linkAttributes} {...props}>
-        <span className="slogan__icon">
+      <a className={className} {...linkAttributes} {...attributes}>
+        <span className="icon-link__icon">
           <Isvg src={icon} />
         </span>
-        <span className="slogan__title">{label}</span>
+        <span className="icon-link__title">{label}</span>
       </a>
     );
   }
 }
 
-SloganLink.propTypes = {
+IconLink.propTypes = {
   className: PropTypes.any,
   link: PropTypes.shape({
     title: PropTypes.string,
@@ -32,4 +32,4 @@ SloganLink.propTypes = {
   })
 };
 
-export default withSloganLinkInteraction(SloganLink);
+export default withSloganLinkInteraction(IconLink);

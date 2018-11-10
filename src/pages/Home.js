@@ -36,7 +36,7 @@ class Home extends Component {
         onMouseMove={this.handleMouseMove}
       >
         <div style={this.props.transformStyles}>
-          <article className="slogan">
+          <article className="home">
             <HomeHeading onComplete={this.handleTypedSloganComplete} />
             <HomeHobbies ready={this.state.headingAnimationCompleted} />
             <HomeLinks ready={this.state.headingAnimationCompleted} />

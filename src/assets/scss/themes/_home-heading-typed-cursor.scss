@@ -3,7 +3,7 @@
   opacity: 1;
 }
 
-.slogan-heading + .typed-cursor {
+.home-heading + .typed-cursor {
   animation: blinkToHidden 0.7s 2s 3 forwards;
   // We need to set important because typed.js sets property as inline style.
   animation-iteration-count: 3 !important; // sass-lint:disable-line no-important

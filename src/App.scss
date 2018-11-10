@@ -1,90 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Coustard|Roboto:300');
 
-// Required CSS resets.
-* {
-  &,
-  &::before,
-  &::after {
-    box-sizing: border-box;
-  }
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  line-height: 1.15;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Coustard', sans-serif;
-  font-weight: 400;
-}
-
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.75rem;
-}
-
-h4 {
-  font-size: 1.5rem;
-}
-
-h5 {
-  font-size: 1.25rem;
-}
-
-h6 {
-  font-size: 1rem;
-}
-
-@import 'assets/scss/utils/themes';
+@import 'assets/scss/utils/variables';
 @import 'assets/scss/utils/animations';
 @import 'assets/scss/utils/utility-classes';
 
-::selection {
-  color: $text-highlight;
-  background-color: $selection-background-color;
-  background-color: var(--selection-background-color); // sass-lint:disable-line no-duplicate-properties
-}
+@import 'assets/scss/pages/base';
 
-.app {
-  position: relative;
-  overflow: hidden;
-  height: 100vh;
-  transition: $transition-default;
-  color: $text-color;
-  background-color: $background;
-  background-color: var(--background); // sass-lint:disable-line no-duplicate-properties
+@import 'assets/scss/components/logo';
+@import 'assets/scss/components/icon-link';
+@import 'assets/scss/components/repository-link';
+@import 'assets/scss/components/theme-switcher';
 
-  main {
-    position: relative;
-    z-index: 1;
-  }
-}
+@import 'assets/scss/pages/home';
 
-@import 'assets/scss/logo';
-@import 'assets/scss/slogan';
-@import 'assets/scss/repository-link';
-@import 'assets/scss/theme-switcher';
+@import 'assets/scss/themes/home-heading-typed-cursor';

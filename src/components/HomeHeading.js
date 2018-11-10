@@ -25,7 +25,7 @@ class HomeHeading extends React.PureComponent {
             <span className="text-emphasis">Web</span> Developer
           </span>
         </span>
-        <span id="sloganHeading" className="slogan-heading" />
+        <span id="sloganHeading" className="home-heading" />
       </h1>
     );
   }
