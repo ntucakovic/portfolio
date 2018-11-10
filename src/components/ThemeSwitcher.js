@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import Isvg from "react-inlinesvg";
 import { moon, sun } from "../icons";
+import classNames from "classnames";
 
 class ThemeSwitcher extends React.Component {
-  static DARK_THEME_KEY = 0;
-  static LIGHT_THEME_KEY = 1;
+  static DARK_THEME_KEY = "DARK_THEME";
+  static LIGHT_THEME_KEY = "LIGHT THEME";
 
   handleClick = themeKey => {
     return () => {
@@ -17,27 +18,37 @@ class ThemeSwitcher extends React.Component {
   render = () => {
     const darkActive = this.props.activeTheme === ThemeSwitcher.DARK_THEME_KEY;
 
+    const darkSwitchClassName = classNames(
+      "theme-switcher__button",
+      "theme-switcher__button--dark",
+      {
+        "is-active": darkActive
+      }
+    );
+
+    const lightSwitchClassName = classNames(
+      "theme-switcher__button",
+      "theme-switcher__button--dark",
+      {
+        "is-active": !darkActive
+      }
+    );
+
     return (
       <div className="theme-switcher">
         <button
-          className={`theme-switcher__button theme-switcher__button--dark${
-            darkActive ? " is-active" : ""
-          }`}
+          className={darkSwitchClassName}
           onClick={this.handleClick(ThemeSwitcher.DARK_THEME_KEY)}
         >
           <Isvg src={moon} className="theme-switcher__icon" />
-
-          <span className="sr-only">Change site to dark theme.</span>
+          <span className="sr-only">Use dark theme</span>
         </button>
         <button
-          className={`theme-switcher__button theme-switcher__button--light${
-            !darkActive ? " is-active" : ""
-          }`}
+          className={lightSwitchClassName}
           onClick={this.handleClick(ThemeSwitcher.LIGHT_THEME_KEY)}
         >
           <Isvg src={sun} className="theme-switcher__icon" />
-
-          <span className="sr-only">Change site to light theme.</span>
+          <span className="sr-only">Use light theme</span>
         </button>
       </div>
     );

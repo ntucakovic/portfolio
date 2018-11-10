@@ -6,78 +6,92 @@ import { AppProvider } from "./AppContext";
 import RepositoryLink from "./components/RepositoryLink";
 import Logo from "./components/Logo";
 import "./App.css";
-import ThemeCSSVariables from "./helpers/ThemeCSSVariables";
+import ThemeCSSVariables from "./components/ThemeCSSVariables";
 import { logo, repository } from "./helpers/data";
 import ThemeSwitcher from "./components/ThemeSwitcher";
+import * as theme from "./constants/theme";
 
 class App extends React.Component {
-  static DARK_THEME = {
-    variables: {
-      "--background": "#232729",
-      "--background-lighter": "#2b3033",
-      "--background-darker": "#1f2325",
-      "--selection-background-color": "rgba(0, 0, 0, 0.2)"
-    }
+  static THEME_SESSION_STORAGE_KEY = "APP_THEME";
+
+  state = {
+    theme: App.getThemeVariables(ThemeSwitcher.LIGHT_THEME_KEY),
+    activeTheme: ThemeSwitcher.LIGHT_THEME_KEY
   };
 
-  static LIGHT_THEME = {
-    variables: {
-      "--background": "#f5f5f5",
-      "--background-lighter": "#eee",
-      "--background-darker": "#e1e1e1",
-      "--selection-background-color": "rgba(255, 255, 255, 0.5)"
+  componentDidMount() {
+    App.getThemeKey().then(themeKey => {
+      this.setState({
+        theme: App.getThemeVariables(themeKey),
+        activeTheme: themeKey
+      });
+    });
+  }
+
+  static getThemeKey() {
+    function getDefaultThemeKey() {
+      const date = new Date();
+      const isNightTime = date.getHours() < 6 || date.getHours() > 18;
+      return isNightTime
+        ? ThemeSwitcher.DARK_THEME_KEY
+        : ThemeSwitcher.LIGHT_THEME_KEY;
     }
-  };
 
-  constructor(props) {
-    super(props);
+    return new Promise(resolve => {
+      if (typeof window.sessionStorage !== "undefined") {
+        let themeKey = sessionStorage.getItem(App.THEME_SESSION_STORAGE_KEY);
+        if (themeKey) {
+          resolve(themeKey);
 
-    const defaultThemeKey = App.defaultThemeKey;
+          return;
+        }
 
-    this.state = {
-      theme: App.getTheme(defaultThemeKey),
-      activeTheme: defaultThemeKey
-    };
+        themeKey = getDefaultThemeKey();
+        resolve(themeKey);
+        sessionStorage.setItem(App.THEME_SESSION_STORAGE_KEY, themeKey);
+      }
+
+      resolve(getDefaultThemeKey());
+    });
   }
 
-  static get defaultThemeKey() {
-    const date = new Date();
-    const isNightTime = date.getHours() < 6 || date.getHours() > 18;
-    return isNightTime
-      ? ThemeSwitcher.DARK_THEME_KEY
-      : ThemeSwitcher.LIGHT_THEME_KEY;
-  }
-
-  static getTheme(themeKey) {
+  static getThemeVariables(themeKey) {
     return themeKey === ThemeSwitcher.LIGHT_THEME_KEY
-      ? App.LIGHT_THEME
-      : App.DARK_THEME;
+      ? theme.LIGHT_THEME_VARIABLES
+      : theme.DARK_THEME_VARIABLES;
   }
 
   changeActiveTheme = themeKey => {
-    const theme = App.getTheme(themeKey);
+    const theme = App.getThemeVariables(themeKey);
 
-    this.setState({
-      theme: theme,
-      activeTheme: themeKey
-    });
+    this.setState(
+      {
+        theme: theme,
+        activeTheme: themeKey
+      },
+      () => {
+        if (typeof window.sessionStorage !== "undefined") {
+          sessionStorage.setItem(App.THEME_SESSION_STORAGE_KEY, themeKey);
+        }
+      }
+    );
   };
 
   render() {
     return (
       <AppProvider>
+        <ThemeCSSVariables variables={this.state.theme.variables} />
+
         <BrowserRouter>
-          <ThemeCSSVariables variables={this.state.theme.variables}>
-            <div className="app">
-              <AppRouter />
-              <ThemeSwitcher
-                changeActiveTheme={this.changeActiveTheme}
-                activeTheme={this.state.activeTheme}
-              />
-              <Logo {...logo} />
-              <RepositoryLink {...repository} />
-            </div>
-          </ThemeCSSVariables>
+          <div className="app">
+            <AppRouter />
+            <ThemeSwitcher
+              changeActiveTheme={this.changeActiveTheme}
+              activeTheme={this.state.activeTheme}
+            />
+            <Logo {...logo} />
+            <RepositoryLink {...repository} />
+          </div>
         </BrowserRouter>
       </AppProvider>
     );
