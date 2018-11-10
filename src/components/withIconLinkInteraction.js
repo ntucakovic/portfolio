@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 
-export default function withSloganLinkInteraction(WrappedComponent) {
+export default function withIconLinkInteraction(WrappedComponent) {
   return class extends React.Component {
     state = {
       isActive: false

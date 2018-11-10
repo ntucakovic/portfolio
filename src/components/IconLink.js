@@ -2,7 +2,7 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import React from "react";
 import Isvg from "react-inlinesvg";
-import withSloganLinkInteraction from "./withSloganLinkInteraction";
+import withIconLinkInteraction from "./withIconLinkInteraction";
 
 class IconLink extends React.PureComponent {
   render() {
@@ -32,4 +32,4 @@ IconLink.propTypes = {
   })
 };
 
-export default withSloganLinkInteraction(IconLink);
+export default withIconLinkInteraction(IconLink);
