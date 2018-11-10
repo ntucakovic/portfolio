@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import withAppContext, {
-  APP_CONTEXT_PROPS
-} from "../containers/withAppContext";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import actions from "../actions";
 import HomeHeading from "../components/HomeHeading";
 import HomeHobbies from "../components/HomeHobbies";
 import HomeLinks from "../components/HomeLinks";
+import withAppContext, {
+  APP_CONTEXT_PROPS
+} from "../containers/withAppContext";
 
 class Home extends Component {
   state = {

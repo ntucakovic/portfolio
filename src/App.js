@@ -1,15 +1,14 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-
-import AppRouter from "./AppRouter";
-import { AppProvider } from "./AppContext";
-import RepositoryLink from "./components/RepositoryLink";
-import Logo from "./components/Logo";
 import "./App.css";
+import { AppProvider } from "./AppContext";
+import AppRouter from "./AppRouter";
+import Logo from "./components/Logo";
+import RepositoryLink from "./components/RepositoryLink";
 import ThemeCSSVariables from "./components/ThemeCSSVariables";
-import { logo, repository } from "./helpers/data";
 import ThemeSwitcher from "./components/ThemeSwitcher";
 import * as theme from "./constants/theme";
+import { logo, repository } from "./helpers/data";
 
 class App extends React.Component {
   static THEME_SESSION_STORAGE_KEY = "APP_THEME";

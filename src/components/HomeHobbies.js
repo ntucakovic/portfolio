@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
 import classNames from "classnames";
-import withData, { APP_DATA_PROPS } from "../containers/withData";
+import PropTypes from "prop-types";
+import React from "react";
 import Typed from "typed.js";
+import withData, { APP_DATA_PROPS } from "../containers/withData";
 
 class HomeHobbies extends React.PureComponent {
   componentDidUpdate(prevProps) {

@@ -1,8 +1,8 @@
-import React from "react";
+import classNames from "classnames";
 import PropTypes from "prop-types";
+import React from "react";
 import Isvg from "react-inlinesvg";
 import { moon, sun } from "../icons";
-import classNames from "classnames";
 
 class ThemeSwitcher extends React.Component {
   static DARK_THEME_KEY = "DARK_THEME";

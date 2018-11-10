@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import IconLink from "./IconLink";
-import withData, { APP_DATA_PROPS } from "../containers/withData";
 import classNames from "classnames";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import withData, { APP_DATA_PROPS } from "../containers/withData";
+import IconLink from "./IconLink";
 
 class HomeLinks extends Component {
   render() {
