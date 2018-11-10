@@ -1,5 +1,5 @@
 import React from "react";
-import * as data from "../helpers/data";
+import * as data from "../constants/data";
 
 export const APP_DATA_PROPS = {
   logo: "logo",

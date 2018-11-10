@@ -1,9 +1,9 @@
-import AppTransform from "../helpers/AppTransform";
+import { onMouseMove } from "../modules/transformFromEvent";
 
 const actions = {
   APP_TRANSFORM: {
     key: "APP_TRANSFORM",
-    callback: AppTransform.onMouseMove
+    callback: onMouseMove
   }
 };
 
