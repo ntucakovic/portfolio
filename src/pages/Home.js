@@ -1,13 +1,27 @@
 import React, { Component } from "react";
-import Slogan from "../components/Slogan";
-import { hobbies, links } from "../helpers/data";
 import withAppContext, {
   APP_CONTEXT_PROPS
 } from "../containers/withAppContext";
 import PropTypes from "prop-types";
 import actions from "../actions";
+import HomeHeading from "../components/HomeHeading";
+import HomeHobbies from "../components/HomeHobbies";
+import HomeLinks from "../components/HomeLinks";
 
 class Home extends Component {
+  state = {
+    headingAnimationCompleted: false
+  };
+
+  /**
+   * Initialize typed.js for hobbies after slogan is finished animating.
+   */
+  handleTypedSloganComplete = () => {
+    this.setState({
+      headingAnimationCompleted: true
+    });
+  };
+
   handleMouseMove = event => {
     this.props.dispatch({
       type: actions.APP_TRANSFORM.key,
@@ -21,11 +35,13 @@ class Home extends Component {
         className="flex-content-center full-viewport-min"
         onMouseMove={this.handleMouseMove}
       >
-        <Slogan
-          transformStyles={this.props.transformStyles}
-          hobbies={hobbies}
-          links={links}
-        />
+        <div style={this.props.transformStyles}>
+          <article className="slogan">
+            <HomeHeading onComplete={this.handleTypedSloganComplete} />
+            <HomeHobbies ready={this.state.headingAnimationCompleted} />
+            <HomeLinks ready={this.state.headingAnimationCompleted} />
+          </article>
+        </div>
       </div>
     );
   }

@@ -25,17 +25,6 @@ $slogan-icon-box-shadow-outer-md: 4px;
     @media (min-width: $screen-md-min) {
       height: $slogan-icon-md;
     }
-
-    &.is-active {
-      @media (max-width: ($screen-md-min - 1)) {
-        .slogan__link {
-          &:not(.is-active) {
-            max-width: 0;
-            opacity: 0;
-          }
-        }
-      }
-    }
   }
 
   &__link {
@@ -79,6 +68,31 @@ $slogan-icon-box-shadow-outer-md: 4px;
         &::after {
           display: block;
         }
+      }
+    }
+
+    &:not(.is-active) {
+      @media (max-width: ($screen-md-min - 1)) {
+        max-width: 0;
+        opacity: 0;
+      }
+    }
+
+    &.is-active {
+      .slogan__icon {
+        box-shadow: inset 0 0 0 ($slogan-icon-box-shadow-outer-sm * 1.5) $white, 0 0 0 ($slogan-icon-box-shadow-outer-sm) $slogan-icon-bg;
+
+        svg {
+          fill: $white !important; // sass-lint:disable-line no-important
+        }
+
+        @media (min-width: $screen-md-min) {
+          box-shadow: inset 0 0 0 ($slogan-icon-box-shadow-outer-md * 1.5) $white, 0 0 0 ($slogan-icon-box-shadow-outer-md) $slogan-icon-bg;
+        }
+      }
+
+      .slogan__title {
+        max-width: 20em;
       }
     }
   }
@@ -132,18 +146,6 @@ $slogan-icon-box-shadow-outer-md: 4px;
       box-shadow: inset 0 0 0 $slogan-icon-box-shadow-outer-md var(--background), 0 0 0 ($slogan-icon-box-shadow-outer-md / 2) $slogan-icon-bg; // sass-lint:disable-line no-duplicate-properties
     }
 
-    &.is-active {
-      box-shadow: inset 0 0 0 ($slogan-icon-box-shadow-outer-sm * 1.5) $white, 0 0 0 ($slogan-icon-box-shadow-outer-sm) $slogan-icon-bg;
-
-      svg {
-        fill: $white !important; // sass-lint:disable-line no-important
-      }
-
-      @media (min-width: $screen-md-min) {
-        box-shadow: inset 0 0 0 ($slogan-icon-box-shadow-outer-md * 1.5) $white, 0 0 0 ($slogan-icon-box-shadow-outer-md) $slogan-icon-bg;
-      }
-    }
-
     svg {
       position: absolute;
       top: 0;
@@ -175,10 +177,6 @@ $slogan-icon-box-shadow-outer-md: 4px;
       padding-left: 10px;
       transition: max-width 1s ease-out;
       line-height: $slogan-icon-md;
-    }
-
-    &.is-active {
-      max-width: 20em;
     }
   }
 
