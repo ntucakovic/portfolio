@@ -1,27 +1,44 @@
 import React, { Component } from "react";
 import Slogan from "../components/Slogan";
-import { AppContext } from "../AppContext";
 import { hobbies, links } from "../helpers/data";
+import withAppContext, {
+  APP_CONTEXT_PROPS
+} from "../containers/withAppContext";
+import PropTypes from "prop-types";
+import actions from "../actions";
 
 class Home extends Component {
+  handleMouseMove = event => {
+    this.props.dispatch({
+      type: actions.APP_TRANSFORM.key,
+      event
+    });
+  };
+
   render() {
     return (
-      <AppContext.Consumer>
-        {({ handleMouseMove, appTransformStyle }) => (
-          <div
-            className="flex-content-center full-viewport-min"
-            onMouseMove={handleMouseMove}
-          >
-            <Slogan
-              appTransformStyle={appTransformStyle}
-              hobbies={hobbies}
-              links={links}
-            />
-          </div>
-        )}
-      </AppContext.Consumer>
+      <div
+        className="flex-content-center full-viewport-min"
+        onMouseMove={this.handleMouseMove}
+      >
+        <Slogan
+          transformStyles={this.props.transformStyles}
+          hobbies={hobbies}
+          links={links}
+        />
+      </div>
     );
   }
 }
 
-export default Home;
+Home.propTypes = {
+  dispatch: PropTypes.func,
+  transformStyles: PropTypes.shape({
+    transform: PropTypes.string
+  })
+};
+
+export default withAppContext(Home, [
+  APP_CONTEXT_PROPS.dispatch,
+  APP_CONTEXT_PROPS.transformStyles
+]);

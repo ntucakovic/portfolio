@@ -75,10 +75,10 @@ class Slogan extends React.Component {
   }
 
   render() {
-    const { appTransformStyle, hobbies, links } = this.props;
+    const { transformStyles, hobbies, links } = this.props;
 
     return (
-      <div style={appTransformStyle}>
+      <div style={transformStyles}>
         <header className="slogan">
           <h1>
             <span className="sr-only">Nikola Tucaković</span>
@@ -131,7 +131,7 @@ class Slogan extends React.Component {
 }
 
 Slogan.propTypes = {
-  appTransformStyle: PropTypes.object,
+  transformStyles: PropTypes.object,
   hobbies: PropTypes.array,
   links: PropTypes.array
 };

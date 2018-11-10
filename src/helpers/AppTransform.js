@@ -5,16 +5,22 @@ class AppTransform {
     transform: "translate(0px, 0px) skew(0deg, 0deg)"
   };
 
-  static onMouseMove = event => {
-    if (window.innerWidth < AppTransform.SCREEN_MD) {
-      return AppTransform.DEFAULT_TRANSFORMATION;
-    }
+  static onMouseMove = ({ event }) => {
+    return new Promise(resolve => {
+      if (window.innerWidth < AppTransform.SCREEN_MD) {
+        resolve({
+          transformStyles: AppTransform.DEFAULT_TRANSFORMATION
+        });
+      }
 
-    const { pageX, pageY } = event;
-    const { x, y } = AppTransform.normalizeMouseMoveVariables(pageX, pageY);
-    const transformations = AppTransform.getTransformations(x, y);
+      const { pageX, pageY } = event;
+      const { x, y } = AppTransform.normalizeMouseMoveVariables(pageX, pageY);
+      const transformations = AppTransform.getTransformations(x, y);
 
-    return AppTransform.normalizeStyles(transformations);
+      resolve({
+        transformStyles: AppTransform.normalizeStyles(transformations)
+      });
+    });
   };
 
   static normalizeMouseMoveVariables(pageX, pageY) {

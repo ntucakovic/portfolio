@@ -1,35 +1,45 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import AppTransform from "./helpers/AppTransform";
+import actions from "./actions";
+
+const reducer = (state, action) => {
+  return new Promise((resolve, reject) => {
+    const { callback } = actions[action.type] || {};
+
+    if (typeof callback === "function") {
+      callback(action, state)
+        .then(stateUpdates => resolve(stateUpdates))
+        .catch(e => reject(e));
+    }
+  });
+};
 
 const AppContext = React.createContext();
 
 class AppProvider extends React.Component {
-  state = {
-    appTransformStyle: {
+  static APP_DEFAULT_STATE = {
+    transformStyles: {
       transform: ""
     }
   };
 
-  handleMouseMove = event => {
-    const appTransformStyle = AppTransform.getStyles(
-      AppTransform.EVENT_MOUSE_MOVE
-    )(event);
+  state = {
+    ...AppProvider.APP_DEFAULT_STATE,
 
-    this.setState({
-      appTransformStyle
-    });
+    dispatch: action => {
+      reducer(this.state, action).then(stateUpdates => {
+        this.setState({
+          ...this.state,
+          ...stateUpdates
+        });
+      });
+    }
   };
 
   render() {
     return (
-      <AppContext.Provider
-        value={{
-          appTransformStyle: this.state.appTransformStyle,
-          handleMouseMove: this.handleMouseMove
-        }}
-      >
+      <AppContext.Provider value={this.state}>
         {this.props.children}
       </AppContext.Provider>
     );
