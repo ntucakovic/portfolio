@@ -1,27 +1,60 @@
+import PropTypes from "prop-types";
 import React, { Component } from "react";
-import Slogan from "../components/Slogan";
-import { AppContext } from "../AppContext";
-import { hobbies, links } from "../helpers/data";
+import actions from "../actions";
+import HomeHeading from "../components/HomeHeading";
+import HomeHobbies from "../components/HomeHobbies";
+import HomeLinks from "../components/HomeLinks";
+import withAppContext, {
+  APP_CONTEXT_PROPS
+} from "../containers/withAppContext";
 
 class Home extends Component {
+  state = {
+    headingAnimationCompleted: false
+  };
+
+  /**
+   * Initialize typed.js for hobbies after slogan is finished animating.
+   */
+  handleTypedSloganComplete = () => {
+    this.setState({
+      headingAnimationCompleted: true
+    });
+  };
+
+  handleMouseMove = event => {
+    this.props.dispatch({
+      type: actions.APP_TRANSFORM.key,
+      event
+    });
+  };
+
   render() {
     return (
-      <AppContext.Consumer>
-        {({ handleMouseMove, appTransformStyle }) => (
-          <div
-            className="flex-content-center full-viewport-min"
-            onMouseMove={handleMouseMove}
-          >
-            <Slogan
-              appTransformStyle={appTransformStyle}
-              hobbies={hobbies}
-              links={links}
-            />
-          </div>
-        )}
-      </AppContext.Consumer>
+      <div
+        className="flex-content-center full-viewport-min"
+        onMouseMove={this.handleMouseMove}
+      >
+        <div style={this.props.transformStyles}>
+          <article className="home">
+            <HomeHeading onComplete={this.handleTypedSloganComplete} />
+            <HomeHobbies ready={this.state.headingAnimationCompleted} />
+            <HomeLinks ready={this.state.headingAnimationCompleted} />
+          </article>
+        </div>
+      </div>
     );
   }
 }
 
-export default Home;
+Home.propTypes = {
+  dispatch: PropTypes.func,
+  transformStyles: PropTypes.shape({
+    transform: PropTypes.string
+  })
+};
+
+export default withAppContext(Home, [
+  APP_CONTEXT_PROPS.dispatch,
+  APP_CONTEXT_PROPS.transformStyles
+]);

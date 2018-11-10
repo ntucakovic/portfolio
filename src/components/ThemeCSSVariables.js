@@ -1,5 +1,5 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 class ThemeCSSVariables extends React.Component {
   componentDidMount() {
@@ -18,13 +18,13 @@ class ThemeCSSVariables extends React.Component {
       document.documentElement.style.setProperty(prop, value);
     });
   }
+
   render() {
-    return <React.Fragment>{this.props.children}</React.Fragment>;
+    return null;
   }
 }
 
 ThemeCSSVariables.propTypes = {
-  children: PropTypes.any,
   variables: PropTypes.object
 };
 
