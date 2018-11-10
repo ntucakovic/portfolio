@@ -4,7 +4,7 @@ This project is intended to show progress on path of conquering React as it's my
 
 Started on September 30th, 2017 as an attempt to rewrite old 2014 site in current technologies.
 
-First release is live on production since 3rd October.
+First release is live on production since 3rd October 2017.
 
 Few notes and credits:
 - Project started with `create-react-app`, which brings its (although minimal) architectural decisions,
