@@ -65,9 +65,8 @@ const links = [
     rel: "noopener noreferrer",
     label: (
       <span>
-        <span className="text-emphasis">nikola</span>.<span className="text-emphasis">
-          tucakovic
-        </span>
+        <span className="text-emphasis">nikola</span>.
+        <span className="text-emphasis">tucakovic</span>
       </span>
     ),
     icon: icons.instagram

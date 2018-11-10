@@ -31,10 +31,16 @@ export default function withSloganLinkInteraction(WrappedComponent) {
         return userAgent.match(/iPad/i) || userAgent.match(/iPhone/i);
       })(window.navigator.userAgent);
 
-      setTimeout(() => {
-        this.handleLeave();
-        document.body.removeEventListener("touchend", this.handleOutsideClick);
-      }, iosUser ? this.iosOutsideClickDelay : 0);
+      setTimeout(
+        () => {
+          this.handleLeave();
+          document.body.removeEventListener(
+            "touchend",
+            this.handleOutsideClick
+          );
+        },
+        iosUser ? this.iosOutsideClickDelay : 0
+      );
     };
 
     handleEnter = () => {
