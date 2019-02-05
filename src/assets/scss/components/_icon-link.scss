@@ -42,6 +42,13 @@
     }
   }
 
+  &:not(.is-active) {
+    @media (max-width: ($screen-md-min - 1)) {
+      max-width: 0;
+      opacity: 0;
+    }
+  }
+
   &.is-active {
     .icon-link__icon {
       box-shadow: inset 0 0 0 ($slogan-icon-box-shadow-outer-sm * 1.5) $white, 0 0 0 ($slogan-icon-box-shadow-outer-sm) $slogan-icon-bg;
@@ -56,7 +63,7 @@
     }
 
     .icon-link__title {
-      max-width: 20ch;
+      max-width: 20em;
     }
   }
 

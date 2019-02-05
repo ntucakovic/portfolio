@@ -54,8 +54,6 @@ export default function withIconLinkInteraction(WrappedComponent) {
           isActive: true
         },
         () => {
-          this.props.onAnimationChange(true);
-
           this.enterTimeout = setTimeout(() => {
             this.setState(
               {
@@ -81,26 +79,20 @@ export default function withIconLinkInteraction(WrappedComponent) {
         clearTimeout(this.enterTimeout);
       }
 
-      this.setState(
-        {
-          isActive: false,
-          isTransitioning: false
-        },
-        () => {
-          this.props.onAnimationChange(false);
-        }
-      );
+      this.setState({
+        isActive: false,
+        isTransitioning: false
+      });
     };
 
     render() {
       const className = classNames({
         "is-active": this.state.isActive
       });
-      const { onAnimationChange, ...validProps } = this.props;
 
       return (
         <WrappedComponent
-          {...validProps}
+          {...this.props}
           className={className}
           onMouseEnter={this.handleEnter}
           onMouseLeave={this.handleLeave}

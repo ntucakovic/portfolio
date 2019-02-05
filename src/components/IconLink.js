@@ -29,8 +29,7 @@ IconLink.propTypes = {
     href: PropTypes.string,
     icon: PropTypes.any,
     label: PropTypes.element
-  }),
-  onAnimationChange: PropTypes.func
+  })
 };
 
 export default withIconLinkInteraction(IconLink);
