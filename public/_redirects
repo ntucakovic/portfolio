@@ -1,3 +1,17 @@
-http://ntmedia.me/* https://www.ntmedia.me/:splat 301!
+/linkedin   https://www.linkedin.com/in/nikolatucakovic	                                301
+/twitter    https://twitter.com/_ntucakovic	                                            301
+/instagram  https://www.instagram.com/nikola.tucakovic                                  301
+/cv         https://drive.google.com/uc?export=download&id=0B1aRGaIa4vgnUUpRT3diOFYybjQ 301
+
+# Soft redirect all pages to index.
+/*  /index.html   200
+
+# Prefer https://www.ntmedia.me
+http://ntmedia.me/*     https://www.ntmedia.me/:splat 301!
 http://www.ntmedia.me/* https://www.ntmedia.me/:splat 301!
-https://ntmedia.me/* https://www.ntmedia.me/:splat 301!
+https://ntmedia.me/*    https://www.ntmedia.me/:splat 301!
+
+# Prefer https://dzoni.dev
+http://dzoni.dev/*      https://dzoni.dev/:splat    301!
+http://www.dzoni.dev/*  https://dzoni.dev/:splat    301!
+https://www.dzoni.dev/* https://dzoni.dev/:splat    301!
