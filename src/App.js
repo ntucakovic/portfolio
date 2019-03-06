@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import "./App.css";
+import "./assets/scss/app.scss";
 import { AppProvider } from "./AppContext";
 import AppRouter from "./AppRouter";
 import Logo from "./components/Logo";
