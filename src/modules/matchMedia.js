@@ -1,4 +1,4 @@
-function matchMedia (mediaQuery) {
+function matchMedia(mediaQuery) {
   try {
     const mediaQueryList = window.matchMedia(mediaQuery);
 
@@ -14,7 +14,7 @@ function matchMedia (mediaQuery) {
   }
 }
 
-function isDarkMode () {
+function isDarkMode() {
   const mediaQuery = "(prefers-color-scheme: dark)";
   return matchMedia(mediaQuery);
 }
