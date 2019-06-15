@@ -14,10 +14,10 @@ function matchMedia(mediaQuery) {
   }
 }
 
-function isDarkMode() {
+function isDarkModeEnabled() {
   const mediaQuery = "(prefers-color-scheme: dark)";
   return matchMedia(mediaQuery);
 }
 
-export { isDarkMode };
+export { isDarkModeEnabled };
 export default matchMedia;

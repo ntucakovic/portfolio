@@ -1,60 +1,41 @@
-import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import actions from "../actions";
 import HomeHeading from "../components/HomeHeading";
 import HomeHobbies from "../components/HomeHobbies";
 import HomeLinks from "../components/HomeLinks";
-import withAppContext, {
-  APP_CONTEXT_PROPS
-} from "../containers/withAppContext";
+import { useAppDispatch, useAppState } from "../AppContext";
 
-class Home extends Component {
-  state = {
-    headingAnimationCompleted: false
-  };
+const Home = () => {
+  // Initialize typed.js for hobbies after slogan is finished animating.
+  const [headingAnimationCompleted, setHeadingAnimationCompleted] = useState(
+    false
+  );
 
-  /**
-   * Initialize typed.js for hobbies after slogan is finished animating.
-   */
-  handleTypedSloganComplete = () => {
-    this.setState({
-      headingAnimationCompleted: true
-    });
-  };
+  const state = useAppState();
+  const dispatch = useAppDispatch();
 
-  handleMouseMove = event => {
-    this.props.dispatch({
+  const handleMouseMove = event => {
+    event.persist();
+    dispatch({
       type: actions.APP_TRANSFORM.key,
       event
     });
   };
 
-  render() {
-    return (
-      <div
-        className="flex-content-center full-viewport-min"
-        onMouseMove={this.handleMouseMove}
-      >
-        <div style={this.props.transformStyles}>
-          <article className="home">
-            <HomeHeading onComplete={this.handleTypedSloganComplete} />
-            <HomeHobbies ready={this.state.headingAnimationCompleted} />
-            <HomeLinks ready={this.state.headingAnimationCompleted} />
-          </article>
-        </div>
+  return (
+    <div
+      className="flex-content-center full-viewport-min"
+      onMouseMove={handleMouseMove}
+    >
+      <div style={state.transformStyles}>
+        <article className="home">
+          <HomeHeading onComplete={() => setHeadingAnimationCompleted(true)} />
+          <HomeHobbies ready={headingAnimationCompleted} />
+          <HomeLinks ready={headingAnimationCompleted} />
+        </article>
       </div>
-    );
-  }
-}
-
-Home.propTypes = {
-  dispatch: PropTypes.func,
-  transformStyles: PropTypes.shape({
-    transform: PropTypes.string
-  })
+    </div>
+  );
 };
 
-export default withAppContext(Home, [
-  APP_CONTEXT_PROPS.dispatch,
-  APP_CONTEXT_PROPS.transformStyles
-]);
+export default Home;

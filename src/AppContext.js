@@ -1,52 +1,53 @@
-import PropTypes from "prop-types";
 import React from "react";
 import actions from "./actions";
 
 const reducer = (state, action) => {
-  return new Promise((resolve, reject) => {
-    const { callback } = actions[action.type] || {};
+  const { callback } = actions[action.type] || {};
 
-    if (typeof callback === "function") {
-      callback(action, state)
-        .then(stateUpdates => resolve(stateUpdates))
-        .catch(e => reject(e));
-    }
-  });
+  if (typeof callback === "function") {
+    return callback(action, state);
+  }
+
+  throw new Error(`Unhandled action type: ${action.type}`);
 };
 
-const AppContext = React.createContext();
+const AppStateContext = React.createContext();
+const AppDispatchContext = React.createContext();
 
-class AppProvider extends React.Component {
-  static APP_DEFAULT_STATE = {
+function AppProvider({ children }) {
+  const [state, setState] = React.useReducer(reducer, {
     transformStyles: {
       transform: ""
     }
-  };
+  });
 
-  state = {
-    ...AppProvider.APP_DEFAULT_STATE,
-
-    dispatch: action => {
-      reducer(this.state, action).then(stateUpdates => {
-        this.setState({
-          ...this.state,
-          ...stateUpdates
-        });
-      });
-    }
-  };
-
-  render() {
-    return (
-      <AppContext.Provider value={this.state}>
-        {this.props.children}
-      </AppContext.Provider>
-    );
-  }
+  return (
+    <AppStateContext.Provider value={state}>
+      <AppDispatchContext.Provider value={setState}>
+        {children}
+      </AppDispatchContext.Provider>
+    </AppStateContext.Provider>
+  );
 }
 
-AppProvider.propTypes = {
-  children: PropTypes.any
-};
+function useAppState() {
+  const context = React.useContext(AppStateContext);
 
-export { AppProvider, AppContext };
+  if (context === undefined) {
+    throw new Error("useAppState must be used within an AppProvider");
+  }
+
+  return context;
+}
+
+function useAppDispatch() {
+  const context = React.useContext(AppDispatchContext);
+
+  if (context === undefined) {
+    throw new Error("useAppState must be used within an AppProvider");
+  }
+
+  return context;
+}
+
+export { AppProvider, useAppState, useAppDispatch };

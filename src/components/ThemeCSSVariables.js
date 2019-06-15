@@ -1,31 +1,18 @@
-import PropTypes from "prop-types";
-import React from "react";
+import { useEffect } from "react";
 
-class ThemeCSSVariables extends React.Component {
-  componentDidMount() {
-    this.updateCSSVariables(this.props.variables);
-  }
+const updateCSSVariables = variables => {
+  Object.keys(variables).forEach(prop => {
+    const value = variables[prop];
+    document.documentElement.style.setProperty(prop, value);
+  });
+};
 
-  componentDidUpdate(prevProps) {
-    if (this.props.variables !== prevProps.variables) {
-      this.updateCSSVariables(this.props.variables);
-    }
-  }
+const ThemeCSSVariables = ({ variables }) => {
+  useEffect(() => {
+    updateCSSVariables(variables);
+  }, [variables]);
 
-  updateCSSVariables(variables) {
-    Object.keys(variables).forEach(prop => {
-      const value = variables[prop];
-      document.documentElement.style.setProperty(prop, value);
-    });
-  }
-
-  render() {
-    return null;
-  }
-}
-
-ThemeCSSVariables.propTypes = {
-  variables: PropTypes.object
+  return null;
 };
 
 export default ThemeCSSVariables;

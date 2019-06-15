@@ -1,60 +1,39 @@
 import classNames from "classnames";
-import PropTypes from "prop-types";
-import React from "react";
-import withData, { APP_DATA_PROPS } from "../containers/withData";
+import React, { useState } from "react";
 import IconLink from "./IconLink";
+import { links } from "../constants/data";
 
 let isAnimatedTimeout;
-class HomeLinks extends React.PureComponent {
-  state = {
-    isAnimated: false
-  };
+const HomeLinks = ({ ready }) => {
+  const [isAnimated, setIsAnimated] = useState(false);
 
-  updateAnimationChange = isAnimated => {
-    return () => {
-      this.setState({
-        isAnimated: isAnimated
-      });
-    };
-  };
-
-  onAnimationChange = isAnimated => {
+  const onAnimationChange = isAnimated => {
     clearTimeout(isAnimatedTimeout);
     isAnimatedTimeout = setTimeout(
-      this.updateAnimationChange(isAnimated),
+      () => setIsAnimated(isAnimated),
       isAnimated ? 300 : 0
     );
   };
 
-  render() {
-    const className = classNames("home__icons", {
-      "is-animated": this.state.isAnimated
-    });
+  const className = classNames("home__icons", {
+    "is-animated": isAnimated
+  });
 
-    const iconClassName = classNames({
-      "start-animation": this.props.ready
-    });
+  const iconClassName = classNames({
+    "start-animation": ready
+  });
 
-    return (
-      <ul className={className}>
-        {this.props.links.map((link, key) => {
-          return (
-            <li key={key} className={iconClassName}>
-              <IconLink
-                link={link}
-                onAnimationChange={this.onAnimationChange}
-              />
-            </li>
-          );
-        })}
-      </ul>
-    );
-  }
-}
-
-HomeLinks.propTypes = {
-  links: PropTypes.array,
-  ready: PropTypes.bool
+  return (
+    <ul className={className}>
+      {links.map((link, key) => {
+        return (
+          <li key={key} className={iconClassName}>
+            <IconLink link={link} onAnimationChange={onAnimationChange} />
+          </li>
+        );
+      })}
+    </ul>
+  );
 };
 
-export default withData(HomeLinks, [APP_DATA_PROPS.links]);
+export default HomeLinks;
