@@ -1,7 +1,7 @@
 import { isDarkModeEnabled } from "../modules/matchMedia";
 import { useState } from "react";
-import * as theme from "../constants/theme";
 import { useSessionStorage } from "./useSessionStorage";
+import { theme } from "../data";
 
 const darkThemeKey = "DARK_THEME";
 const lightThemeKey = "LIGHT_THEME";

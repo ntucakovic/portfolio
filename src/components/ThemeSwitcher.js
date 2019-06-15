@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 import Isvg from "react-inlinesvg";
-import { moon, sun } from "../icons";
+import { iconMoon, iconSun } from "../icons";
 import { themeKeys } from "../hooks";
 
 const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
@@ -32,14 +32,14 @@ const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
         className={darkSwitchClassName}
         onClick={handleClick(darkThemeKey)}
       >
-        <Isvg src={moon} className="theme-switcher__icon" />
+        <Isvg src={iconMoon} className="theme-switcher__icon" />
         <span className="sr-only">Use dark theme</span>
       </button>
       <button
         className={lightSwitchClassName}
         onClick={handleClick(lightThemeKey)}
       >
-        <Isvg src={sun} className="theme-switcher__icon" />
+        <Isvg src={iconSun} className="theme-switcher__icon" />
         <span className="sr-only">Use light theme</span>
       </button>
     </div>

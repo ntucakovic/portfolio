@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React, { useState } from "react";
-import { links } from "../constants/data";
+import { links } from "../data";
 import { IconLink } from "./IconLink";
 
 let isAnimatedTimeout;

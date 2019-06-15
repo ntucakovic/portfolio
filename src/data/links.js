@@ -1,27 +1,14 @@
 import React from "react";
-import * as icons from "../icons";
+import {
+  iconEnvelope,
+  iconLinkedin,
+  iconInstagram,
+  iconTwitter,
+  iconSkype,
+  iconFile
+} from "../icons";
 
-const logo = {
-  logo: icons.logo,
-  description: "NT Logo"
-};
-
-const hobbies = [
-  "Web Design",
-  "UI/UX",
-  "Technology & Innovation",
-  "Music",
-  "Nomad Lifestyle",
-  "Traveling",
-  "Nature Wandering",
-  "Photography",
-  "Mountain Biking",
-  "Snowboarding",
-  "Paddleboarding",
-  "Basketball"
-];
-
-const links = [
+export const links = [
   {
     title: "Send me an email",
     href: "mailto:nt@ntmedia.me",
@@ -32,7 +19,7 @@ const links = [
         nt<span className="text-emphasis">@</span>ntmedia.me
       </span>
     ),
-    icon: icons.envelope
+    icon: iconEnvelope
   },
   {
     title: "Visit my Linkedin Account",
@@ -44,7 +31,7 @@ const links = [
         nikola<span className="text-emphasis">tucakovic</span>
       </span>
     ),
-    icon: icons.linkedin
+    icon: iconLinkedin
   },
   {
     title: "Catch me on Twitter",
@@ -56,7 +43,7 @@ const links = [
         _<span className="text-emphasis">ntucakovic</span>
       </span>
     ),
-    icon: icons.twitter
+    icon: iconTwitter
   },
   {
     title: "View my Instagram pics",
@@ -69,7 +56,7 @@ const links = [
         <span className="text-emphasis">tucakovic</span>
       </span>
     ),
-    icon: icons.instagram
+    icon: iconInstagram
   },
   {
     title: "Message me on Skype",
@@ -81,7 +68,7 @@ const links = [
         <span className="text-emphasis">ntmedia</span>solutions
       </span>
     ),
-    icon: icons.skype
+    icon: iconSkype
   },
   {
     title: "Download my resume",
@@ -94,16 +81,6 @@ const links = [
         Download my <span className="text-emphasis">resume</span>
       </span>
     ),
-    icon: icons.file
+    icon: iconFile
   }
 ];
-
-const repository = {
-  href: "https://github.com/ntucakovic/portfolio",
-  target: "_blank",
-  rel: "noopener noreferrer",
-  title: "Read code on GitHub",
-  icon: icons.github
-};
-
-export { logo, hobbies, links, repository };

@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./assets/scss/app.scss";
 import { AppProvider } from "./AppContext";
 import AppRouter from "./AppRouter";
-import { logo, repository } from "./constants/data";
+import { logo, repository } from "./data";
 import { useTheme } from "./hooks";
 import {
   Logo,

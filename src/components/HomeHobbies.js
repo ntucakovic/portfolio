@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { useEffect } from "react";
 import Typed from "typed.js";
-import { hobbies } from "../constants/data";
+import { hobbies } from "../data";
 
 const HomeHobbies = ({ ready }) => {
   useEffect(() => {
