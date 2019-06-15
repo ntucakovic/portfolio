@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import actions from "../actions";
-import HomeHeading from "../components/HomeHeading";
-import HomeHobbies from "../components/HomeHobbies";
-import HomeLinks from "../components/HomeLinks";
 import { useAppDispatch, useAppState } from "../AppContext";
+import { HomeHeading, HomeHobbies, HomeLinks } from "../components";
 
 const Home = () => {
   // Initialize typed.js for hobbies after slogan is finished animating.

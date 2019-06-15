@@ -11,4 +11,4 @@ const Logo = ({ logo, description }) => (
   </div>
 );
 
-export default Logo;
+export { Logo };

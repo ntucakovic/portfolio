@@ -43,4 +43,4 @@ const HomeHobbies = ({ ready }) => {
   );
 };
 
-export default HomeHobbies;
+export { HomeHobbies };

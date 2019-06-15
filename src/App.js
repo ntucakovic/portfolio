@@ -3,12 +3,14 @@ import { BrowserRouter } from "react-router-dom";
 import "./assets/scss/app.scss";
 import { AppProvider } from "./AppContext";
 import AppRouter from "./AppRouter";
-import Logo from "./components/Logo";
-import RepositoryLink from "./components/RepositoryLink";
-import ThemeCSSVariables from "./components/ThemeCSSVariables";
-import ThemeSwitcher from "./components/ThemeSwitcher";
 import { logo, repository } from "./constants/data";
-import useTheme from "./hooks/useTheme";
+import { useTheme } from "./hooks";
+import {
+  Logo,
+  RepositoryLink,
+  ThemeCSSVariables,
+  ThemeSwitcher
+} from "./components";
 
 const App = () => {
   const [theme, themeVariables, setTheme] = useTheme();

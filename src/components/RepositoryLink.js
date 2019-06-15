@@ -1,8 +1,7 @@
 import React from "react";
 import Isvg from "react-inlinesvg";
 
-const RepositoryLink = props => {
-  const { icon, ...attributes } = props;
+const RepositoryLink = ({ icon, ...attributes }) => {
   return (
     <div
       style={{
@@ -20,4 +19,4 @@ const RepositoryLink = props => {
   );
 };
 
-export default RepositoryLink;
+export { RepositoryLink };

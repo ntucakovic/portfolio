@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { useState } from "react";
-import IconLink from "./IconLink";
 import { links } from "../constants/data";
+import { IconLink } from "./IconLink";
 
 let isAnimatedTimeout;
 const HomeLinks = ({ ready }) => {
@@ -36,4 +36,4 @@ const HomeLinks = ({ ready }) => {
   );
 };
 
-export default HomeLinks;
+export { HomeLinks };

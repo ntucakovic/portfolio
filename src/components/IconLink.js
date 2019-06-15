@@ -87,4 +87,4 @@ const IconLink = ({ link, onAnimationChange }) => {
   );
 };
 
-export default IconLink;
+export { IconLink };

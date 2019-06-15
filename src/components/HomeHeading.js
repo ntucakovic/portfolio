@@ -30,4 +30,4 @@ const HomeHeading = ({ onComplete }) => {
   );
 };
 
-export default HomeHeading;
+export { HomeHeading };

@@ -1,10 +1,15 @@
-import useSessionStorage from "./useSessionStorage";
 import { isDarkModeEnabled } from "../modules/matchMedia";
 import { useState } from "react";
 import * as theme from "../constants/theme";
+import { useSessionStorage } from "./useSessionStorage";
 
-export const darkThemeKey = "DARK_THEME";
-export const lightThemeKey = "LIGHT_THEME";
+const darkThemeKey = "DARK_THEME";
+const lightThemeKey = "LIGHT_THEME";
+
+const themeKeys = {
+  darkThemeKey,
+  lightThemeKey
+};
 
 function getThemeKeyFallback() {
   const date = new Date();
@@ -45,4 +50,4 @@ function useTheme() {
   return [themeKey, themeVariables, setTheme];
 }
 
-export default useTheme;
+export { useTheme, themeKeys };

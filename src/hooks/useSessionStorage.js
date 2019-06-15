@@ -38,4 +38,4 @@ function useSessionStorage(key, initialValue) {
   return [storedValue, setValue];
 }
 
-export default useSessionStorage;
+export { useSessionStorage };

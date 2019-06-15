@@ -15,4 +15,4 @@ const ThemeCSSVariables = ({ variables }) => {
   return null;
 };
 
-export default ThemeCSSVariables;
+export { ThemeCSSVariables };

@@ -2,9 +2,10 @@ import classNames from "classnames";
 import React from "react";
 import Isvg from "react-inlinesvg";
 import { moon, sun } from "../icons";
-import { darkThemeKey, lightThemeKey } from "../hooks/useTheme";
+import { themeKeys } from "../hooks";
 
 const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
+  const { darkThemeKey, lightThemeKey } = themeKeys;
   const handleClick = themeKey => () => changeActiveTheme(themeKey);
 
   const darkActive = activeTheme === darkThemeKey;
@@ -45,4 +46,4 @@ const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
   );
 };
 
-export default ThemeSwitcher;
+export { ThemeSwitcher };
