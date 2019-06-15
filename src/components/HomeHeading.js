@@ -1,38 +1,33 @@
-import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect } from "react";
 import Typed from "typed.js";
 
-class HomeHeading extends React.PureComponent {
-  componentDidMount() {
+const HomeHeading = ({ onComplete }) => {
+  useEffect(() => {
     const typedSloganOptions = {
       typeSpeed: 40,
       loop: false,
       stringsElement: "#sloganHeadingStrings",
-      onComplete: this.props.onComplete
+      onComplete
     };
 
-    this.typedSlogan = new Typed("#sloganHeading", typedSloganOptions);
-  }
+    // eslint-disable-next-line no-new
+    new Typed("#sloganHeading", typedSloganOptions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  render() {
-    return (
-      <h1>
-        <span className="sr-only">Nikola Tucaković</span>
-        <span id="sloganHeadingStrings">
-          <span>
-            <span className="text-emphasis">Frontend</span> &&{" "}
-            <br className="sm-only" />
-            <span className="text-emphasis">Web</span> Developer
-          </span>
+  return (
+    <h1>
+      <span className="sr-only">Nikola Tucaković</span>
+      <span id="sloganHeadingStrings">
+        <span>
+          <span className="text-emphasis">Frontend</span> &&{" "}
+          <br className="sm-only" />
+          <span className="text-emphasis">Web</span> Developer
         </span>
-        <span id="sloganHeading" className="home-heading" />
-      </h1>
-    );
-  }
-}
-
-HomeHeading.propTypes = {
-  onComplete: PropTypes.func
+      </span>
+      <span id="sloganHeading" className="home-heading" />
+    </h1>
+  );
 };
 
-export default HomeHeading;
+export { HomeHeading };

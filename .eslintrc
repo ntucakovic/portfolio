@@ -4,6 +4,9 @@
     "plugin:prettier/recommended",
     "prettier/react"
   ],
+  "rules": {
+    "semistandard-react/prop-types": false
+  },
   "env": {
     "es6": true,
     "node": true,
