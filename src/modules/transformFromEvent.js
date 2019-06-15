@@ -5,21 +5,19 @@ const DEFAULT_TRANSFORMATION = {
 };
 
 function onMouseMove({ event }) {
-  return new Promise(resolve => {
-    if (window.innerWidth < SCREEN_MD) {
-      resolve({
-        transformStyles: DEFAULT_TRANSFORMATION
-      });
-    }
+  if (window.innerWidth < SCREEN_MD) {
+    return {
+      transformStyles: DEFAULT_TRANSFORMATION
+    };
+  }
 
-    const { pageX, pageY } = event;
-    const { x, y } = normalizeMouseMoveVariables(pageX, pageY);
-    const transformations = getTransformations(x, y);
+  const { pageX, pageY } = event;
+  const { x, y } = normalizeMouseMoveVariables(pageX, pageY);
+  const transformations = getTransformations(x, y);
 
-    resolve({
-      transformStyles: normalizeStyles(transformations)
-    });
-  });
+  return {
+    transformStyles: normalizeStyles(transformations)
+  };
 }
 
 function normalizeMouseMoveVariables(pageX, pageY) {

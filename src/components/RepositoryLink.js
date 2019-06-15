@@ -1,9 +1,7 @@
-import PropTypes from "prop-types";
 import React from "react";
 import Isvg from "react-inlinesvg";
 
-const RepositoryLink = props => {
-  const { icon, ...attributes } = props;
+const RepositoryLink = ({ icon, ...attributes }) => {
   return (
     <div
       style={{
@@ -21,12 +19,4 @@ const RepositoryLink = props => {
   );
 };
 
-RepositoryLink.propTypes = {
-  href: PropTypes.string.isRequired,
-  target: PropTypes.string.isRequired,
-  rel: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  icon: PropTypes.any.isRequired
-};
-
-export default RepositoryLink;
+export { RepositoryLink };
