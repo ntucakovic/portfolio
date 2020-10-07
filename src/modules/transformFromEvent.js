@@ -34,6 +34,8 @@ function getStyles(eventType) {
       return onMouseMove(event);
     };
   }
+
+  return {};
 }
 
 function normalizeStyles({

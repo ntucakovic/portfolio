@@ -7,11 +7,11 @@ let isAnimatedTimeout;
 const HomeLinks = ({ ready }) => {
   const [isAnimated, setIsAnimated] = useState(false);
 
-  const onAnimationChange = (isAnimated) => {
+  const onAnimationChange = (isAnimatedUpdate) => {
     clearTimeout(isAnimatedTimeout);
     isAnimatedTimeout = setTimeout(
-      () => setIsAnimated(isAnimated),
-      isAnimated ? 300 : 0
+      () => setIsAnimated(isAnimatedUpdate),
+      isAnimatedUpdate ? 300 : 0
     );
   };
 

@@ -20,9 +20,10 @@ const IconLink = ({ link, onAnimationChange }) => {
   };
 
   const handleOutsideClick = () => {
-    let iosUser = (function (userAgent) {
-      return userAgent.match(/iPad/i) || userAgent.match(/iPhone/i);
-    })(window.navigator.userAgent);
+    const iosUser = ((userAgent) =>
+      userAgent.match(/iPad/i) || userAgent.match(/iPhone/i))(
+      window.navigator.userAgent
+    );
 
     setTimeout(
       () => {

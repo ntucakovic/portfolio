@@ -2,14 +2,18 @@
   "extends": [
     "react-app",
     "eslint:recommended",
+    "airbnb",
     "semistandard-react",
     "prettier/react",
     "plugin:prettier/recommended",
     "plugin:react-hooks/recommended"
   ],
   "rules": {
+    "import/prefer-default-export": 0,
     "semistandard-react/prop-types": 0,
     "react/prop-types": 0,
+    "react/no-array-index-key": 0,
+    "react/jsx-props-no-spreading": 0,
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   },

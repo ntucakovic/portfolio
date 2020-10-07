@@ -31,6 +31,7 @@ const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
       <button
         className={darkSwitchClassName}
         onClick={handleClick(darkThemeKey)}
+        type="button"
       >
         <Isvg src={iconMoon} className="theme-switcher__icon" />
         <span className="sr-only">Use dark theme</span>
@@ -38,6 +39,7 @@ const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
       <button
         className={lightSwitchClassName}
         onClick={handleClick(lightThemeKey)}
+        type="button"
       >
         <Isvg src={iconSun} className="theme-switcher__icon" />
         <span className="sr-only">Use light theme</span>
