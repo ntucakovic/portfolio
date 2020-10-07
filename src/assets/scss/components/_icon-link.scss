@@ -44,7 +44,7 @@
 
   &.is-active {
     .icon-link__icon {
-      box-shadow: inset 0 0 0 ($slogan-icon-box-shadow-outer-sm * 1.5) $white, 0 0 0 ($slogan-icon-box-shadow-outer-sm) var(--text-color);
+      box-shadow: inset 0 0 0 ($slogan-icon-box-shadow-outer-sm * 1.5) $accent, 0 0 0 ($slogan-icon-box-shadow-outer-sm) var(--text-color);
 
       svg {
         fill: $accent !important; // sass-lint:disable-line no-important
