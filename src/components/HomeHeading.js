@@ -7,12 +7,12 @@ const HomeHeading = ({ onComplete }) => {
       typeSpeed: 40,
       loop: false,
       stringsElement: "#sloganHeadingStrings",
+      showCursor: false,
       onComplete
     };
 
     // eslint-disable-next-line no-new
     new Typed("#sloganHeading", typedSloganOptions);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

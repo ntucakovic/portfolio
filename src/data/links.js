@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  iconEnvelope,
-  iconLinkedin,
-  iconInstagram,
-  iconTwitter,
-  iconSkype,
-  iconFile
-} from "../icons";
+import { iconEnvelope, iconLinkedin, iconTwitter, iconFile } from "../icons";
 
 export const links = [
   {
@@ -16,7 +9,7 @@ export const links = [
     rel: "noopener noreferrer",
     label: (
       <span>
-        nt<span className="text-emphasis">@</span>ntmedia.me
+        nt<span className="text-emphasis">@</span>dzoni.dev
       </span>
     ),
     icon: iconEnvelope
@@ -44,31 +37,6 @@ export const links = [
       </span>
     ),
     icon: iconTwitter
-  },
-  {
-    title: "View my Instagram pics",
-    href: "https://www.instagram.com/nikola.tucakovic",
-    target: "_blank",
-    rel: "noopener noreferrer",
-    label: (
-      <span>
-        <span className="text-emphasis">nikola</span>.
-        <span className="text-emphasis">tucakovic</span>
-      </span>
-    ),
-    icon: iconInstagram
-  },
-  {
-    title: "Message me on Skype",
-    href: "skype:ntmediasolutions?chat",
-    target: "_blank",
-    rel: "noopener noreferrer",
-    label: (
-      <span>
-        <span className="text-emphasis">ntmedia</span>solutions
-      </span>
-    ),
-    icon: iconSkype
   },
   {
     title: "Download my resume",
