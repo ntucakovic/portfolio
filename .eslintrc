@@ -5,8 +5,7 @@
     "airbnb",
     "semistandard-react",
     "prettier/react",
-    "plugin:prettier/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:prettier/recommended"
   ],
   "rules": {
     "import/prefer-default-export": 0,
@@ -24,7 +23,7 @@
   },
   "settings": {
     "react": {
-      "version": "16.6.1"
+      "version": "16.13.1"
     }
   }
 }
