@@ -25,6 +25,7 @@
     "eslint-config-prettier": "^5.0.0",
     "eslint-config-semistandard-react": "^4.2.0",
     "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react-hooks": "^4.1.2",
     "eslint-plugin-semistandard-react": "^4.1.0",
     "prettier": "^1.18.2",
     "sass-lint": "^1.13.1"

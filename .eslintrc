@@ -1,11 +1,16 @@
 {
   "extends": [
+    "eslint:recommended",
     "semistandard-react",
+    "prettier/react",
     "plugin:prettier/recommended",
-    "prettier/react"
+    "plugin:react-hooks/recommended"
   ],
   "rules": {
-    "semistandard-react/prop-types": false
+    "semistandard-react/prop-types": 0,
+    "react/prop-types": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "env": {
     "es6": true,

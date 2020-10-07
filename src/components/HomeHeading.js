@@ -13,6 +13,7 @@ const HomeHeading = ({ onComplete }) => {
 
     // eslint-disable-next-line no-new
     new Typed("#sloganHeading", typedSloganOptions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
