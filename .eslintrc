@@ -1,5 +1,6 @@
 {
   "extends": [
+    "react-app",
     "eslint:recommended",
     "semistandard-react",
     "prettier/react",
