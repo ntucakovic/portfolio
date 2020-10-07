@@ -33,10 +33,8 @@ $logo-landscape-scale: 0.9;
     transition: $transition-default;
     transform: translateY(-50%);
     border-radius: 50%;
-    box-shadow: 0 0 0 4vw $background-darker;
-    box-shadow: 0 0 0 4vw var(--background-darker); // sass-lint:disable-line no-duplicate-properties
-    fill: $background-lighter;
-    fill: var(--background-lighter); // sass-lint:disable-line no-duplicate-properties
+    box-shadow: 0 0 0 4vw var(--background-darker);
+    fill: var(--background-lighter);
   }
 }
 

@@ -36,8 +36,7 @@ $repository-icon-md: 36px;
     padding: 15px 0;
     transition: $transition-default;
     transform: translate(-42%, -42%) rotate(-45deg);
-    background-color: $background-lighter;
-    background-color: var(--background-lighter); // sass-lint:disable-line no-duplicate-properties
+    background-color: var(--background-lighter);
 
     @media (min-width: $screen-md-min) {
       padding: 25px 0;
@@ -47,6 +46,6 @@ $repository-icon-md: 36px;
   svg {
     width: 100%;
     height: 100%;
-    fill: $text-highlight;
+    fill: var(--text-color);
   }
 }

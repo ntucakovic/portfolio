@@ -6,7 +6,7 @@ import { themeKeys } from "../hooks";
 
 const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
   const { darkThemeKey, lightThemeKey } = themeKeys;
-  const handleClick = themeKey => () => changeActiveTheme(themeKey);
+  const handleClick = (themeKey) => () => changeActiveTheme(themeKey);
 
   const darkActive = activeTheme === darkThemeKey;
 
@@ -14,7 +14,7 @@ const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
     "theme-switcher__button",
     "theme-switcher__button--dark",
     {
-      "is-active": darkActive
+      "is-active": darkActive,
     }
   );
 
@@ -22,7 +22,7 @@ const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
     "theme-switcher__button",
     "theme-switcher__button--dark",
     {
-      "is-active": !darkActive
+      "is-active": !darkActive,
     }
   );
 
@@ -31,6 +31,7 @@ const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
       <button
         className={darkSwitchClassName}
         onClick={handleClick(darkThemeKey)}
+        type="button"
       >
         <Isvg src={iconMoon} className="theme-switcher__icon" />
         <span className="sr-only">Use dark theme</span>
@@ -38,6 +39,7 @@ const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
       <button
         className={lightSwitchClassName}
         onClick={handleClick(lightThemeKey)}
+        type="button"
       >
         <Isvg src={iconSun} className="theme-switcher__icon" />
         <span className="sr-only">Use light theme</span>

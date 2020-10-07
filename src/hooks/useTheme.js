@@ -1,5 +1,5 @@
-import { isDarkModeEnabled } from "../modules/matchMedia";
 import { useState } from "react";
+import { isDarkModeEnabled } from "../modules/matchMedia";
 import { useSessionStorage } from "./useSessionStorage";
 import { theme } from "../data";
 
@@ -8,7 +8,7 @@ const lightThemeKey = "LIGHT_THEME";
 
 const themeKeys = {
   darkThemeKey,
-  lightThemeKey
+  lightThemeKey,
 };
 
 function getThemeKeyFallback() {
@@ -31,18 +31,19 @@ function getPreferredThemeKey() {
 }
 
 function useTheme() {
-  let preferredThemeKey = getPreferredThemeKey();
+  const preferredThemeKey = getPreferredThemeKey();
   const [themeKey, setThemeKey] = useSessionStorage(
     "APP_THEME",
     preferredThemeKey
   );
   const [themeVariables, setThemeVariables] = useState(theme[themeKey]);
 
-  const setTheme = selectedTheme => {
+  const setTheme = (selectedTheme) => {
     try {
       setThemeKey(selectedTheme);
       setThemeVariables(theme[selectedTheme]);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log(error);
     }
   };

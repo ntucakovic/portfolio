@@ -3,25 +3,20 @@ $screen-md-min: 576px;
 $screen-lg-min: 992px;
 $screen-xlg-min: 1200px;
 
+$accent: #00bbd3;
 $dark-shade: #717c80;
 $light-shade: #b0bac0;
 $white: #fff;
 
-$text-color: $dark-shade;
-$text-highlight: $light-shade;
-$link-color: $text-color;
-$icon-hover-bg: #495962;
-
-// Light theme
-$background: #f5f5f5;
-$background-lighter: #eee;
-$background-darker: darken($background-lighter, 5%);
-$selection-background-color: rgba(255, 255, 255, 0.5);
-
 // Dark theme, default fallback
 $background: #232729;
+$text-color: $white;
+$text-highlight: $white;
 $background-lighter: #2b3033;
 $background-darker: darken($background-lighter, 5%);
 $selection-background-color: rgba(0, 0, 0, 0.2);
 
 $transition-default: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+$link-color: $text-color;
+$icon-hover-bg: #495962;
