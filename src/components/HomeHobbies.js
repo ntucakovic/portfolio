@@ -12,7 +12,7 @@ const HomeHobbies = ({ ready }) => {
         loop: true,
         shuffle: true,
         smartBackspace: false,
-        stringsElement: "#sloganHobbiesStrings"
+        stringsElement: "#sloganHobbiesStrings",
       };
 
       // eslint-disable-next-line no-new
@@ -21,7 +21,7 @@ const HomeHobbies = ({ ready }) => {
   }, [ready]);
 
   const className = classNames("home__delayed-subtitle", {
-    "start-animation": ready
+    "start-animation": ready,
   });
 
   return (

@@ -12,7 +12,7 @@ export const links = [
         nt<span className="text-emphasis">@</span>dzoni.dev
       </span>
     ),
-    icon: iconEnvelope
+    icon: iconEnvelope,
   },
   {
     title: "Visit my Linkedin Account",
@@ -24,7 +24,7 @@ export const links = [
         nikola<span className="text-emphasis">tucakovic</span>
       </span>
     ),
-    icon: iconLinkedin
+    icon: iconLinkedin,
   },
   {
     title: "Catch me on Twitter",
@@ -36,7 +36,7 @@ export const links = [
         _<span className="text-emphasis">ntucakovic</span>
       </span>
     ),
-    icon: iconTwitter
+    icon: iconTwitter,
   },
   {
     title: "Download my resume",
@@ -49,6 +49,6 @@ export const links = [
         Download my <span className="text-emphasis">resume</span>
       </span>
     ),
-    icon: iconFile
-  }
+    icon: iconFile,
+  },
 ];

@@ -8,7 +8,7 @@ const lightThemeKey = "LIGHT_THEME";
 
 const themeKeys = {
   darkThemeKey,
-  lightThemeKey
+  lightThemeKey,
 };
 
 function getThemeKeyFallback() {
@@ -38,7 +38,7 @@ function useTheme() {
   );
   const [themeVariables, setThemeVariables] = useState(theme[themeKey]);
 
-  const setTheme = selectedTheme => {
+  const setTheme = (selectedTheme) => {
     try {
       setThemeKey(selectedTheme);
       setThemeVariables(theme[selectedTheme]);

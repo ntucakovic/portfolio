@@ -1,13 +1,13 @@
 const SCREEN_MD = 576;
 const EVENT_MOUSE_MOVE = "EVENT_MOUSE_MOVE";
 const DEFAULT_TRANSFORMATION = {
-  transform: "translate(0px, 0px) skew(0deg, 0deg)"
+  transform: "translate(0px, 0px) skew(0deg, 0deg)",
 };
 
 function onMouseMove({ event }) {
   if (window.innerWidth < SCREEN_MD) {
     return {
-      transformStyles: DEFAULT_TRANSFORMATION
+      transformStyles: DEFAULT_TRANSFORMATION,
     };
   }
 
@@ -16,21 +16,21 @@ function onMouseMove({ event }) {
   const transformations = getTransformations(x, y);
 
   return {
-    transformStyles: normalizeStyles(transformations)
+    transformStyles: normalizeStyles(transformations),
   };
 }
 
 function normalizeMouseMoveVariables(pageX, pageY) {
   return {
     x: pageX / (window.innerWidth / 100),
-    y: pageY / (window.innerHeight / 100)
+    y: pageY / (window.innerHeight / 100),
   };
 }
 
 // @todo Finish implementation.
 function getStyles(eventType) {
   if (eventType === EVENT_MOUSE_MOVE) {
-    return event => {
+    return (event) => {
       return onMouseMove(event);
     };
   }
@@ -40,10 +40,10 @@ function normalizeStyles({
   translateX = 0,
   translateY = 0,
   skewX = 0,
-  skewY = 0
+  skewY = 0,
 }) {
   return {
-    transform: `translate(${translateX}px, ${translateY}px) skew(${skewX}deg, ${skewY}deg)`
+    transform: `translate(${translateX}px, ${translateY}px) skew(${skewX}deg, ${skewY}deg)`,
   };
 }
 
@@ -76,7 +76,7 @@ function getTransformations(percentageX, percentageY) {
     translateX,
     translateY,
     skewX,
-    skewY
+    skewY,
   };
 }
 

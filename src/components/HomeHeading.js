@@ -8,7 +8,7 @@ const HomeHeading = ({ onComplete }) => {
       loop: false,
       stringsElement: "#sloganHeadingStrings",
       showCursor: false,
-      onComplete
+      onComplete,
     };
 
     // eslint-disable-next-line no-new

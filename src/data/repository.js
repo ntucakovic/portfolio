@@ -5,5 +5,5 @@ export const repository = {
   target: "_blank",
   rel: "noopener noreferrer",
   title: "Read code on GitHub",
-  icon: iconGithub
+  icon: iconGithub,
 };

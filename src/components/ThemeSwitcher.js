@@ -6,7 +6,7 @@ import { themeKeys } from "../hooks";
 
 const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
   const { darkThemeKey, lightThemeKey } = themeKeys;
-  const handleClick = themeKey => () => changeActiveTheme(themeKey);
+  const handleClick = (themeKey) => () => changeActiveTheme(themeKey);
 
   const darkActive = activeTheme === darkThemeKey;
 
@@ -14,7 +14,7 @@ const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
     "theme-switcher__button",
     "theme-switcher__button--dark",
     {
-      "is-active": darkActive
+      "is-active": darkActive,
     }
   );
 
@@ -22,7 +22,7 @@ const ThemeSwitcher = ({ activeTheme, changeActiveTheme }) => {
     "theme-switcher__button",
     "theme-switcher__button--dark",
     {
-      "is-active": !darkActive
+      "is-active": !darkActive,
     }
   );
 

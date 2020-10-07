@@ -9,7 +9,7 @@ import {
   Logo,
   RepositoryLink,
   ThemeCSSVariables,
-  ThemeSwitcher
+  ThemeSwitcher,
 } from "./components";
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
         <div className="app">
           <AppRouter />
           <ThemeSwitcher
-            changeActiveTheme={value => setTheme(value)}
+            changeActiveTheme={(value) => setTheme(value)}
             activeTheme={theme}
           />
           <Logo {...logo} />

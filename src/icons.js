@@ -15,5 +15,5 @@ export {
   iconTwitter,
   iconGithub,
   iconMoon,
-  iconSun
+  iconSun,
 };

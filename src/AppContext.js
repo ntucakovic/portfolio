@@ -17,8 +17,8 @@ const AppDispatchContext = React.createContext();
 function AppProvider({ children }) {
   const [state, setState] = React.useReducer(reducer, {
     transformStyles: {
-      transform: ""
-    }
+      transform: "",
+    },
   });
 
   return (

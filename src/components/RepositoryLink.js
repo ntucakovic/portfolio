@@ -8,7 +8,7 @@ const RepositoryLink = ({ icon, ...attributes }) => {
         position: "fixed",
         zIndex: 2,
         right: 0,
-        bottom: 0
+        bottom: 0,
       }}
     >
       <a className="repository-link" {...attributes}>

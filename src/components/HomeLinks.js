@@ -7,7 +7,7 @@ let isAnimatedTimeout;
 const HomeLinks = ({ ready }) => {
   const [isAnimated, setIsAnimated] = useState(false);
 
-  const onAnimationChange = isAnimated => {
+  const onAnimationChange = (isAnimated) => {
     clearTimeout(isAnimatedTimeout);
     isAnimatedTimeout = setTimeout(
       () => setIsAnimated(isAnimated),
@@ -16,11 +16,11 @@ const HomeLinks = ({ ready }) => {
   };
 
   const className = classNames("home__icons", {
-    "is-animated": isAnimated
+    "is-animated": isAnimated,
   });
 
   const iconClassName = classNames({
-    "start-animation": ready
+    "start-animation": ready,
   });
 
   return (
