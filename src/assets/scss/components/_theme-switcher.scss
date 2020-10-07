@@ -26,7 +26,7 @@ $switcher-icon-padding: 10px;
   svg {
     width: $switcher-icon-small;
     height: $switcher-icon-small;
-    fill: $text-highlight;
+    fill: var(--text-color);
 
     @media (min-width: $screen-md-min) {
       width: $switcher-icon-large;

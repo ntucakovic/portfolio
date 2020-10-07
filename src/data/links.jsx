@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  iconEnvelope,
-  iconLinkedin,
-  iconInstagram,
-  iconTwitter,
-  iconSkype,
-  iconFile
-} from "../icons";
+import { iconEnvelope, iconLinkedin, iconTwitter, iconFile } from "../icons";
 
 export const links = [
   {
@@ -16,10 +9,10 @@ export const links = [
     rel: "noopener noreferrer",
     label: (
       <span>
-        nt<span className="text-emphasis">@</span>ntmedia.me
+        nt<span className="text-emphasis">@</span>dzoni.dev
       </span>
     ),
-    icon: iconEnvelope
+    icon: iconEnvelope,
   },
   {
     title: "Visit my Linkedin Account",
@@ -31,7 +24,7 @@ export const links = [
         nikola<span className="text-emphasis">tucakovic</span>
       </span>
     ),
-    icon: iconLinkedin
+    icon: iconLinkedin,
   },
   {
     title: "Catch me on Twitter",
@@ -43,32 +36,7 @@ export const links = [
         _<span className="text-emphasis">ntucakovic</span>
       </span>
     ),
-    icon: iconTwitter
-  },
-  {
-    title: "View my Instagram pics",
-    href: "https://www.instagram.com/nikola.tucakovic",
-    target: "_blank",
-    rel: "noopener noreferrer",
-    label: (
-      <span>
-        <span className="text-emphasis">nikola</span>.
-        <span className="text-emphasis">tucakovic</span>
-      </span>
-    ),
-    icon: iconInstagram
-  },
-  {
-    title: "Message me on Skype",
-    href: "skype:ntmediasolutions?chat",
-    target: "_blank",
-    rel: "noopener noreferrer",
-    label: (
-      <span>
-        <span className="text-emphasis">ntmedia</span>solutions
-      </span>
-    ),
-    icon: iconSkype
+    icon: iconTwitter,
   },
   {
     title: "Download my resume",
@@ -81,6 +49,6 @@ export const links = [
         Download my <span className="text-emphasis">resume</span>
       </span>
     ),
-    icon: iconFile
-  }
+    icon: iconFile,
+  },
 ];

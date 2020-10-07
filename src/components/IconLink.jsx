@@ -9,7 +9,7 @@ const IconLink = ({ link, onAnimationChange }) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [enterTimeout, setEnterTimeout] = useState(null);
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     if (isTransitioning || !isActive) {
       event.preventDefault();
     }
@@ -20,9 +20,10 @@ const IconLink = ({ link, onAnimationChange }) => {
   };
 
   const handleOutsideClick = () => {
-    let iosUser = (function(userAgent) {
-      return userAgent.match(/iPad/i) || userAgent.match(/iPhone/i);
-    })(window.navigator.userAgent);
+    const iosUser = ((userAgent) =>
+      userAgent.match(/iPad/i) || userAgent.match(/iPhone/i))(
+      window.navigator.userAgent
+    );
 
     setTimeout(
       () => {
@@ -66,7 +67,7 @@ const IconLink = ({ link, onAnimationChange }) => {
 
   const { icon, label, ...linkAttributes } = link;
   const className = classNames("icon-link", {
-    "is-active": isActive
+    "is-active": isActive,
   });
 
   return (

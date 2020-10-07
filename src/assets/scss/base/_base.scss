@@ -1,7 +1,6 @@
 ::selection {
-  color: $text-highlight;
-  background-color: $selection-background-color;
-  background-color: var(--selection-background-color); // sass-lint:disable-line no-duplicate-properties
+  color: var(--text-highlight);
+  background-color: $accent;
 }
 
 .app {
@@ -10,9 +9,8 @@
   overflow: hidden;
   height: 100vh;
   transition: $transition-default;
-  color: $text-color;
-  background-color: $background;
-  background-color: var(--background); // sass-lint:disable-line no-duplicate-properties
+  color: var(--text-color);
+  background-color: var(--background);
 
   main {
     position: relative;

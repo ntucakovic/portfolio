@@ -12,11 +12,11 @@ const Home = () => {
   const state = useAppState();
   const dispatch = useAppDispatch();
 
-  const handleMouseMove = event => {
+  const handleMouseMove = (event) => {
     event.persist();
     dispatch({
       type: actions.APP_TRANSFORM.key,
-      event
+      event,
     });
   };
 

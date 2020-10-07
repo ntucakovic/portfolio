@@ -10,7 +10,7 @@ const hobbies = [
   "Mountain Biking",
   "Snowboarding",
   "Paddleboarding",
-  "Basketball"
+  "Basketball",
 ];
 
 export { hobbies };

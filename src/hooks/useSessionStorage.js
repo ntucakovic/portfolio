@@ -12,6 +12,7 @@ function useSessionStorage(key, initialValue) {
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
       // If error also return initialValue
+      // eslint-disable-next-line no-console
       console.log(error);
 
       return initialValue;
@@ -20,7 +21,7 @@ function useSessionStorage(key, initialValue) {
 
   // Return a wrapped version of useState's setter function that ...
   // ... persists the new value to sessionStorage.
-  const setValue = value => {
+  const setValue = (value) => {
     try {
       // Allow value to be a function so we have same API as useState
       const valueToStore =
@@ -31,6 +32,7 @@ function useSessionStorage(key, initialValue) {
       window.sessionStorage.setItem(key, JSON.stringify(valueToStore));
     } catch (error) {
       // A more advanced implementation would handle the error case
+      // eslint-disable-next-line no-console
       console.log(error);
     }
   };
