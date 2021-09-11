@@ -25,13 +25,11 @@ const HomeLinks = ({ ready }) => {
 
   return (
     <ul className={className}>
-      {links.map((link, key) => {
-        return (
-          <li key={key} className={iconClassName}>
-            <IconLink link={link} onAnimationChange={onAnimationChange} />
-          </li>
-        );
-      })}
+      {links.map((link, key) => (
+        <li key={key} className={iconClassName}>
+          <IconLink link={link} onAnimationChange={onAnimationChange} />
+        </li>
+      ))}
     </ul>
   );
 };

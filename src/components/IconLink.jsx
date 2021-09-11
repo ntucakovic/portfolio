@@ -43,16 +43,14 @@ const IconLink = ({ link, onAnimationChange }) => {
     setIsActive(true);
     onAnimationChange(true);
 
-    setEnterTimeout(() => {
-      return setTimeout(() => {
+    setEnterTimeout(() => setTimeout(() => {
         setIsTransitioning(false);
 
         // Delay because click is fired before we set the state on Safari.
         document.body.addEventListener("touchend", handleOutsideClick);
 
         clearTimeout(enterTimeout);
-      }, transitioningAnimationDelay);
-    });
+      }, transitioningAnimationDelay));
   };
 
   const handleLeave = () => {
