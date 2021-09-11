@@ -30,9 +30,7 @@ function normalizeMouseMoveVariables(pageX, pageY) {
 // @todo Finish implementation.
 function getStyles(eventType) {
   if (eventType === EVENT_MOUSE_MOVE) {
-    return (event) => {
-      return onMouseMove(event);
-    };
+    return (event) => onMouseMove(event);
   }
 
   return {};
