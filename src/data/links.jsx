@@ -41,7 +41,7 @@ export const links = [
   {
     title: "Download my resume",
     href:
-      "https://drive.google.com/uc?export=download&id=0B1aRGaIa4vgnUUpRT3diOFYybjQ",
+      "https://drive.google.com/uc?export=download&id=0B1aRGaIa4vgnUUpRT3diOFYybjQ&resourcekey=0-eWgMa7Dprb5KOUBsTXBrZg",
     target: "_blank",
     rel: "noopener noreferrer",
     label: (
